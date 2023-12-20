@@ -1,10 +1,12 @@
 ---
 import Navigation from "./Navigation.astro";
+import Hamburger from "./Hamburger.astro";
 const { activeLink } = Astro.props;
 ---
 
 <header>
-    <nav>
-        <Navigation activeLink={activeLink}/>
-    </nav>
+  <nav>
+    <Hamburger />
+    <Navigation activeLink={activeLink} />
+  </nav>
 </header>

@@ -1,7 +1,25 @@
 ---
 const { activeLink } = Astro.props;
-const linkList = [["Home", "/"],["About", "/about"], ["Blog", "/blog"]]
+const linkList = [
+  ["Home", "/"],
+  ["About", "/about"],
+  ["Blog", "/blog"],
+];
 ---
+
 <div class="nav-links">
-    {linkList.map((link) => <a href={link[1]} style={activeLink === link[0] ? 'text-decoration:underline' : 'font-weight:100'}>{link[0]}</a>)}
+  {
+    linkList.map((link) => (
+      <a
+        href={link[1]}
+        style={
+          activeLink === link[0]
+            ? "text-decoration:underline"
+            : "font-weight:100"
+        }
+      >
+        {link[0]}
+      </a>
+    ))
+  }
 </div>

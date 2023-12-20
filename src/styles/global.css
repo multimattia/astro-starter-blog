@@ -20,10 +20,11 @@ h1 {
 }
 
 .nav-links {
+  display: none;
   width: 100%;
   top: 5rem;
   left: 48px;
-  display: block;
+  display: none;
   margin: 0;
 }
 
@@ -35,16 +36,16 @@ h1 {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+  color: #33037b;
 }
 
 .nav-links a:hover,
-.nav-links a:focus,
-.active-link {
+.nav-links a:focus {
   background-color: #f9c2b1;
 }
 
 .expanded {
-  display: block;
+  display: unset;
 }
 
 @media screen and (min-width: 636px) {

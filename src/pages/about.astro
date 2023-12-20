@@ -1,51 +1,83 @@
 ---
-import '../styles/global.css'
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const pageTitle = "About";
 const identity = {
-    firstName: "Matt",
-    country: "the US",
-    occupation: "Newly Unemployed",
-    hobbies: ["keyboard efficiency", "typing kind of fast", "messing with my mouse acceleration curve"],
-}
-const skills = ["HTML", "CSS3", "JavaScript ES6", "Ada (for real)", "React", "Astro", "Wix (ahahahaha.)", "DNS domain management", "Docker", "nginx"]
-const skillColor = "navy"
-const fontWeight = "bold"
-const textCase = "capitalize"
+  firstName: "Matt",
+  country: "the US",
+  occupation: "Newly Unemployed",
+  hobbies: [
+    "keyboard efficiency",
+    "typing kind of fast",
+    "messing with my mouse acceleration curve",
+  ],
+};
+const skills = [
+  "HTML",
+  "CSS3",
+  "JavaScript ES6",
+  "Ada (for real)",
+  "React",
+  "Astro",
+  "Wix (ahahahaha.)",
+  "DNS configuration",
+  "Docker",
+  "nginx",
+];
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "capitalize";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<style define:vars={{skillColor, fontWeight, textCase}}>
-            .skill {
-                color: var(--skillColor);
-                font-weight: var(--fontWeight);
-                text-transform:var(--textCase);
-            }
-		</style>
-	</head>
-	<body>
-        <Header activeLink={pageTitle}/>
-		<p>I'm an impatient CS grad (and English creative writing minor, which explains a <em>lot</em>) from Skidmore College with not much left to lose, everything to prove, and a hard time limit of 8 months before a certain Freeze Force kicks me out of this country. Welcome to my blog, proudly hosted on Astro!</p>
-        <p>More facts about me:</p>
-        <ul>
-            <li>My name is {identity.firstName}.</li>
-            <li>I currently am in {identity.country} and I am {identity.occupation}. Fun!</li>
-            {identity.hobbies.length >=1 &&
-                <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-              }
-        </ul>
-        <p>My skills include (but are not limited to)</p>
-        <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
+  </head>
+  <body>
+    <Header activeLink={pageTitle} />
+    <p>
+      I'm an impatient CS grad (and English creative writing minor, which
+      explains a <em>lot</em>) from Skidmore College with not much left to lose,
+      everything to prove, and a hard time limit of 8 months before a certain
+      Freeze Force kicks me out of this country. Welcome to my blog, proudly
+      hosted on Astro!
+    </p>
+    <p>More facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}.</li>
+      <li>
+        I currently am in {identity.country} and I am {identity.occupation}.
+        Fun!
+      </li>
+      {
+        identity.hobbies.length >= 1 && (
+          <li>
+            Two of my hobbies are: {identity.hobbies[0]} and{" "}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>My skills include (but are not limited to)</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
     <Footer />
-	</body>
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
 </html>
