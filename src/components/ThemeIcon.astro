@@ -39,7 +39,7 @@
   }
 </style>
 
-<script>
+<script is:inline>
   document.addEventListener("astro:page-load", () => {
     const theme = (() => {
       if (
@@ -69,7 +69,7 @@
       document.documentElement.classList.add("light");
     }
 
-    window.localStorage.setItem("theme", theme!);
+    window.localStorage.setItem("theme", theme);
 
     const handleToggleclick = () => {
       const element = document.documentElement;
@@ -84,4 +84,12 @@
       themeToggle.addEventListener("click", handleToggleclick);
     }
   });
+</script>
+
+<script>
+  document.addEventListener('astro:after-swap', () => {
+    localStorage.theme === 'dark'
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.add("light");
+  })
 </script>
