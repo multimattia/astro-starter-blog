@@ -6,10 +6,9 @@ const pageTitle = "About";
 const identity = {
   firstName: "Matt",
   country: "the US",
-  occupation: "Newly Unemployed",
+  occupation: "unemployed",
   hobbies: [
-    "keyboard efficiency",
-    "typing kind of fast",
+    "keyboard shortcuts and mappings",
     "messing with my mouse acceleration curve",
   ],
 };
@@ -42,29 +41,32 @@ const textCase = "capitalize";
     <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
       <h2>Prattling on about myself</h2>
       <p>
-        I'm an impatient CS grad (and English creative writing minor, which
-        explains a <em>lot</em>) from Skidmore College with not much left to
-        lose, everything to prove, and a hard time limit of 8 months before a
-        certain Freeze Force kicks me out of this country. Welcome to my blog,
-        proudly hosted on Astro!
+        I'm an CS grad from Skidmore College with not much left to lose,
+        everything to prove, and a hard time limit of 8 months before Freeze
+        Force kicks me out of the US. Welcome to my blog, proudly on Astro: an
+        SSG focussed on delivering a minimal amount of JavaScript with a
+        React-like component architecture!
       </p>
       <p>More facts about me:</p>
       <ul>
         <li>My name is {identity.firstName}.</li>
         <li>
-          I currently am in {identity.country} and I am {identity.occupation}.
-          Fun!
+          I currently am in {identity.country} and I'm newly {
+            identity.occupation
+          }. Fun!
         </li>
         {
           identity.hobbies.length >= 1 && (
             <li>
-              Two of my hobbies are: {identity.hobbies[0]} and{" "}
-              {identity.hobbies[1]}
+              Two of my hobbies: {identity.hobbies[0]} and {identity.hobbies[1]}
             </li>
           )
         }
       </ul>
-      <p>My skills include (but are not limited to)</p>
+      <p>
+        My skills include (but are not limited to (also take with a grain of
+        salt I'm just trying out the astro's js mapping))
+      </p>
       <ul>
         {skills.map((skill) => <li class="skill">{skill}</li>)}
       </ul>

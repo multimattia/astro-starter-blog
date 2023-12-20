@@ -17,11 +17,25 @@ const { pageTitle, highlightedTab } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <Header activeLink={highlightedTab} />
-    <slot />
-    <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
+    <div class="content">
+      <Header activeLink={highlightedTab} />
+      <slot />
+      <script>
+        import "../scripts/menu.js";
+      </script>
+    </div>
+    <footer>
+      <Footer />
+    </footer>
+    <style>
+      .content {
+        flex: 1 0 auto;
+      }
+
+      .footer {
+        flex-shrink: 0;
+        background-color: red;
+      }
+    </style>
   </body>
 </html>

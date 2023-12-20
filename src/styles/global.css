@@ -1,6 +1,7 @@
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
+  height: 100%;
 }
 
 html.dark {
@@ -9,8 +10,11 @@ html.dark {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   width: 100%;
+  height: 100%;
   max-width: 80ch;
   padding: 1rem;
   line-height: 1.5;
