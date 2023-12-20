@@ -1,14 +1,15 @@
 ---
 import '../styles/global.css'
-const pageTitle = "About Me";
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
 
+const pageTitle = "About";
 const identity = {
     firstName: "Matt",
     country: "the US",
     occupation: "Newly Unemployed",
     hobbies: ["keyboard efficiency", "typing kind of fast", "messing with my mouse acceleration curve"],
 }
-
 const skills = ["HTML", "CSS3", "JavaScript ES6", "Ada (for real)", "React", "Astro", "Wix (ahahahaha.)", "DNS domain management", "Docker", "nginx"]
 const skillColor = "navy"
 const fontWeight = "bold"
@@ -31,11 +32,8 @@ const textCase = "capitalize"
 		</style>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-        <h1>{pageTitle}</h1>
-		<p>I'm an impatient CS grad (and English creative writing minor, which explains a <em>lot</em>) from Skidmore College with not much left to lose, everything to prove, and a hard time limit of 8 months before a certain Freeze Force kicks me out of this country. Say hi to my blog, proudly hosted on Astro!</p>
+        <Header activeLink={pageTitle}/>
+		<p>I'm an impatient CS grad (and English creative writing minor, which explains a <em>lot</em>) from Skidmore College with not much left to lose, everything to prove, and a hard time limit of 8 months before a certain Freeze Force kicks me out of this country. Welcome to my blog, proudly hosted on Astro!</p>
         <p>More facts about me:</p>
         <ul>
             <li>My name is {identity.firstName}.</li>
@@ -48,5 +46,6 @@ const textCase = "capitalize"
         <ul>
             {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
+    <Footer />
 	</body>
 </html>

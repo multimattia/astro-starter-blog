@@ -1,0 +1,10 @@
+---
+import Navigation from "./Navigation.astro";
+const { activeLink } = Astro.props;
+---
+
+<header>
+    <nav>
+        <Navigation activeLink={activeLink}/>
+    </nav>
+</header>
