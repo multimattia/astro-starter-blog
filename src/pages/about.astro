@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About";
 const identity = {
@@ -47,37 +46,35 @@ const textCase = "capitalize";
     </style>
   </head>
   <body>
-    <Header activeLink={pageTitle} />
-    <p>
-      I'm an impatient CS grad (and English creative writing minor, which
-      explains a <em>lot</em>) from Skidmore College with not much left to lose,
-      everything to prove, and a hard time limit of 8 months before a certain
-      Freeze Force kicks me out of this country. Welcome to my blog, proudly
-      hosted on Astro!
-    </p>
-    <p>More facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>
-        I currently am in {identity.country} and I am {identity.occupation}.
-        Fun!
-      </li>
-      {
-        identity.hobbies.length >= 1 && (
-          <li>
-            Two of my hobbies are: {identity.hobbies[0]} and{" "}
-            {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>My skills include (but are not limited to)</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
+    <BaseLayout pageTitle={pageTitle}>
+      <h2>Prattling on about myself</h2>
+      <p>
+        I'm an impatient CS grad (and English creative writing minor, which
+        explains a <em>lot</em>) from Skidmore College with not much left to
+        lose, everything to prove, and a hard time limit of 8 months before a
+        certain Freeze Force kicks me out of this country. Welcome to my blog,
+        proudly hosted on Astro!
+      </p>
+      <p>More facts about me:</p>
+      <ul>
+        <li>My name is {identity.firstName}.</li>
+        <li>
+          I currently am in {identity.country} and I am {identity.occupation}.
+          Fun!
+        </li>
+        {
+          identity.hobbies.length >= 1 && (
+            <li>
+              Two of my hobbies are: {identity.hobbies[0]} and{" "}
+              {identity.hobbies[1]}
+            </li>
+          )
+        }
+      </ul>
+      <p>My skills include (but are not limited to)</p>
+      <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+      </ul>
+    </BaseLayout>
   </body>
 </html>

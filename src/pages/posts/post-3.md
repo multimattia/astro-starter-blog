@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: My Third Blog Post
 author: Matt Chan
 description: "Asking in the community is something I need to work on."
@@ -18,4 +19,4 @@ tags:
   ]
 ---
 
-I sure am enjoying this random wordstream that's coming out of my keyboard! Keep it coming, Matt. Good job. Hopefully we'll start making some more dynamic HTMl before long.
+I sure am enjoying this random wordstream that's coming out of my keyboard! Keep it coming, Matt. Good job. Hopefully we'll start making some more dynamic HTML before long.

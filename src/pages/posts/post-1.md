@@ -1,17 +1,14 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "My First Blog Post"
 pubDate: 2023-12-19
-description: "This is the first post of my Astro blog"
+description: "This is the first post of my Astro blog."
 author: "Matt Chan"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"
   alt: "The full Astro logo."
 tags: ["astro", "blogging", "learning in public", "regrets", "mistakes"]
 ---
-
-# My First Blog Post
-
-Published on: 2023-12-19
 
 Here's a new blog that I'm finally getting around to doing! It's going to replace to replace my old Gatsby blog (that never really had any content) over at mattchan.xyz, that I never updated after completing the initial tutorial back in 2020. Maybe I'll have something more to say now (I do).
 

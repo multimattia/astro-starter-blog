@@ -13,7 +13,7 @@ const linkList = [
       <a
         href={link[1]}
         style={
-          activeLink === link[0]
+          activeLink.toLowerCase() === link[0].toLowerCase()
             ? "text-decoration:underline"
             : "font-weight:100"
         }
