@@ -21,6 +21,8 @@ Here's a new blog that I'm finally getting around to doing! It's going to replac
 
 3. **Making Blog Posts**: And this is the progress that I was _just_ talking about. So much fun. Just typing away on my little puter. Maybe I'll start another post for the fun of it.
 
+4. **Making dynamically generated HTML**: This was great fun to implement! Astro's abstraction made a lot more sense on first glance when compared to Next.js. App Router this, Page Router that, there was a lot to hold onto with Next.js. I'm still not 100% on if I'm going to commit to the App Router since it includes features like [RSC](https://www.joshwcomeau.com/react/server-components/) which are still throwing some professionals that have much more experience that me in a loop. I don't want to be wrestling around with an abstraction of an abstraction where everything seems like magic in a bad way. Astro, on the other hand, seems to just get out of your way, and that might just be because of the multiple methods in which you can pass props around components. You can even use Layouts in other Layouts, which is super cool.
+
 ## What's next
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this for a blog of a blog about a yet another Rust based text editor! And also my collaborative Next.js project. And also my QMK config (thanks oryx!).

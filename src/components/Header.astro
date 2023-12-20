@@ -6,18 +6,26 @@ const { activeLink } = Astro.props;
 ---
 
 <header>
-  <nav>
-    <Hamburger />
-    <Navigation activeLink={activeLink} />
-    <!-- <ThemeIcon /> -->
-  </nav>
+  <div class="container">
+    <nav>
+      <Hamburger />
+      <Navigation activeLink={activeLink} />
+      <!-- <ThemeIcon /> -->
+    </nav>
+  </div>
 </header>
 
 <style>
   nav {
-    display: block;
-    justify-content: space-between;
+    display: flex;
+    background-color: #f1f5f9;
+    justify-content: stretch;
     align-items: center;
+    position: fixed;
+    top: 0;
+    padding: 10px 0;
+    z-index: 100;
+    width: 100%;
   }
 
   @media screen and (min-width: 636px) {

@@ -2,22 +2,26 @@
 const { platform, username } = Astro.props;
 ---
 
-<button>
-  <a
-    class="social"
-    target="_blank"
-    href=`https://www.${platform}.com/${username}`>{platform}</a
-  >
-</button>
+<a
+  class="linkButton"
+  href="http://github.com/multimattia/astro-starter-blog"
+  target="_blank">{platform}</a
+>
 
 <style>
-  button {
+  .linkButton {
     color: white;
     padding: 0.5rem 1rem;
     background-color: #4c1d95;
+    max-width: 100px;
+    text-align: center;
     border-radius: 5px;
     border: none;
     transition: all 0.1s ease-in-out;
+  }
+  form {
+    cursor: pointer;
+    background-color: red;
   }
 
   html.dark button {
@@ -32,21 +36,15 @@ const { platform, username } = Astro.props;
     background-color: rgb(181, 125, 189);
   }
 
-  button a {
-    color: white;
-    text-decoration: none;
-  }
-
   html.dark button a {
     color: black;
   }
 
   a:hover {
-    background-color: unset;
+    background-color: blueviolet;
   }
 
   html.dark a:hover {
     background-color: unset;
   }
-
 </style>

@@ -6,17 +6,24 @@ description: "Asking in the community is something I need to work on."
 image:
   url: "https://docs.astro.build/assets/rays.webp"
   alt: "Thumbnail of Astro rays."
-pubDate: 2022-12-19
+pubDate: 2023-12-19
 tags:
   [
     "astro",
     "learning in public",
-    "setbacks",
-    "community",
-    "failures",
     "typing a lot",
     "trying too hard",
+    "typography",
   ]
 ---
 
-I sure am enjoying this random wordstream that's coming out of my keyboard! Keep it coming, Matt. Good job. Hopefully we'll start making some more dynamic HTML before long.
+Lots of words are coming today. I'm typing some font in **bold** and some in _italics_ just to see the font style. Maybe something in ~~strikethrough~~ as well?
+
+## Some lists now
+
+### An unfunny joke:
+
+1. Find someone who doesn't know what a [modal text editor](https://github.com/lapce/lapce) is.
+2. Sit them down in front of a UNIX command line terminal.
+3. Have them type `vim`, then enter.
+4. Ask them to try and leave the program.

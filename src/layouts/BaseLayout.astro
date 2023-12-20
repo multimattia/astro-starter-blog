@@ -20,6 +20,7 @@ const { pageTitle, highlightedTab } = Astro.props;
   <body>
     <div class="content">
       <Header activeLink={highlightedTab} />
+      <div class="spacer"></div>
       <slot />
       <script>
         import "../scripts/menu.js";
@@ -29,6 +30,9 @@ const { pageTitle, highlightedTab } = Astro.props;
       <Footer />
     </footer>
     <style>
+      .spacer {
+        min-height: 40px;
+      }
       .content {
         flex: 1 0 auto;
       }
