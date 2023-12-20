@@ -2,14 +2,51 @@
 const { platform, username } = Astro.props;
 ---
 
-<a target="_blank" href=`https://www.${platform}.com/${username}`>{platform}</a>
+<button>
+  <a
+    class="social"
+    target="_blank"
+    href=`https://www.${platform}.com/${username}`>{platform}</a
+  >
+</button>
 
 <style>
-  a {
-    padding: 0.5rem 1rem;
+  button {
     color: white;
+    padding: 0.5rem 1rem;
     background-color: #4c1d95;
-    text-decoration: none;
     border-radius: 5px;
+    border: none;
+    transition: all 0.1s ease-in-out;
   }
+
+  html.dark button {
+    background-color: rgb(236, 168, 247);
+  }
+
+  button:hover {
+    background-color: blueviolet;
+  }
+
+  html.dark button:hover {
+    background-color: rgb(181, 125, 189);
+  }
+
+  button a {
+    color: white;
+    text-decoration: none;
+  }
+
+  html.dark button a {
+    color: black;
+  }
+
+  a:hover {
+    background-color: unset;
+  }
+
+  html.dark a:hover {
+    background-color: unset;
+  }
+
 </style>

@@ -7,7 +7,8 @@ author: "Matt Chan"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"
   alt: "The full Astro logo."
-tags: ["astro", "blogging", "learning in public", "regrets", "mistakes"]
+tags:
+  ["astro", "keyboard", "blogging", "learning in public", "regrets", "mistakes"]
 ---
 
 Here's a new blog that I'm finally getting around to doing! It's going to replace to replace my old Gatsby blog (that never really had any content) over at mattchan.xyz, that I never updated after completing the initial tutorial back in 2020. Maybe I'll have something more to say now (I do).
@@ -22,4 +23,4 @@ Here's a new blog that I'm finally getting around to doing! It's going to replac
 
 ## What's next
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this for a blog of a blog about a yet another Rust based text editor! And also my collaborative Next.js project. And also my keymaps with my new fangled QMK keyboard.
+I will finish the Astro tutorial, and then keep adding more posts. Watch this for a blog of a blog about a yet another Rust based text editor! And also my collaborative Next.js project. And also my QMK config (thanks oryx!).

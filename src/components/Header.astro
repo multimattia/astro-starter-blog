@@ -1,6 +1,7 @@
 ---
 import Navigation from "./Navigation.astro";
 import Hamburger from "./Hamburger.astro";
+import ThemeIcon from "./ThemeIcon.astro";
 const { activeLink } = Astro.props;
 ---
 
@@ -8,5 +9,20 @@ const { activeLink } = Astro.props;
   <nav>
     <Hamburger />
     <Navigation activeLink={activeLink} />
+    <ThemeIcon />
   </nav>
 </header>
+
+<style>
+  nav {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 636px) {
+    nav {
+      display: flex;
+    }
+  }
+</style>

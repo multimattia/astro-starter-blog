@@ -37,13 +37,6 @@ const textCase = "capitalize";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
   </head>
   <body>
     <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>

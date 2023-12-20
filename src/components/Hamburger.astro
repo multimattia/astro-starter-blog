@@ -2,6 +2,12 @@
 
 ---
 
+<div class="hamburger">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</div>
+
 <style>
   .hamburger {
     padding-right: 20px;
@@ -13,7 +19,11 @@
     width: 40px;
     height: 5px;
     margin-bottom: 10px;
-    background-color: #4c1d95;
+    background-color: black;
+  }
+
+  html.dark .hamburger .line {
+    background-color: white;
   }
 
   @media screen and (min-width: 636px) {
@@ -22,9 +32,3 @@
     }
   }
 </style>
-
-<div class="hamburger">
-  <span class="line"></span>
-  <span class="line"></span>
-  <span class="line"></span>
-</div>

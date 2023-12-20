@@ -1,11 +1,58 @@
 ---
 const { frontmatter } = Astro.props;
 import BaseLayout from "./BaseLayout.astro";
+import TagCluster from "../components/TagCluster.astro";
 ---
 
 <BaseLayout pageTitle="Blog" highlightedTab="Blog">
   <h1>{frontmatter.title}</h1>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Published on: {frontmatter.pubDate.slice(0, 10)}</p>
+  <p class="indicator">tags:</p>
+  <div class="tags">
+    {
+      frontmatter.tags.map((tag) => (
+        <p class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+  <p class="indicator">Published on:</p>
+  <p class="field" style="font-family:monospace">
+    {frontmatter.pubDate.slice(0, 10)}
+  </p>
   <slot />
 </BaseLayout>
+
+<style>
+  a {
+    color: #00539f;
+    font-family: monospace;
+  }
+
+  .indicator {
+    color: #757474;
+    font-style: italic;
+    font-family: monospace;
+    margin-bottom: 0;
+  }
+  html.dark .indicator {
+    color: rgb(225, 225, 225);
+  }
+
+  .field {
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 0.85em;
+    background-color: #f8fcfd;
+  }
+</style>
