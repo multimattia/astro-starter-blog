@@ -1,6 +1,5 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import type { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource-variable/lexend";
@@ -30,8 +29,10 @@ const { pageTitle, highlightedTab } = Astro.props;
               "click",
               () => {
                 const navLinks = document.querySelector(".nav-links");
-                if (navLinks) {
+                const modeToggle = document.querySelector(".iconContainer");
+                if (navLinks && modeToggle) {
                   navLinks.classList.toggle("expanded");
+                  modeToggle.classList.toggle("expanded");
                 }
               },
               { once: false },
