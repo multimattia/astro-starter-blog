@@ -23,7 +23,21 @@ const { pageTitle, highlightedTab } = Astro.props;
       <div class="spacer"></div>
       <slot />
       <script>
-        import "../scripts/menu.js";
+        document.addEventListener("astro:page-load", () => {
+          const hamburger = document.querySelector(".hamburger");
+          if (hamburger) {
+            hamburger.addEventListener(
+              "click",
+              () => {
+                const navLinks = document.querySelector(".nav-links");
+                if (navLinks) {
+                  navLinks.classList.toggle("expanded");
+                }
+              },
+              { once: false },
+            );
+          }
+        });
       </script>
     </div>
     <footer>
