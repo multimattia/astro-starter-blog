@@ -26,7 +26,7 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag} highlightedTab="Tag">
+<BaseLayout pageTitle={tag} highlightedTab="Tags">
   <h2>Posts tagged with <code>{tag}</code></h2>
   <a href="/tags">Back to tags</a>
   <ul>
