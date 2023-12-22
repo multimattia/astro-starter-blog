@@ -20,22 +20,11 @@ const { pageTitle, highlightedTab } = Astro.props;
       <div class="spacer"></div>
       <slot />
       <script>
-        document.addEventListener("", () => {
-          const hamburger = document.querySelector(".hamburger");
-          if (hamburger) {
-            hamburger.addEventListener(
-              "click",
-              () => {
-                const navLinks = document.querySelector(".nav-links");
-                const modeToggle = document.querySelector(".iconContainer");
-                if (navLinks && modeToggle) {
-                  navLinks.classList.toggle("expanded");
-                  modeToggle.classList.toggle("expanded");
-                }
-              },
-              { once: false },
-            );
-          }
+        document.querySelector(".hamburger")?.addEventListener("click", () => {
+          document.querySelector(".nav-links")?.classList.toggle("expanded");
+          document
+            .querySelector(".icon-container")
+            ?.classList.toggle("expanded");
         });
       </script>
     </div>
