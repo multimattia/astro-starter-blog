@@ -9,7 +9,7 @@ import TagCluster from "../components/TagCluster.astro";
   <p class="indicator">tags:</p>
   <div class="tags">
     {
-      frontmatter.tags.map((tag) => (
+      frontmatter.tags.map((tag: string) => (
         <p class="tag">
           <a href={`/tags/${tag}`}>{tag}</a>
         </p>

@@ -1,9 +1,12 @@
 ---
+import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 
 export const prerender = true;
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<
+  { params: { tag: string }; props: { posts: any[] } }[]
+> {
   const allPosts = await Astro.glob("../posts/*.md");
 
   const uniqueTags = [
@@ -26,7 +29,7 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag} highlightedTab="Tag">
-  <h2>Posts tagged with {tag}</h2>
+  <h2>Posts tagged with <code>{tag}</code></h2>
   <a href="/tags">Back to tags</a>
   <ul>
     {
