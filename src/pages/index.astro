@@ -6,27 +6,16 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = "Home";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
-      <h2>Welcome to my blog!</h2>
-      <p>
-        This is Matt's blog, which he made when he really should be practicing
-        LeetCode.
-      </p>
-      <p>
-        This site was proudly made with <a
-          href="https://astro.build/"
-          target="_blank">Astro</a
-        >.
-      </p>
-    </BaseLayout>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
+  <h2>Welcome to my blog!</h2>
+  <p>
+    This is Matt's blog, which he made when he really should be practicing
+    LeetCode.
+  </p>
+  <p>
+    This site was proudly made with <a
+      href="https://astro.build/"
+      target="_blank">Astro</a
+    >.
+  </p>
+</BaseLayout>

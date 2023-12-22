@@ -7,30 +7,17 @@ const allPosts = await getCollection("posts");
 const pageTitle = "Blog";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <BaseLayout pageTitle={pageTitle} highlightedTab="Blog">
-      <h2>Should I be building in public? Of course I should!</h2>
-      <p>
-        This blog will serve as an extended lesson on the dangers of
-        procrastination and <a href="https://en.wiktionary.org/wiki/yak_shaving"
-          >yak shaving</a
-        >.
-      </p>
-      <ul>
-        {
-          allPosts.map((post) => (
-            <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
-          ))
-        }
-      </ul>
-    </BaseLayout>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle} highlightedTab="Blog">
+  <h2>Should I be building in public? Of course I should!</h2>
+  <p>
+    This blog will serve as an extended lesson on the dangers of procrastination
+    and <a href="https://en.wiktionary.org/wiki/yak_shaving">yak shaving</a>.
+  </p>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
+      ))
+    }
+  </ul>
+</BaseLayout>

@@ -29,59 +29,47 @@ const fontWeight = "bold";
 const textCase = "capitalize";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
-      <h2>Prattling on about myself</h2>
-      <p>
-        Hey! I'm Matt Chan, a CS grad from <a
-          href="https://www.skidmore.edu/computer_science/">Skidmore College</a
-        > with not much left to lose, and everything to prove. Welcome to my
-        blog, proudly on <a href="https://astro.build">Astro</a>: an <a
-          href="https://www.cloudflare.com/learning/performance/static-site-generator/"
-          >SSG</a
-        > focused on delivering a minimal amount of JavaScript with a React-like
-        component architecture!
-      </p>
-      <p>
-        If that was a bunch of gibberish: Astro allows developers to live with
-        the creature comforts that modern web development has given us, while
-        still keeping the final product nice and light -- good for the
-        environment! Your computer needs to work less, and, because this website
-        is static, can be cached around the world in a <a
-          href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a
-        >, making it extra fast, no matter where you're connecting from!
-      </p>
-      <p>More facts about me:</p>
-      <ul>
-        <li>My name is {identity.firstName}.</li>
+<BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
+  <h2>Prattling on about myself</h2>
+  <p>
+    Hey! I'm Matt Chan, a CS grad from <a
+      href="https://www.skidmore.edu/computer_science/">Skidmore College</a
+    > with not much left to lose, and everything to prove. Welcome to my blog,
+    proudly on <a href="https://astro.build">Astro</a>: an <a
+      href="https://www.cloudflare.com/learning/performance/static-site-generator/"
+      >SSG</a
+    > focused on delivering a minimal amount of JavaScript with a React-like
+    component architecture!
+  </p>
+  <p>
+    If that was a bunch of gibberish: Astro allows developers to live with the
+    creature comforts that modern web development has given us, while still
+    keeping the final product nice and light -- good for the environment! Your
+    computer needs to work less, and, because this website is static, can be
+    cached around the world in a <a
+      href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a
+    >, making it extra fast, no matter where you're connecting from!
+  </p>
+  <p>More facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I currently am in {identity.country} and I'm newly {identity.occupation}.
+      Fun!
+    </li>
+    {
+      identity.hobbies.length >= 1 && (
         <li>
-          I currently am in {identity.country} and I'm newly {
-            identity.occupation
-          }. Fun!
+          Two of my hobbies: {identity.hobbies[0]} and {identity.hobbies[1]}
         </li>
-        {
-          identity.hobbies.length >= 1 && (
-            <li>
-              Two of my hobbies: {identity.hobbies[0]} and {identity.hobbies[1]}
-            </li>
-          )
-        }
-      </ul>
-      <p>
-        My skills include (but are not limited to (also take with a grain of
-        salt I'm just trying out the astro's js mapping))
-      </p>
-      <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
-      </ul>
-    </BaseLayout>
-  </body>
-</html>
+      )
+    }
+  </ul>
+  <p>
+    My skills include (but are not limited to (also take with a grain of salt
+    I'm just trying out the astro's js mapping))
+  </p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>
