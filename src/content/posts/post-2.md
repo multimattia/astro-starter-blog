@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: My Second Blog Post
 author: Matt Chan
 description: "My tutorial is telling me to do this, and to claim that I can't stop having this much fun just making stuff. So I'll say it now. I can't stop making these wonderful Astro pages! (and if you think I'm trying too hard too bad this is the easiest way for me to keep my words from bouncing around my brain and give me a headache."

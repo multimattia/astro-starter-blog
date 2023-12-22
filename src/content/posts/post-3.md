@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: My Third Blog Post
 author: Matt Chan
 description: "Asking in the community is something I need to work on."

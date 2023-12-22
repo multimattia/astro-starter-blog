@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: "My Broken Blog Post"
 author: Matt Chan
 pubDate: 2023-12-19

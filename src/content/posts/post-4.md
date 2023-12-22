@@ -1,9 +1,11 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: The Post map() Era
 author: Matt Chan
 description: This is the first blog post made after programmatic creation of links!
 pubDate: 2023-08-08
+image:
+  url: "https://docs.astro.build/assets/rays.webp"
+  alt: "Another thumbnail of the same Astro rays."
 tags: ["astro"]
 ---
 

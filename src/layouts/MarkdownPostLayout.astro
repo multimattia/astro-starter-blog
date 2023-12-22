@@ -18,7 +18,7 @@ import TagCluster from "../components/TagCluster.astro";
   </div>
   <p class="indicator">Published on:</p>
   <p class="field" style="font-family:monospace">
-    {frontmatter.pubDate.slice(0, 10)}
+    {frontmatter.pubDate.toString().slice(0, 10)}
   </p>
   <slot />
 </BaseLayout>
