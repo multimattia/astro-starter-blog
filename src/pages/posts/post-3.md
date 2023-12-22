@@ -7,14 +7,7 @@ image:
   url: "https://docs.astro.build/assets/rays.webp"
   alt: "Thumbnail of Astro rays."
 pubDate: 2023-12-19
-tags:
-  [
-    "astro",
-    "learning in public",
-    "typing a lot",
-    "trying too hard",
-    "typography",
-  ]
+tags: ["astro"]
 ---
 
 Lots of words are coming today. I'm typing some font in **bold** and some in _italics_ just to see the font style. Maybe something in ~~strikethrough~~ as well?

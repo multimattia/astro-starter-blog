@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource-variable/lexend";
@@ -14,7 +13,6 @@ const { pageTitle, highlightedTab } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Matt C | {pageTitle}</title>
-    <ViewTransitions />
   </head>
   <body>
     <div class="content">
@@ -22,7 +20,7 @@ const { pageTitle, highlightedTab } = Astro.props;
       <div class="spacer"></div>
       <slot />
       <script>
-        document.addEventListener("astro:page-load", () => {
+        document.addEventListener("", () => {
           const hamburger = document.querySelector(".hamburger");
           if (hamburger) {
             hamburger.addEventListener(

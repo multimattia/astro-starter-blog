@@ -7,15 +7,7 @@ image:
   url: "https://docs.astro.build/assets/arc.webp"
   alt: "Thumbnail of Astro arcs."
 pubDate: 2022-12-19
-tags:
-  [
-    "astro",
-    "blogging",
-    "learning in public",
-    "successes",
-    "failures",
-    "trying too hard",
-  ]
+tags: ["astro"]
 ---
 
 After a successful first ~~week~~ fifteen minutes learning Astro, I decided to just keep going. ~~I wrote and imported a small component from memory!~~ At the time of writing this did not happen. Astro, pls fix. Cool spoilers though! And thoughts on spoilers culture: they (spoilers) are not worth the trouble of avoiding them.

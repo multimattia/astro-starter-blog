@@ -9,7 +9,7 @@ const allTags = [
   {
     allTags.map((tag) => (
       <p class="tag">
-        <a href={`/tags/${tag}`}>{tag.toLowerCase()}</a>
+        <a href={`/tags/${tag}`}>{tag?.toLowerCase()}</a>
       </p>
     ))
   }
