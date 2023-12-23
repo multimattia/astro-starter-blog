@@ -17,4 +17,4 @@ And, with Astro's .mdx integration, I'll be able to integrate entire `${JavaScri
 
 All of this seriousness also means that I'll start questioning my own thoughts in a way that makes me uncomfortable. It will be slower and more difficult than writing slapdash notes on a notepad when I feel like it, but it's been shown that actually publishing something means that I will treat it with greater care; especially due to the nature of the medium: on my own URL, on technology that I chose, and in my layout. My website is more or less a direct representation of my current technical capability to express as much of my personality. This is both cool and terrifying at the same time, but I do feel like the effort will be more than worth it.
 
-Software developers never stop learning. I might as well encode it here.
+Software developers never stop learning. It would be prudent for me to share my learning here.
