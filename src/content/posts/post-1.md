@@ -14,6 +14,7 @@ Here's a new blog that I'm finally getting around to doing! It's going to replac
 
 Expect writeups on:
 
+- [Why a blog?](../why-a-blog/)
 - Yakshaving/analysis paralysis
 - Keyboard configurations and ergonomics
 - Productivity "tools"
@@ -25,3 +26,4 @@ Expect writeups on:
 - Lessons learnt from 3 years of Vim
 - Getting images up on here (performantly!)
 - Getting Things Done
+- Why oh why do the base MacBooks only support one external display?
