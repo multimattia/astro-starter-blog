@@ -6,20 +6,25 @@ import TagCluster from "../components/TagCluster.astro";
 
 <BaseLayout pageTitle="Blog" highlightedTab="Blog">
   <h1>{frontmatter.title}</h1>
-  <p class="indicator">tags:</p>
-  <div class="tags">
-    {
-      frontmatter.tags.map((tag: string) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
+  <div class="tag-and-date-container">
+    <div class="tag-row">
+      <p class="indicator">tags:</p>
+      <div class="tags">
+        {
+          frontmatter.tags.map((tag: string) => (
+            <p class="tag">
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </p>
+          ))
+        }
+      </div>
+    </div>
+    <span class="date-container">
+      <p class="field">
+        {frontmatter.pubDate.toString().slice(0, 10)}
+      </p>
+    </span>
   </div>
-  <p class="indicator">Published on:</p>
-  <p class="field" style="font-family:monospace">
-    {frontmatter.pubDate.toString().slice(0, 10)}
-  </p>
   <slot />
 </BaseLayout>
 
@@ -30,6 +35,33 @@ import TagCluster from "../components/TagCluster.astro";
 </style>
 
 <style>
+  .tag-and-date-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .field {
+    font-family: monospace;
+  }
+
+  .title-and-date-container > h1 {
+    margin-bottom: 0;
+  }
+
+  .date-container {
+    text-align: right;
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .date-container > p {
+    margin: 0;
+    min-width: 15ch;
+  }
+
   a {
     color: #00539f;
     font-family: monospace;
