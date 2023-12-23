@@ -35,23 +35,19 @@ import TagCluster from "../components/TagCluster.astro";
     font-family: monospace;
   }
 
+  html.dark a {
+    color: #e2e2e2;
+  }
+
   .indicator {
     color: #757474;
     font-style: italic;
     font-family: monospace;
     margin-bottom: 2px;
   }
+
   html.dark .indicator {
     color: rgb(225, 225, 225);
-  }
-
-  .field {
-  }
-
-  .tags {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .tag {
@@ -61,11 +57,14 @@ import TagCluster from "../components/TagCluster.astro";
     font-size: 0.85em;
     background-color: #f8fcfd;
   }
-</style>
 
-<!-- <style is:inline>
-  .astro-code {
-    padding: 10px;
-    border-radius: 3px;
+  .tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
   }
-</style> -->
+
+  html.dark .tag {
+    background-color: #4640a6;
+  }
+</style>
