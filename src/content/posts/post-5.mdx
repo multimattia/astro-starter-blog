@@ -27,3 +27,51 @@ I'm quite happy with the [progress I made](https://github.com/multimattia/astro-
 - Get some super rudimentary **auth** going for my super secret posts. Just a simple password to share with friends -- maybe hash it up to serve the posts as a new route using a [Hono](https://hono.dev) server on [Val.town](https://www.val.town/)? (can you see I like to overcomplicate things)
 
 Now that the things I want to get done is out there on the internet, I'm going to call that a soft obligation. I'm not going to confirm a date, though.
+
+```js title="example.js" {2-4}
+<BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
+  <h2>Prattling on about myself</h2>
+  <p>
+    Hey! I'm Matt Chan, a CS grad from{" "}
+    <a href="https://www.skidmore.edu/computer_science/">Skidmore College</a>{" "}
+    with not much left to lose, and everything to prove. Welcome to my blog,
+    proudly on <a href="https://astro.build">Astro</a>: an{" "}
+    <a href="https://www.cloudflare.com/learning/performance/static-site-generator/">
+      SSG
+    </a>{" "}
+    focused on delivering a minimal amount of JavaScript with a React-like
+    component architecture!
+  </p>
+  <p>
+    If that was a bunch of gibberish: Astro allows developers to live with the
+    creature comforts that modern web development has given us, while still
+    keeping the final product nice and light -- good for the environment! Your
+    computer needs to work less, and, because this website is static, can be
+    cached around the world in a{" "}
+    <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a>,
+    making it extra fast, no matter where you're connecting from!
+  </p>
+  <p>More facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I currently am in {identity.country} and I'm newly {identity.occupation}.
+      Fun!
+    </li>
+    {identity.hobbies.length >= 1 && (
+      <li>
+        Two of my hobbies: {identity.hobbies[0]} and {identity.hobbies[1]}
+      </li>
+    )}
+  </ul>
+  <p>
+    My skills include (but are not limited to (also take with a grain of salt
+    I'm just trying out the astro's js mapping))
+  </p>
+  <ul>
+    {skills.map((skill) => (
+      <li class="skill">{skill}</li>
+    ))}
+  </ul>
+</BaseLayout>
+```
