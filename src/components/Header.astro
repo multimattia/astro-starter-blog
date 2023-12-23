@@ -6,48 +6,62 @@ const { activeLink } = Astro.props;
 ---
 
 <header>
-  <div class="container">
-    <nav>
-      <Hamburger />
+  <nav>
+    <span class="container">
+      <span class="hamburger">
+        <Hamburger />
+      </span>
       <Navigation activeLink={activeLink} />
-      <div class="icon-container">
+      <span class="icon-container">
         <ThemeIcon />
-      </div>
-    </nav>
-  </div>
+      </span>
+    </span>
+  </nav>
 </header>
 
 <style>
-  nav {
+  .container {
     display: flex;
-    background-color: #f1f5f9;
-    justify-content: stretch;
-    align-items: start;
     position: fixed;
+    background-color: #f1f5f9;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     padding: 10px 0;
     z-index: 100;
-    width: 95%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 68ch;
   }
 
-  nav > div:nth-child(3) {
-    align-self: center;
-    margin-left: auto;
-    justify-self: flex-end;
+  .icon-container {
+    margin: 6px 30px 0 3%;
+  }
+
+  .hamburger {
+    align-self: flex-start;
   }
 
   .expanded {
     display: none;
   }
 
-  html.dark nav {
+  html.dark .container {
     background-color: #0d0850;
   }
 
-  @media screen and (min-width: 637px) {
-    nav {
-      display: flex;
+  @media screen and (min-width: 687px) {
+    .container {
+      justify-content: unset;
+      align-items: center;
+    }
+
+    .nav-links {
+      flex-grow: 1;
+    }
+
+    .icon-container {
+      margin: 8px 10px 10px 10px;
+      flex-grow: 0;
     }
   }
 </style>

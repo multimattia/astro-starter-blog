@@ -15,9 +15,8 @@ const { pageTitle, highlightedTab } = Astro.props;
     <title>Matt C | {pageTitle}</title>
   </head>
   <body>
+    <Header activeLink={highlightedTab} />
     <div class="content">
-      <Header activeLink={highlightedTab} />
-      <div class="spacer"></div>
       <slot />
       <script>
         document.querySelector(".hamburger")?.addEventListener("click", () => {
@@ -32,16 +31,12 @@ const { pageTitle, highlightedTab } = Astro.props;
       <Footer />
     </footer>
     <style>
-      .spacer {
-        min-height: 60px;
-      }
       .content {
         flex: 1 0 auto;
+        margin-top: 60px;
       }
-
       .footer {
         flex-shrink: 0;
-        background-color: red;
       }
     </style>
   </body>
