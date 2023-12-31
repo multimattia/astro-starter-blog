@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+const { src, alt } = Astro.props;
+---
+
+<div class="blogimage">
+  <Image src={src} alt={alt} />
+  <figcaption id="imgcap">{alt}</figcaption>
+</div>
+
+<style>
+  .blogimage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.45rem;
+  }
+
+  figcaption {
+    font-style: oblique;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+</style>
