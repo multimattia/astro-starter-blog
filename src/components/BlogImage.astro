@@ -5,7 +5,7 @@ const { src, alt } = Astro.props;
 ---
 
 <div class="blogimage">
-  <Image src={src} alt={alt} />
+  <Image class="image" src={src} alt={alt} />
   <figcaption id="imgcap">{alt}</figcaption>
 </div>
 
@@ -18,9 +18,21 @@ const { src, alt } = Astro.props;
     gap: 0.45rem;
   }
 
+  .image {
+    max-width: 75%;
+    height: auto;
+    border-radius: 0.375rem;
+  }
+
   figcaption {
     font-style: oblique;
     font-weight: 300;
     font-size: 1rem;
+  }
+
+  @media screen and (min-width: 687px) {
+    .image {
+      max-width: 100%;
+    }
   }
 </style>

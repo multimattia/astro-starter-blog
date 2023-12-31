@@ -1,0 +1,17 @@
+---
+const { quote } = Astro.props;
+---
+
+<div class="blockQuote">
+  <p>{quote}</p>
+</div>
+
+<style>
+  .blockQuote {
+    background-color: red;
+  }
+
+  html.dark .blockQuote {
+    background-color: red;
+  }
+</style>
