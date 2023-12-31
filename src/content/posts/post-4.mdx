@@ -7,7 +7,53 @@ image:
   url: "https://docs.astro.build/assets/full-logo-light.png"
   alt: "The full Astro logo."
 tags:
-  - meta
   - learning in public
-  - reflection
+  - development
+  - quick tips
 ---
+
+Are you tired of having code that looks like this?
+
+```js
+import Navigation from "../../../anotherFolderOfComponents/Navigation.astro";
+import Hamburger from "../../../anotherFolderOfComponents/Hamburger.astro";
+import ThemeIcon from "../../../anotherFolderOfComponents/ThemeIcon.astro";
+```
+
+Wouldn't you much prefer code that looks like _this_?
+
+```js
+import Navigation from "@components/Navigation.astro";
+import Hamburger from "@components/Hamburger.astro";
+import ThemeIcon from "@components/ThemeIcon.astro";
+```
+
+Well I have a solution for you! We can use `tsconfig.json`'s compilerOptions flags to create **aliased** imports!
+
+```json
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@images/*": [
+        "src/assets/images/*"
+      ],
+      "@posts/*": [
+        "src/content/posts/*"
+      ],
+    }
+  }
+```
+
+Much better!
