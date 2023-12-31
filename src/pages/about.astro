@@ -3,30 +3,6 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About";
-const identity = {
-  firstName: "Matt",
-  country: "the US",
-  occupation: "unemployed",
-  hobbies: [
-    "keyboard shortcuts and mappings",
-    "messing with my mouse acceleration curve",
-  ],
-};
-const skills = [
-  "HTML",
-  "CSS3",
-  "JavaScript ES6",
-  "Ada (for real)",
-  "React",
-  "Astro",
-  "Wix (ahahahaha.)",
-  "DNS configuration",
-  "Docker",
-  "nginx",
-];
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "capitalize";
 ---
 
 <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
@@ -42,11 +18,12 @@ const textCase = "capitalize";
   <p>
     I'm a software developer that enjoys making tools and cool-looking doodads
     for myself and others. I've developed, configured, and deployed everything
-    from <b>simple Nginx-served websites</b>, (lightly) modded <b>
+    from <b>Nginx-served websites in different subdomains</b>, (lightly) modded <b
+    >
       Minecraft servers on the cloud</b
     >, literally-on-demand <b>streaming services</b> for friends and family, a
     programmable <b>Playwright testing suite</b> (before the real one came
-    along!) and fully-custom <b> marketing websites</b> for my co-workers.
+    along!) and fully-custom <b> marketing websites</b> for my colleagues.
   </p>
   <p>
     I'm also a co-founder of Skidmore's Computer Science club. There, I adapted

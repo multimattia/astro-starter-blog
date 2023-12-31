@@ -23,7 +23,7 @@ body {
 @media screen and (min-width: 687px) {
   body {
     font-size: 1.25em;
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 }
 

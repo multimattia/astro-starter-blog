@@ -15,7 +15,7 @@ const linkList = [
         href={link[1]}
         style={
           activeLink.toLowerCase() === link[0].toLowerCase()
-            ? "text-decoration:underline; text-decoration-thickness: 3px; text-underline-offset: 5px;"
+            ? "text-decoration:underline; text-decoration-thickness: 4px; text-underline-offset: 5px;"
             : ""
         }
       >
@@ -34,7 +34,7 @@ const linkList = [
   .nav-links a {
     display: block;
     text-align: center;
-    padding: 20px 0px;
+    padding: 0;
     text-decoration: none;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -44,7 +44,9 @@ const linkList = [
 
   .nav-links a:hover,
   .nav-links a:focus {
-    background-color: rgb(237, 179, 235);
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 5px;
   }
 
   html.dark .nav-links a:hover,
@@ -74,8 +76,6 @@ const linkList = [
     .nav-links a {
       display: inline-block;
       margin: 0 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
     }
 
     .nav-links a:nth-child(1) {
