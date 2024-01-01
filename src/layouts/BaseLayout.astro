@@ -19,9 +19,7 @@ const { pageTitle, highlightedTab } = Astro.props;
     <div class="content">
       <slot />
     </div>
-    <footer>
-      <Footer />
-    </footer>
+    <Footer />
     <script>
       document.querySelector(".hamburger")?.addEventListener("click", () => {
         document.querySelector(".nav-links")?.classList.toggle("expanded");

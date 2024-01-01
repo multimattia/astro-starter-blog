@@ -14,25 +14,17 @@ const pageTitle = "Blog";
     myself more than the reader. Nonetheless, I appreciate you taking the time
     to read them!
   </p>
-  <div class="postList">
-    <dl>
-      {
-        allPosts.map((post) => (
-          <BlogListing
-            post={post}
-            url={`/posts/${post.slug}/`}
-            title={post.data.title}
-            description={post.data.description}
-            pubDate={post.data.pubDate}
-          />
-        ))
-      }
-    </dl>
-  </div>
+  <dl>
+    {
+      allPosts.map((post) => (
+        <BlogListing
+          post={post}
+          url={`/posts/${post.slug}/`}
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+        />
+      ))
+    }
+  </dl>
 </BaseLayout>
-
-<style>
-  ul {
-    padding: 0;
-  }
-</style>
