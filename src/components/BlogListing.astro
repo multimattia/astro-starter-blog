@@ -7,8 +7,10 @@ const { url, title, description, pubDate } = Astro.props;
     <dt class="postTitle">{title}</dt>
     <dd class="postTime">
       {
-        `${pubDate.toString().slice(3, 10)},
+        pubDate
+          ? `${pubDate.toString().slice(3, 10)},
         ${pubDate.toString().slice(10, 15)}`
+          : ""
       }
     </dd>
     <dd class="postDesc">{description}</dd>
