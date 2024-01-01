@@ -27,19 +27,17 @@ const linkList = [
 
 <style>
   .nav-links {
-    /* top: 5rem; */
     display: none;
   }
 
   .nav-links a {
     display: block;
     text-align: center;
-    padding: 0;
+    padding: 1rem 1rem;
     text-decoration: none;
     font-size: 1.3rem;
     text-transform: uppercase;
     border-radius: 5px;
-    margin: 2px 5% 2px 2%;
     letter-spacing: -1.2px;
   }
 
@@ -60,17 +58,20 @@ const linkList = [
   }
 
   .expanded {
-    display: unset;
+    display: block;
+    max-width: 50%;
     flex-grow: 1;
-    margin: auto auto;
+    margin-top: 200px;
+    margin-right: 20px;
     background-color: var(--color-light-bg);
     border-radius: 5px;
     transition: all 0.2s ease;
-    box-shadow: var(--shadow-elevation-medium);
+    box-shadow: var(--shadow-light-elevation-medium);
   }
 
   html.dark .expanded {
     background-color: var(--color-night-bg);
+    box-shadow: unset;
   }
 
   @media screen and (min-width: 686px) {
