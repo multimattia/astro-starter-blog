@@ -62,23 +62,22 @@ import BaseLayout from "./BaseLayout.astro";
   }
 
   a {
-    color: #00539f;
     font-family: monospace;
   }
 
   html.dark a {
-    color: #e2e2e2;
+    color: var(--color-night-deemp);
   }
 
   .indicator {
-    color: #757474;
+    color: var(--color-light-deemp);
     font-style: italic;
     font-family: monospace;
     margin-bottom: 2px;
   }
 
   html.dark .indicator {
-    color: rgb(225, 225, 225);
+    color: var(--color-night-deemp);
   }
 
   .tag {
@@ -86,7 +85,7 @@ import BaseLayout from "./BaseLayout.astro";
     border-radius: 0.5em;
     padding: 0.5em 1em;
     font-size: 0.85em;
-    background-color: #f8fcfd;
+    background-color: var(--color-light-listing-bg);
   }
 
   .tags {
@@ -96,6 +95,6 @@ import BaseLayout from "./BaseLayout.astro";
   }
 
   html.dark .tag {
-    background-color: #4640a6;
+    background-color: var(--color-night-listing-bg);
   }
 </style>

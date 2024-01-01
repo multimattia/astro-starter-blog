@@ -5,18 +5,14 @@ const { tags } = Astro.props;
 <div class="tags">
   {
     tags.map((tag: string) => (
-      <p class="tag">
-        <a href={`/tags/${tag}`}>{tag?.toLowerCase()}</a>
-      </p>
+      <a href={`/tags/${tag}`}>
+        <p class="tag">{tag?.toLowerCase()}</p>
+      </a>
     ))
   }
 </div>
 
 <style>
-  a {
-    color: #005389f;
-  }
-
   .tags {
     display: flex;
     flex-wrap: wrap;
@@ -28,14 +24,22 @@ const { tags } = Astro.props;
     border-radius: 5px;
     padding: 0.5em 1em;
     font-size: 1.15em;
-    background-color: #f8fcfd;
+    background-color: var(--color-light-listing-bg);
+  }
+
+  a:hover {
+    background-color: unset;
+  }
+
+  html.dark a:hover {
+    background-color: unset;
   }
 
   html.dark .tag {
-    background-color: #4640a6;
+    background-color: var(--color-night-listing-bg);
   }
 
   html.dark a {
-    color: rgb(226, 226, 226);
+    color: var(--color-night-deemp);
   }
 </style>

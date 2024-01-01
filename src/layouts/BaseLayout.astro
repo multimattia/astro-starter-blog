@@ -20,12 +20,6 @@ const { pageTitle, highlightedTab } = Astro.props;
       <slot />
     </div>
     <Footer />
-    <script>
-      document.querySelector(".hamburger")?.addEventListener("click", () => {
-        document.querySelector(".nav-links")?.classList.toggle("expanded");
-        document.querySelector(".icon-container")?.classList.toggle("expanded");
-      });
-    </script>
   </body>
 </html>
 

@@ -13,19 +13,20 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    padding-bottom: 7px;
   }
 
   .hamburger .line {
     display: block;
-    width: 40px;
+    width: 30px;
     height: 3px;
-    margin: 5px 0;
-    background-color: #32047b;
+    margin: 3px 0;
+    background-color: var(--color-light-a);
     border-radius: 2px;
   }
 
   html.dark .hamburger .line {
-    background-color: white;
+    background-color: var(--color-light-bg);
   }
 
   @media screen and (min-width: 687px) {

@@ -1,25 +1,44 @@
+:root {
+  --shadow-light-color: 210deg 12% 61%;
+  --shadow-light-elevation-medium: 0px 0.3px 0.4px
+      hsl(var(--shadow-light-color) / 0.62),
+    0px 5.7px 6.7px -2.2px hsl(var(--shadow-light-color) / 0.71);
+
+  --color-light-bg: #f1f5f9;
+  --color-light-a: #4c1c95;
+  --color-light-a-visited: #6e3db7;
+  --color-light-a-highlight: rgb(186, 252, 20);
+  --color-light-listing-bg: rgb(235, 235, 235);
+  --color-light-listing-hl: rgb(225, 245, 225);
+  --color-light-deemp: #757474;
+
+  --color-night-bg: #0d0950;
+  --color-night-a: rgb(251, 173, 31);
+  --color-night-a-visited: rgb(248, 209, 100);
+  --color-night-a-highlight: rgb(204, 5, 201);
+  --color-night-text: #ececec;
+  --color-night-listing-bg: #2d2785;
+  --color-night-listing-hl: #4640a6;
+  --color-night-deemp: #e2e2e2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
-  background-color: #f1f5f9;
+  background-color: var(--color-light-bg);
   font-family: "Lexend Variable", sans-serif;
   font-display: optional;
   font-weight: 350;
   height: 100%;
 }
 
-h1 {
-  letter-spacing: -1.8px;
-  line-height: 1.2;
-  padding-top: 0px;
-}
-
 html.dark {
-  background-color: #0d0950;
-  color: #ececec;
+  background-color: var(--color-night-bg);
+  color: var(--color-night-text);
 }
 
-html.dark h1 {
-  color: #fff;
-}
 body {
   display: flex;
   flex-direction: column;
@@ -31,12 +50,13 @@ body {
   line-height: 1.8;
 }
 
-p {
-  letter-spacing: 0.25px;
-}
-
-li {
-  letter-spacing: 0.25px;
+h1 {
+  letter-spacing: -1.8px;
+  line-height: 1.2;
+  padding-top: 0px;
+  margin: 1rem 0;
+  font-size: 2.5rem;
+  color: black;
 }
 
 @media screen and (min-width: 687px) {
@@ -49,50 +69,49 @@ li {
   }
 }
 
-* {
-  box-sizing: border-box;
+html.dark h1 {
+  color: #fff;
 }
 
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
+p {
+  letter-spacing: 0.25px;
+}
+
+li {
+  letter-spacing: 0.25px;
 }
 
 a {
-  color: #4c1c95;
   transition: all 0.1s ease;
   text-decoration: underline;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
   font-weight: 600;
+  color: var(--color-light-a);
 }
 
-.dark a {
-  color: rgb(251, 173, 31);
+html.dark a {
+  color: var(--color-night-a);
 }
 
 a:visited {
-  color: #6e3db7;
+  color: var(--color-light-a-visited);
 }
 
-.dark a:visited {
-  color: rgb(248, 209, 100);
+html.dark a:visited {
+  color: var(--color-night-a-visited);
 }
 
 a:hover {
-  background-color: rgb(186, 252, 20);
+  background-color: var(--color-light-a-highlight);
   text-underline-offset: 3px;
   text-decoration-thickness: 3px;
 }
 
 html.dark a:hover {
-  background-color: rgb(181, 81, 188);
-  color: rgb(252, 193, 82);
-}
-
-.dark .tag a {
-  color: black;
+  background-color: var(--color-night-a-highlight);
+  color: var(--color-night-a-visited);
 }
 
 .active {

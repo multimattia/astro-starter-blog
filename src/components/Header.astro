@@ -1,80 +1,66 @@
 ---
 import Navigation from "@components/Navigation.astro";
 import Hamburger from "@components/Hamburger.astro";
-import ThemeIcon from "@components/ThemeIcon.astro";
+import ThemeIconAndToggle from "@components/ThemeIconAndToggle.astro";
 const { activeLink } = Astro.props;
 ---
 
 <nav>
-  <div class="header">
-    <span class="container">
-      <span class="hamburger">
-        <Hamburger />
-      </span>
-      <Navigation activeLink={activeLink} />
-      <span class="icon-container">
-        <ThemeIcon />
-      </span>
-    </span>
-  </div>
+  <span class="hamburger">
+    <Hamburger />
+  </span>
+  <Navigation activeLink={activeLink} />
+  <span class="icon-container">
+    <ThemeIconAndToggle />
+  </span>
 </nav>
+<script>
+  document.querySelector(".hamburger")?.addEventListener("click", () => {
+    document.querySelector(".nav-links")?.classList.toggle("expanded");
+    document.querySelector(".icon-container")?.classList.toggle("expanded");
+  });
+</script>
 
 <style>
-  .container {
-    display: flex;
+  nav {
+    width: 100%;
+    background-color: var(--light-bg-color);
     position: fixed;
-    background-color: #f2f5f9;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     top: 0;
-    padding: 12px 0;
-    z-index: 100;
-    width: 100%;
-  }
-
-  .header {
-    background-color: #f2f5f9;
-    position: fixed;
-    top: 0;
     height: 71px;
-    width: 100%;
     z-index: 101;
   }
 
   .icon-container {
-    margin: 6px 30px 0 3%;
+    padding-right: 30px;
   }
 
   .hamburger {
-    align-self: flex-start;
+    align-self: center;
+  }
+
+  .nav-links {
+    align-self: flex-end;
+    border: 1px solid red;
   }
 
   .expanded {
     display: none;
   }
 
-  html.dark .container {
-    background-color: #0d0850;
-  }
-
-  html.dark .header {
-    background-color: #0d0850;
+  html.dark nav {
+    background-color: var(--color-night-bg);
   }
 
   @media screen and (min-width: 687px) {
-    .container {
-      justify-content: unset;
-      align-items: center;
-      width: 60ch;
-    }
-
-    .header {
-      background-color: #f2f5f9;
+    nav {
       top: unset;
-      position: fixed;
       height: 90px;
-      width: 100%;
-      z-index: 101;
+      max-width: 64ch;
+      justify-content: unset;
     }
 
     .nav-links {
