@@ -1,0 +1,111 @@
+---
+const { url, title, description, pubDate } = Astro.props;
+---
+
+<a href={url}>
+  <div class="postContainer">
+    <dt class="postTitle">{title}</dt>
+    <dd class="postTime">
+      {
+        `${pubDate.toString().slice(3, 10)}, ${pubDate
+          .toString()
+          .slice(10, 15)}`
+      }
+    </dd>
+    <dd class="postDesc">{description}</dd>
+  </div>
+</a>
+
+<style>
+  a {
+    text-decoration: unset;
+    font-weight: unset;
+  }
+
+  .postContainer {
+    display: flex;
+    padding: 1rem 1rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgb(235, 235, 235);
+    margin: 1rem 0;
+    border-radius: 0.375rem;
+    min-height: 10rem;
+    transition: all 0.25s ease;
+  }
+
+  .postTime {
+    font-size: 0.9rem;
+  }
+
+  @keyframes gentle-rotate {
+    0% {
+      transform: rotate(-0.3deg);
+    }
+    50% {
+      transform: rotate(0.3deg);
+    }
+    100% {
+      transform: rotate(-0.3deg);
+    }
+  }
+
+  .postContainer:hover {
+    background-color: rgb(225, 245, 225);
+    scale: 102%;
+    animation: gentle-rotate 1.45s infinite ease;
+  }
+
+  .postContainer:active {
+    scale: 98%;
+  }
+
+  html.dark .postContainer {
+    background-color: #2d2785;
+  }
+
+  html.dark .postContainer:hover {
+    background-color: #4640A6;
+  }
+
+  dt {
+    font-weight: 700;
+    font-size: 1.55rem;
+    color: #4c1c95;
+    margin-inline-start: 0px;
+  }
+
+  dd {
+    color: rgb(70, 80, 70);
+    margin-inline-start: 0px;
+    font-style: oblique;
+  }
+
+  html.dark dt {
+    font-weight: 700;
+    color: rgb(251, 173, 31);
+  }
+
+  html.dark dd {
+    color: #dedede;
+    font-style: oblique;
+  }
+/*
+  @media (prefers-reduced-motion: reduce) {
+    .postContainer {
+      transition: none; /* Remove transitions */
+    }
+
+    .postContainer:hover {
+      scale: none;
+    transition: all 1.25s ease;
+      animation: none;
+    }
+
+    .postContainer:active {
+      scale: none;
+    }
+  }
+  */
+
+</style>
