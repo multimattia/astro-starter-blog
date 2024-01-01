@@ -1,6 +1,8 @@
 html {
   background-color: #f1f5f9;
   font-family: "Lexend Variable", sans-serif;
+  font-display: optional;
+  font-weight: 350;
   height: 100%;
 }
 
