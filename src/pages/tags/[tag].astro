@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BlogPost from "@components/BlogPost.astro";
+import BlogListing from "@components/BlogListing.astro";
 
 export const prerender = true;
 export async function getStaticPaths(): Promise<any> {
@@ -32,7 +32,7 @@ const { posts } = Astro.props;
   <ul>
     {
       posts.map((post) => (
-        <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
+        <BlogListing url={`/posts/${post.slug}/`} title={post.data.title} />
       ))
     }
   </ul>
