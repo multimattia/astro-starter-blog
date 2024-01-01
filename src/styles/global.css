@@ -24,6 +24,10 @@
 
 * {
   box-sizing: border-box;
+  /* transition-property: color,background-color; */
+  transition:
+    color,
+    background-color 0.25s ease;
 }
 
 html {
