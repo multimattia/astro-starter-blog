@@ -8,5 +8,5 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 
 <BaseLayout pageTitle="Tags" highlightedTab="tags">
   <h1>List of tags here.</h1>
-  <TagCluster />
+  <TagCluster tags={tags} />
 </BaseLayout>

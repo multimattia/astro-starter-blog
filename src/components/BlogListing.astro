@@ -1,109 +1,132 @@
 ---
-const { url, title, description, pubDate } = Astro.props;
+const { post } = Astro.props;
 ---
 
-<a href={url}>
+<a href={`/posts/${post.slug}/`}>
   <div class="postContainer">
-    <dt class="postTitle">{title}</dt>
-    <dd class="postTime">
-      {
-        pubDate
-          ? `${pubDate.toString().slice(3, 10)},
-        ${pubDate.toString().slice(10, 15)}`
-          : ""
-      }
-    </dd>
-    <dd class="postDesc">{description}</dd>
+    <span class="titleAndDate">
+      <dt class="postTitle">{post.data.title}</dt>
+      <dd class="postTime">
+        {
+          post.data.pubDate
+            ? `${post.data.pubDate.toString().slice(3, 10)},
+        ${post.data.pubDate.toString().slice(10, 15)}`
+            : ""
+        }
+      </dd>
+    </span>
+    <dd class="postDesc">{post.data.description}</dd>
+    <dd class="tagList">{post.data.tags.join(", ")}</dd>
   </div>
-</a>
 
-<style>
-  a {
-    text-decoration: unset;
-    font-weight: unset;
-  }
-
-  .postContainer {
-    display: flex;
-    padding: 1rem 1rem;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: rgb(235, 235, 235);
-    margin: 1rem 0;
-    border-radius: 0.375rem;
-    min-height: 10rem;
-    transition: all 0.25s ease;
-  }
-
-  .postTime {
-    font-size: 0.9rem;
-  }
-
-  @keyframes gentle-rotate {
-    0% {
-      transform: rotate(-0.3deg);
+  <style>
+    a {
+      text-decoration: unset;
+      font-weight: unset;
     }
-    50% {
-      transform: rotate(0.3deg);
-    }
-    100% {
-      transform: rotate(-0.3deg);
-    }
-  }
 
-  .postContainer:hover {
-    background-color: rgb(225, 245, 225);
-    scale: 102%;
-    animation: gentle-rotate 1.45s infinite ease;
-  }
-
-  .postContainer:active {
-    scale: 98%;
-  }
-
-  html.dark .postContainer {
-    background-color: #2d2785;
-  }
-
-  html.dark .postContainer:hover {
-    background-color: #4640a6;
-  }
-
-  dt {
-    font-weight: 700;
-    font-size: 1.55rem;
-    color: #4c1c95;
-    margin-inline-start: 0px;
-  }
-
-  dd {
-    color: rgb(70, 80, 70);
-    margin-inline-start: 0px;
-    font-style: oblique;
-  }
-
-  html.dark dt {
-    font-weight: 700;
-    color: rgb(251, 173, 31);
-  }
-
-  html.dark dd {
-    color: #dedede;
-    font-style: oblique;
-  }
-  @media (prefers-reduced-motion: reduce) {
     .postContainer {
-      transition: none; /* Remove transitions */
+      display: flex;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      flex-direction: column;
+      background-color: rgb(235, 235, 235);
+      border-radius: 0.375rem;
+      min-height: 10rem;
+      transition: all 0.25s ease;
+    }
+
+    .postTime {
+      font-size: 0.9rem;
+    }
+
+    .postDesc {
+      flex-grow: 1;
+    }
+
+    .tagList {
+      font-weight: 200;
+      font-style: unset;
+      font-family: monospace;
+      justify-self: flex-end;
+    }
+
+    dt {
+      font-weight: 700;
+      font-size: 1.55rem;
+      color: #4c1c95;
+      margin-inline-start: 0px;
+    }
+
+    dd {
+      color: rgb(70, 80, 70);
+      margin-inline-start: 0px;
+      font-style: oblique;
+    }
+
+    html.dark dt {
+      color: rgb(251, 173, 31);
+    }
+
+    html.dark dd {
+      color: #dedede;
+    }
+
+    @keyframes gentle-rotate {
+      0% {
+        transform: rotate(-0.3deg);
+      }
+      50% {
+        transform: rotate(0.3deg);
+      }
+      100% {
+        transform: rotate(-0.3deg);
+      }
+    }
+
+    @media screen and (min-width: 687px) {
+      .titleAndDate {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      .postTime {
+        margin-bottom: 5px;
+      }
     }
 
     .postContainer:hover {
-      scale: none;
-      transition: all 1.25s ease;
-      animation: none;
+      background-color: rgb(225, 245, 225);
+      scale: 102%;
+      animation: gentle-rotate 2.45s infinite ease;
     }
 
     .postContainer:active {
-      scale: none;
+      scale: 98%;
     }
-  }
-</style>
+
+    html.dark .postContainer {
+      background-color: #2d2785;
+    }
+
+    html.dark .postContainer:hover {
+      background-color: #4640a6;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .postContainer {
+        transition: none; /* Remove transitions */
+      }
+
+      .postContainer:hover {
+        scale: none;
+        transition: all 1.25s ease;
+        animation: none;
+      }
+
+      .postContainer:active {
+        scale: none;
+      }
+    }
+  </style>
+</a>

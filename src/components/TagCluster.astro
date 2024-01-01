@@ -1,12 +1,10 @@
 ---
-import { getCollection } from "astro:content";
-const allPosts = await getCollection("posts");
-const allTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const { tags } = Astro.props;
 ---
 
 <div class="tags">
   {
-    allTags.map((tag) => (
+    tags.map((tag) => (
       <p class="tag">
         <a href={`/tags/${tag}`}>{tag?.toLowerCase()}</a>
       </p>

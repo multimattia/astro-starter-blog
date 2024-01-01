@@ -19,6 +19,7 @@ const pageTitle = "Blog";
       {
         allPosts.map((post) => (
           <BlogListing
+            post={post}
             url={`/posts/${post.slug}/`}
             title={post.data.title}
             description={post.data.description}
