@@ -8,6 +8,8 @@ html {
 
 h1 {
   letter-spacing: -1.8px;
+  line-height: 1.2;
+  padding-top: 0px;
 }
 
 html.dark {
@@ -38,6 +40,9 @@ li {
 }
 
 @media screen and (min-width: 687px) {
+  h1 {
+    padding-top: 15px;
+  }
   body {
     font-size: 1.25em;
     padding: 0 1rem 1rem 1rem;
