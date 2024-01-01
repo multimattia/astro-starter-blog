@@ -18,26 +18,22 @@ const { pageTitle, highlightedTab } = Astro.props;
     <Header activeLink={highlightedTab} />
     <div class="content">
       <slot />
-      <script>
-        document.querySelector(".hamburger")?.addEventListener("click", () => {
-          document.querySelector(".nav-links")?.classList.toggle("expanded");
-          document
-            .querySelector(".icon-container")
-            ?.classList.toggle("expanded");
-        });
-      </script>
     </div>
     <footer>
       <Footer />
     </footer>
-    <style>
-      .content {
-        flex: 1 0 auto;
-        margin-top: 60px;
-      }
-      .footer {
-        flex-shrink: 0;
-      }
-    </style>
+    <script>
+      document.querySelector(".hamburger")?.addEventListener("click", () => {
+        document.querySelector(".nav-links")?.classList.toggle("expanded");
+        document.querySelector(".icon-container")?.classList.toggle("expanded");
+      });
+    </script>
   </body>
 </html>
+
+<style>
+  .content {
+    flex: 1 0 auto;
+    margin-top: 60px;
+  }
+</style>

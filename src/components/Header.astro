@@ -5,21 +5,19 @@ import ThemeIcon from "@components/ThemeIcon.astro";
 const { activeLink } = Astro.props;
 ---
 
-<header>
-  <nav>
-    <div class="header">
-      <span class="container">
-        <span class="hamburger">
-          <Hamburger />
-        </span>
-        <Navigation activeLink={activeLink} />
-        <span class="icon-container">
-          <ThemeIcon />
-        </span>
+<nav>
+  <div class="header">
+    <span class="container">
+      <span class="hamburger">
+        <Hamburger />
       </span>
-    </div>
-  </nav>
-</header>
+      <Navigation activeLink={activeLink} />
+      <span class="icon-container">
+        <ThemeIcon />
+      </span>
+    </span>
+  </div>
+</nav>
 
 <style>
   .container {
