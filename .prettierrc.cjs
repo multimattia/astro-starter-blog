@@ -1,9 +1,12 @@
 /**
  * @type {import('prettier').Options}
  */
-module.exports = {
-  plugins: [require.resolve("prettier-plugin-astro")],
 
+/** @type {import("prettier").Config} */
+
+const config = {
+  plugins: [require.resolve("prettier-plugin-astro")],
+  wordWrap: "always",
   overrides: [
     {
       files: "**/*.astro",
@@ -11,3 +14,5 @@ module.exports = {
     },
   ],
 };
+
+modules.exports = config;
