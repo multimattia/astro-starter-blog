@@ -17,6 +17,7 @@ import BaseLayout from "./BaseLayout.astro";
   .astro-code {
     padding: 10px;
   }
+
   div.content p,
   h1,
   h2,
@@ -25,12 +26,20 @@ import BaseLayout from "./BaseLayout.astro";
   li,
   ul {
     font-family: Palatino, "Times New Roman", Times, serif;
-    /* font-family: "Lucida Grande", "Lucida Sans Unicode", "GNU Unifont", Verdana,
-      Helvetica, sans-serif; */
   }
 
-  p:nth-child(1) {
+  .content p:nth-child(3) {
     padding-top: 20px;
+  }
+
+  .content p:nth-child(3)::first-letter {
+    float: left;
+    font-family: Georgia;
+    font-size: 75px;
+    line-height: 60px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
   }
 
   p {
@@ -50,7 +59,6 @@ import BaseLayout from "./BaseLayout.astro";
   h2,
   h3,
   h4,
-  h5,
   h6 {
     margin-top: 2em;
     margin-bottom: 1em;
@@ -69,7 +77,7 @@ import BaseLayout from "./BaseLayout.astro";
     font-family: monospace;
   }
 
-  .date-container > p {
+  .date-container > h5 {
     margin: 0;
     margin-left: 0.2rem;
     min-width: 15ch;
