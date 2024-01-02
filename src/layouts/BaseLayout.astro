@@ -11,19 +11,14 @@ const { pageTitle, highlightedTab } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Personal website for software developer Matt Chan. Features a blog and some short stories."
+    />
     <title>{pageTitle} | Matt C</title>
   </head>
   <body>
     <Header activeLink={highlightedTab} />
-    <div class="content">
-      <slot />
-    </div>
+    <slot />
   </body>
 </html>
-
-<style>
-  .content {
-    flex: 1 0 auto;
-    margin-top: 60px;
-  }
-</style>

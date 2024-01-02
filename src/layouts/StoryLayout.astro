@@ -14,11 +14,15 @@ import BaseLayout from "./BaseLayout.astro";
 </BaseLayout>
 
 <style is:inline>
-  .astro-code {
-    padding: 10px;
+  p {
+    margin: 0;
   }
 
-  div.content p,
+  p + p {
+    text-indent: 3ch;
+  }
+
+  p,
   h1,
   h2,
   h3,
@@ -28,11 +32,11 @@ import BaseLayout from "./BaseLayout.astro";
     font-family: Palatino, "Times New Roman", Times, serif;
   }
 
-  .content p:nth-child(3) {
+  p:nth-child(4) {
     padding-top: 20px;
   }
 
-  .content p:nth-child(3)::first-letter {
+  p:nth-child(4)::first-letter {
     float: left;
     font-family: Georgia;
     font-size: 3.6rem;
@@ -51,81 +55,19 @@ import BaseLayout from "./BaseLayout.astro";
     }
   }
 
-  p {
-    margin: 0;
-  }
-
-  p + p {
-    text-indent: 3ch;
-  }
-
-  hr {
-    border: none;
-    margin-bottom: 2em;
-  }
-
   h1 + h1,
   h2,
   h3,
   h4,
   h6 {
-    margin-top: 2em;
-    margin-bottom: 1em;
+    padding-top: 2em;
+    padding-bottom: 1em;
   }
 </style>
 
 <style>
-  .tag-and-date-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .field {
     font-family: monospace;
-  }
-
-  .date-container > h5 {
     margin: 0;
-    margin-left: 0.2rem;
-    min-width: 15ch;
-  }
-
-  a {
-    font-family: monospace;
-  }
-
-  html.dark a {
-    color: var(--color-night-deemp);
-  }
-
-  .indicator {
-    color: var(--color-light-deemp);
-    font-style: italic;
-    font-family: monospace;
-    margin-bottom: 2px;
-  }
-
-  html.dark .indicator {
-    color: var(--color-night-deemp);
-  }
-
-  .tag {
-    margin: 0.25em;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 0.85em;
-    background-color: var(--color-light-listing-bg);
-  }
-
-  .tags {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  html.dark .tag {
-    background-color: var(--color-night-listing-bg);
   }
 </style>

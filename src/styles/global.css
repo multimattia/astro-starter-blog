@@ -23,6 +23,7 @@
 }
 
 * {
+  min-width: 0;
   box-sizing: border-box;
   transition:
     color,
@@ -34,7 +35,6 @@ html {
   font-family: "Lexend Variable", sans-serif;
   font-display: optional;
   font-weight: 350;
-  height: 100%;
 }
 
 html.dark {
@@ -45,43 +45,43 @@ html.dark {
 body {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   width: 100%;
   height: 100%;
   max-width: 750px;
-  padding: 1rem;
   line-height: 1.8;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 h1 {
   letter-spacing: -1.8px;
+  margin-top: 0;
   line-height: 1.2;
-  margin: 1rem 0;
   font-size: 2.5rem;
   color: black;
-  padding-top: 0px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  margin: 0 0 0.5rem 0;
+}
+
+p,
+li {
+  letter-spacing: 0.25px;
 }
 
 @media screen and (min-width: 687px) {
-  h1 {
-    padding-top: 15px;
-  }
   body {
     font-size: 1.25em;
-    padding: 0 1rem 1rem 1rem;
   }
 }
 
 html.dark h1 {
   color: #fff;
-}
-
-p {
-  letter-spacing: 0.25px;
-}
-
-li {
-  letter-spacing: 0.25px;
 }
 
 a {
@@ -119,8 +119,4 @@ html.dark a:hover {
 
 .active {
   text-decoration: underline;
-}
-
-p:last-child {
-  margin-bottom: 8rem;
 }

@@ -48,11 +48,6 @@ const linkList = [
     text-underline-offset: 5px;
   }
 
-  html.dark .nav-links a:hover,
-  html.dark .nav-links a:focus {
-    background-color: var(--color-night-a-highlight);
-  }
-
   html.dark .nav-links a {
     color: white;
   }
@@ -60,9 +55,8 @@ const linkList = [
   .expanded {
     display: block;
     max-width: 50%;
+    align-self: flex-start;
     flex-grow: 1;
-    margin-top: 200px;
-    margin-right: 20px;
     background-color: var(--color-light-bg);
     border-radius: 5px;
     transition: all 0.2s cubic-bezier(0.44, 0.21, 0, 1);
@@ -78,23 +72,17 @@ const linkList = [
     .nav-links {
       display: block;
       top: 0px;
-      width: auto;
       min-width: 81%;
-      background: none;
       flex-grow: 1;
     }
 
     .nav-links a {
       display: inline-block;
-      margin: 0 3px;
+      margin: 0 0.2rem;
     }
 
     .nav-links a:nth-child(1) {
       margin-left: 0;
-    }
-
-    .expanded {
-      box-shadow: unset;
     }
   }
 </style>

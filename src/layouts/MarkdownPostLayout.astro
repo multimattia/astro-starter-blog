@@ -65,16 +65,11 @@ import BaseLayout from "./BaseLayout.astro";
     text-align: right;
     align-self: flex-end;
     margin-bottom: 0.5rem;
-    margin-right: 0.5rem;
   }
 
   .date-container > p {
     margin: 0;
     min-width: 15ch;
-  }
-
-  a {
-    font-family: monospace;
   }
 
   html.dark a {
@@ -83,27 +78,24 @@ import BaseLayout from "./BaseLayout.astro";
 
   .indicator {
     color: var(--color-light-deemp);
-    font-style: italic;
     font-family: monospace;
-    margin-bottom: 2px;
   }
 
   html.dark .indicator {
     color: var(--color-night-deemp);
   }
 
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .tag {
-    margin: 0.25em;
-    border-radius: 0.5em;
+    margin: 0.25em 0.25em 0.25em 0em;
+    border-radius: 7px;
     padding: 0.5em 1em;
     font-size: 0.85em;
     background-color: var(--color-light-listing-bg);
-  }
-
-  .tags {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
   }
 
   html.dark .tag {
