@@ -27,7 +27,7 @@ const { posts } = Astro.props;
 
 <BaseLayout pageTitle={tag} highlightedTab="Tags">
   <h1>Posts tagged with <code>{tag}</code></h1>
-  <a href="/tags">Back to tags</a>
+  <a href="/blog">Back to blog</a>
   <dl>
     {posts.map((post) => <BlogListing post={post} />)}
   </dl>

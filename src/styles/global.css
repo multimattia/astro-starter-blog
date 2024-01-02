@@ -26,7 +26,7 @@
   box-sizing: border-box;
   transition:
     color,
-    background-color 0.25s ease;
+    background-color 0.25s cubic-bezier(0.44, 0.21, 0, 1);
 }
 
 html {
@@ -85,7 +85,7 @@ li {
 }
 
 a {
-  transition: all 0.1s ease;
+  transition: all 0.1s cubic-bezier(0.44, 0.21, 0, 1);
   text-decoration: underline;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
