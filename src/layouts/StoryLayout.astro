@@ -35,11 +35,20 @@ import BaseLayout from "./BaseLayout.astro";
   .content p:nth-child(3)::first-letter {
     float: left;
     font-family: Georgia;
-    font-size: 75px;
-    line-height: 60px;
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-left: 3px;
+    font-size: 3.6rem;
+    line-height: 2.9rem;
+    margin-top: 0.15rem;
+    padding-right: 0.35rem;
+    padding-left: 0.15rem;
+  }
+
+  @media screen and (min-width: 687px) {
+    .content p:nth-child(3)::first-letter {
+      font-size: 4.5rem;
+      line-height: 3rem;
+      margin-top: 0.55rem;
+      padding-right: 0.55rem;
+    }
   }
 
   p {
