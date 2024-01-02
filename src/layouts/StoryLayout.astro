@@ -1,0 +1,114 @@
+---
+const { frontmatter } = Astro.props;
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout pageTitle="Fiction" highlightedTab="Fiction">
+  <h1>{frontmatter.title}</h1>
+  <span class="date-container">
+    <h5 class="field">
+      {frontmatter.pubDate.toString().slice(4, 15)}
+    </h5>
+  </span>
+  <slot />
+</BaseLayout>
+
+<style is:inline>
+  .astro-code {
+    padding: 10px;
+  }
+  div.content p,
+  h1,
+  h2,
+  h3,
+  h4,
+  li,
+  ul {
+    font-family: Palatino, "Times New Roman", Times, serif;
+    /* font-family: "Lucida Grande", "Lucida Sans Unicode", "GNU Unifont", Verdana,
+      Helvetica, sans-serif; */
+  }
+
+  p:nth-child(1) {
+    padding-top: 20px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  p + p {
+    text-indent: 3ch;
+  }
+
+  hr {
+    border: none;
+    margin-bottom: 2em;
+  }
+
+  h1 + h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+</style>
+
+<style>
+  .tag-and-date-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .field {
+    font-family: monospace;
+  }
+
+  .date-container > p {
+    margin: 0;
+    margin-left: 0.2rem;
+    min-width: 15ch;
+  }
+
+  a {
+    font-family: monospace;
+  }
+
+  html.dark a {
+    color: var(--color-night-deemp);
+  }
+
+  .indicator {
+    color: var(--color-light-deemp);
+    font-style: italic;
+    font-family: monospace;
+    margin-bottom: 2px;
+  }
+
+  html.dark .indicator {
+    color: var(--color-night-deemp);
+  }
+
+  .tag {
+    margin: 0.25em;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 0.85em;
+    background-color: var(--color-light-listing-bg);
+  }
+
+  .tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  html.dark .tag {
+    background-color: var(--color-night-listing-bg);
+  }
+</style>

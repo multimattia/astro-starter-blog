@@ -1,8 +1,8 @@
 ---
-const { post } = Astro.props;
+const { post, url } = Astro.props;
 ---
 
-<a draggable="false" href={`/posts/${post.slug}/`}>
+<a draggable="false" href={url}>
   <div class="postContainer">
     <span class="titleAndDate">
       <dt class="postTitle">{post.data.title}</dt>

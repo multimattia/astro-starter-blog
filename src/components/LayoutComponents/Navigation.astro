@@ -1,0 +1,100 @@
+---
+const { activeLink } = Astro.props;
+const linkList = [
+  ["Home", "/"],
+  ["About", "/about"],
+  ["Blog", "/blog"],
+  ["Fiction", "/fiction"],
+];
+---
+
+<div class="nav-links">
+  {
+    linkList.map((link) => (
+      <a
+        href={link[1]}
+        style={
+          activeLink.toLowerCase() === link[0].toLowerCase()
+            ? "text-decoration:underline; text-decoration-thickness: 4px; text-underline-offset: 5px;"
+            : ""
+        }
+      >
+        {link[0]}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links a {
+    display: block;
+    text-align: center;
+    padding: 0.6rem 0.5rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    letter-spacing: -1.2px;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 5px;
+  }
+
+  html.dark .nav-links a:hover,
+  html.dark .nav-links a:focus {
+    background-color: var(--color-night-a-highlight);
+  }
+
+  html.dark .nav-links a {
+    color: white;
+  }
+
+  .expanded {
+    display: block;
+    max-width: 50%;
+    flex-grow: 1;
+    margin-top: 200px;
+    margin-right: 20px;
+    background-color: var(--color-light-bg);
+    border-radius: 5px;
+    transition: all 0.2s cubic-bezier(0.44, 0.21, 0, 1);
+    box-shadow: var(--shadow-light-elevation-medium);
+  }
+
+  html.dark .expanded {
+    background-color: var(--color-night-bg);
+    box-shadow: unset;
+  }
+
+  @media screen and (min-width: 686px) {
+    .nav-links {
+      display: block;
+      top: 0px;
+      width: auto;
+      min-width: 81%;
+      background: none;
+      flex-grow: 1;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      margin: 0 3px;
+    }
+
+    .nav-links a:nth-child(1) {
+      margin-left: 0;
+    }
+
+    .expanded {
+      box-shadow: unset;
+    }
+  }
+</style>
