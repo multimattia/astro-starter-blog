@@ -30,14 +30,14 @@ const { text, hover } = Astro.props;
     display: none;
     font-size: 0.8rem;
     z-index: 100;
-    padding: 0.7rem 1rem;
+    padding: 0.55rem 0.6rem;
     border-radius: 4px;
   }
 
   html.dark .tooltip {
     background-color: var(--color-night-bg);
     box-shadow: var(--shadow-night-elevation-medium);
-    border: 1px solid var(--color-night-a);
+    border: 1px solid var(--color-night-listing-hl);
   }
 
   .tooltipArea:hover .tooltip {
@@ -46,6 +46,9 @@ const { text, hover } = Astro.props;
   }
 
   @media screen and (min-width: 687px) {
+    .tooltip {
+      padding: 0.55rem 1rem;
+    }
     .text,
     .asterisk,
     .tooltip {
