@@ -12,10 +12,13 @@
   --color-light-listing-hl: rgb(225, 245, 225);
   --color-light-deemp: #757474;
 
-  --color-night-bg: #0d0950;
-  --color-night-a: rgb(251, 173, 31);
-  --color-night-a-visited: rgb(248, 209, 100);
-  --color-night-a-highlight: rgb(204, 5, 201);
+  /* --color-night-bg: #0d0950; */
+  /* --color-night-a: rgb(251, 173, 31);
+  --color-night-a-visited: rgb(248, 209, 100); */
+  --color-night-bg: #121046;
+  --color-night-a: rgb(253, 219, 156);
+  --color-night-a-visited: rgb(228, 226, 220);
+  --color-night-a-highlight: rgb(148, 23, 146);
   --color-night-text: #ececec;
   --color-night-listing-bg: #2d2785;
   --color-night-listing-hl: #4640a6;
@@ -32,7 +35,7 @@
 
 html {
   background-color: var(--color-light-bg);
-  font-family: "Lexend Variable", sans-serif;
+  font-family: "Lexend Variable", Helvetica, sans-serif;
   font-display: optional;
   font-weight: 350;
 }
