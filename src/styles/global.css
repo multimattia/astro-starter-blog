@@ -3,6 +3,10 @@
   --shadow-light-elevation-medium: 0px 0.3px 0.4px
       hsl(var(--shadow-light-color) / 0.62),
     0px 5.7px 6.7px -2.2px hsl(var(--shadow-light-color) / 0.71);
+  --shadow-night-color: 243deg 94% 6%;
+  --shadow-night-elevation-medium: 0px 0.2px 0.2px
+      hsl(var(--shadow-night-color) / 0.86),
+    0.1px 4px 4.3px -2.8px hsl(var(--shadow-night-color) / 0.75);
   --color-light-bg: #f1f5f9;
   --color-light-a: #4c1c95;
   --color-light-a-visited: #6e3db7;

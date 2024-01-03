@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import "../styles/global.css";
+import Tooltip from "@components/pizazz/Tooltip.astro";
 
 const pageTitle = "About";
 ---
@@ -17,16 +18,31 @@ const pageTitle = "About";
   <p>
     I've designed, developed, configured, and deployed everything from:
     <ul>
+      <li>
+        Automation and consolidation of post purchase operations between
+        multiple SaaS <Tooltip
+          text="products"
+          hover="Stripe, Monday.com, Zapier, Bubble.io, Kajabi, Slack"
+        />
+      </li>
+      <li>
+        Marketing and e-commerce websites with Stripe and <Tooltip
+          text="Wix"
+          hover="Yes, this WAS the right tool for the job 😬"
+        />
+      </li>
       <li>Nginx reverse-proxies and websites with Oracle's cloud solution</li>
       <li>
-        (lightly) modded Minecraft servers on the cloud (again, on Oracle Cloud.
-        Why? Their free tier is generous)
+        Modded Minecraft servers on the cloud (also on <Tooltip
+          text="Oracle"
+          hover="Their free tier is generous -- 4 cores and 24 gigs of ram!"
+        />)
       </li>
-      <li>literally-on-demand streaming services</li>
+      <li>Literally-on-demand streaming services</li>
       <li>
-        programmable Playwright testing suite (before the real one came along!)
+        A programmable Playwright testing suite (before the real one came
+        along!)
       </li>
-      <li>marketing and e-commerce websites</li>
     </ul>
   </p>
   <p>

@@ -1,0 +1,55 @@
+---
+const { text, hover } = Astro.props;
+---
+
+<span class="tooltipArea">
+  <span class="text">{text}</span>
+  <span class="asterisk">*{" "}</span>
+  <span class="tooltip">{hover}</span>
+</span>
+
+<style>
+  .asterisk {
+    color: red;
+  }
+
+  .text,
+  .asterisk {
+    font-size: 1rem;
+  }
+
+  .tooltipArea {
+    font-size: 0;
+  }
+
+  .tooltip {
+    color: var(--color-light-text);
+    background-color: var(--color-light-bg);
+    box-shadow: var(--shadow-light-elevation-medium);
+    line-height: 1.4;
+    display: none;
+    font-size: 0.8rem;
+    z-index: 100;
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+  }
+
+  html.dark .tooltip {
+    background-color: var(--color-night-bg);
+    box-shadow: var(--shadow-night-elevation-medium);
+    border: 1px solid var(--color-night-a);
+  }
+
+  .tooltipArea:hover .tooltip {
+    display: inline-block;
+    position: absolute;
+  }
+
+  @media screen and (min-width: 687px) {
+    .text,
+    .asterisk,
+    .tooltip {
+      font-size: 1.25rem;
+    }
+  }
+</style>
