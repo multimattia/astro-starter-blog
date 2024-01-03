@@ -32,3 +32,10 @@ const { posts } = Astro.props;
     {posts.map((post) => <BlogListing post={post} />)}
   </dl>
 </BaseLayout>
+
+<style>
+  a {
+    align-self: flex-start;
+    margin-bottom: 1.5rem;
+  }
+</style>
