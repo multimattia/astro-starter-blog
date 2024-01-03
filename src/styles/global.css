@@ -51,6 +51,11 @@ body {
   line-height: 1.8;
   margin: 0 auto;
   padding: 0 1.5rem;
+  overflow-y: scroll;
+  hyphens: auto;
+  @supports (scrollbar-gutter: stable) {
+    scrollbar-gutter: stable;
+  }
 }
 
 h1 {
