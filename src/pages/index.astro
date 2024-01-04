@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Footer from "../components/LayoutComponents/Footer.astro";
+import Tooltip from "@components/pizazz/Tooltip.astro";
 const pageTitle = "Home";
 ---
 
@@ -8,16 +9,15 @@ const pageTitle = "Home";
   <h1>Welcome!</h1>
   <p>
     Hi! I'm <a href="https://www.linkedin.com/in/matthew-chan-skid23/"
-      >Matt Chan</a
-    > (he/they). I'm a Skidmore College graduate (2023): CS major and English
-    minor. I'm a software developer and part-time writer of both fiction and
-    non-fiction. My current focus is on <b>full-stack web development</b>!
+      >Matt Chan.</a
+    >
+     I'm a software developer and part-time writer. My current focus is on
+    full-stack web development!
   </p>
-
   <p>
-    Full stack can mean a lot of things to a lot of people. Here's what "full
-    stack" means to me: I'm willing to learn from the bottom-up. In the case of
-    the web — where the term "full-stack" is most often used — that means
+    Full stack can mean a lot of things to a lot of people. Here's what it means
+    to me: I'm willing to learn from the bottom-up. In the case of the web —
+    where the term "full-stack" is most often used — that means having an
     understanding of the protocols on which the internet is built on.
   </p>
 
@@ -30,23 +30,26 @@ const pageTitle = "Home";
 
   <p>
     Now, I get that a site built on a <a href="https://astro.build"
-      >framework-of-frameworks</a
-    > on a <a href="https://pages.cloudflare.com/">globally distributed CDN</a>
-     isn't especially bottom-up... And you'd be right! If you want bottom up
-    from me, visit
+      >meta-framework</a
+    >, hosted on a <a href="https://pages.cloudflare.com/">CDN</a>
+     isn't especially bottom-up. And you'd be right. If you want bottom up from
+    me, visit
     <a href="https://mc.maatwo.com">mc.maatwo.com</a>, either with your web
-    browser or a certain video game associated with port number 25565 😏
+    browser, or using a certain video game associated with port number 25565 😏
   </p>
 
   <p>
-    This website is a place of <a
+    This website is a space of <a
       href="https://github.com/multimattia/astro-starter-blog/commits/main/"
-      >constant iteration and experimentation</a
+      >constant iteration</a
     >. Although "move fast and break things" might not be the wisest choice in
-    production, I feel that it's more than a valid way to learn. As such, things
-    might not always be working as intended. Take care to not trip over
-    something while you're in my little corner of the internet! I hope you enjoy
-    your stay :)
+    production, I feel that it's a valid <Tooltip
+      text="way"
+      hover="The best way."
+    />
+     to learn. As such, things may not always be working as intended. Take care
+    to not trip over something while you're in my small corner of the internet
+    :)
   </p>
   <Footer />
 </BaseLayout>
