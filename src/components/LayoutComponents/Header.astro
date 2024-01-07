@@ -5,7 +5,7 @@ import ThemeIconAndToggle from "@components/LayoutComponents/ThemeIconAndToggle.
 const { activeLink } = Astro.props;
 ---
 
-<nav>
+<nav id="mainNav">
   <span class="hamburger">
     <Hamburger />
   </span>
@@ -14,11 +14,39 @@ const { activeLink } = Astro.props;
     <ThemeIconAndToggle />
   </span>
 </nav>
+
 <script>
   document.querySelector(".hamburger")?.addEventListener("click", () => {
     document.querySelector(".nav-links")?.classList.toggle("expanded");
     document.querySelector(".icon-container")?.classList.toggle("expanded");
   });
+  let lastScrollTop = 0;
+  const navBar = document.getElementById("mainNav");
+
+  const debounce = (callback, wait) => {
+    console.log("debounce fired?");
+    let timeoutId = null;
+
+    return (...args) => {
+      window.clearTimeout(timeoutId);
+
+      timeoutId = window.setTimeout(() => {
+        callback.apply(null, args);
+      }, wait);
+    };
+  };
+
+  const handleScroll = () => {
+    let currentScroll = window.scrollY || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop) {
+      navBar?.classList.add("hidden");
+    } else {
+      navBar?.classList.remove("hidden");
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  };
+
+  window.addEventListener("scroll", debounce(handleScroll, 50));
 </script>
 
 <style>
@@ -36,6 +64,35 @@ const { activeLink } = Astro.props;
     justify-content: space-between;
     align-items: center;
     z-index: 101;
+    opacity: 1;
+    transition:
+      transform 0.45s cubic-bezier(0.44, 0.21, 0, 1),
+      opacity 0.25s cubic-bezier(0.44, 0.21, 0, 1);
+  }
+
+  .hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hidden: {
+      transform: none;
+    }
+
+    .postContainer {
+      transition: none; /* Remove transitions */
+    }
+
+    .postContainer:hover {
+      scale: none;
+      transition: all 0.25s cubic-bezier(1.44, 0.21, 0, 1);
+      animation: none;
+    }
+
+    .postContainer:active {
+      scale: none;
+    }
   }
 
   @media screen and (min-width: 687px) {
