@@ -2,7 +2,7 @@
 const { post, url } = Astro.props;
 ---
 
-<a draggable="false" href={url}>
+<a draggable="false" href={`posts/${post.slug}/`}>
   <div class="postContainer">
     <span class="titleAndDate">
       <dt class="postTitle">{post.data.title}</dt>
