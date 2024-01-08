@@ -23,15 +23,14 @@
   --color-night-listing-hl: #4640a6;
   --color-night-deemp: #e2e2e2;
   --base-margin: 0.5rem;
+  --improved-ease: cubic-bezier(0.44, 0.21, 0, 1);
 }
 
 * {
   min-width: 0;
   box-sizing: border-box;
   margin: 0;
-  transition:
-    color,
-    background-color 0.25s cubic-bezier(0.44, 0.21, 0, 1);
+  transition: color;
 }
 
 html {
@@ -97,7 +96,7 @@ html.dark h1 {
 }
 
 a {
-  transition: all 0.1s cubic-bezier(0.44, 0.21, 0, 1);
+  transition: all 0.1s var(--improved-ease);
   text-decoration: underline;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;

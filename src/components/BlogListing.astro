@@ -35,13 +35,13 @@ const { post, url } = Astro.props;
     background-color: var(--color-light-listing-bg);
     border-radius: 7px;
     min-height: 10rem;
-    transition: all 0.25s cubic-bezier(0.44, 0.21, 0, 1);
+    transition: all 0.25s var(--improved-ease);
   }
 
   .postContainer:hover {
     background-color: var(--color-light-listing-hl);
     scale: 102%;
-    animation: gentle-rotate 2.45s infinite cubic-bezier(0.44, 0.21, 0, 1);
+    animation: gentle-rotate 2.45s infinite var(--improved-ease);
   }
 
   .postContainer:active {
@@ -123,7 +123,7 @@ const { post, url } = Astro.props;
 
     .postContainer:hover {
       scale: none;
-      transition: all 0.25s cubic-bezier(1.44, 0.21, 0, 1);
+      transition: all 0.25s var(--improved-ease);
       animation: none;
     }
 
