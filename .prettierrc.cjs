@@ -5,12 +5,16 @@
 /** @type {import("prettier").Config} */
 
 const config = {
-  plugins: [require.resolve("prettier-plugin-astro")],
+  plugins: [require.resolve("prettier-plugin-astro"), "prettier-plugin-svelte"],
   wordWrap: "always",
   overrides: [
     {
-      files: "**/*.astro",
+      files: ["**/*.astro"],
       options: { parser: "astro" },
+    },
+    {
+      files: ["**/*.svelte"],
+      options: { parser: "svelte" },
     },
   ],
 };

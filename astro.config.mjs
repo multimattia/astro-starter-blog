@@ -1,6 +1,7 @@
 import { defineConfig, passthroughImageService } from "astro/config";
 import mdx from "@astrojs/mdx";
-// https://astro.build/config
+import svelte from "@astrojs/svelte";
+
 export default defineConfig({
   // image: {
   //   service: passthroughImageService(),
@@ -9,7 +10,7 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
   output: "static",
-  integrations: [mdx()],
+  integrations: [mdx(), svelte()],
   markdown: {
     shikiConfig: {
       theme: "dracula",
