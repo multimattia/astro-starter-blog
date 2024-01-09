@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogListing from "@components/BlogListing.astro";
+import type { Post } from "src/types";
 
 export const prerender = true;
 export async function getStaticPaths(): Promise<any> {
@@ -22,14 +23,14 @@ export async function getStaticPaths(): Promise<any> {
 }
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { posts }: { posts: Post[] } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag} highlightedTab="Tags">
   <h1>Posts tagged with <code>{tag}</code></h1>
   <a href="/blog">Back to blog</a>
   <dl>
-    {posts.map((post) => <BlogListing post={post} />)}
+    {posts.map((post: Post) => <BlogListing post={post} />)}
   </dl>
 </BaseLayout>
 
