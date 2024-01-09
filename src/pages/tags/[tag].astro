@@ -30,7 +30,7 @@ const { posts }: { posts: Post[] } = Astro.props;
   <h1>Posts tagged with <code>{tag}</code></h1>
   <a href="/blog">Back to blog</a>
   <dl>
-    {posts.map((post: Post) => <BlogListing post={post} />)}
+    {posts.map((post: Post) => <BlogListing post={post} url={`/posts/${post.slug}/`}/>)}
   </dl>
 </BaseLayout>
 

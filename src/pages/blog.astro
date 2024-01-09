@@ -19,6 +19,6 @@ const pageTitle = "Blog";
   <TagCluster tags={tags} />
   <h2>Posts:</h2>
   <dl>
-    {allPosts.reverse().map((post) => <BlogListing post={post} />)}
+    {allPosts.reverse().map((post) => <BlogListing post={post} url={`/posts/${post.slug}/`}/>)}
   </dl>
 </BaseLayout>
