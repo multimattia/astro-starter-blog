@@ -29,6 +29,24 @@ import Counter from "@components/pizazz/Counter.svelte";
     </span>
   </div>
   <slot />
+  <div class="ghclight">
+    <script src="https://giscus.app/client.js"
+          data-repo="multimattia/astro-starter-blog"
+          data-repo-id="R_kgDOK7t-Zg"
+          data-category="Comments"
+          data-category-id="DIC_kwDOK7t-Zs4CcUQN"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="0"
+          loading="lazy"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+    </script>
+  </div>
 </BaseLayout>
 
 <style is:inline>
@@ -86,6 +104,17 @@ import Counter from "@components/pizazz/Counter.svelte";
   .date-container > p {
     margin: 0;
     min-width: 15ch;
+  }
+
+  .ghclight {
+    background-color: var(--color-light-listing-bg);
+    margin-top: 2rem;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 7px;
+  }
+
+  html.dark .ghclight {
+    border-radius: 7px;
   }
 
   html.dark a {
