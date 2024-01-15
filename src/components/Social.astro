@@ -3,29 +3,3 @@ const { text, link } = Astro.props;
 ---
 
 <a class="linkButton" href={link} target="_blank">{text}</a>
-
-<style>
-  .linkButton {
-    padding: 0.2rem 1rem;
-    background-color: var(--color-light-listing-bg);
-    max-width: 100px;
-    text-align: center;
-    border-radius: 5px;
-    border: none;
-    text-decoration: none;
-  }
-
-  .linkButton:hover {
-    background-color: var(--color-light-listing-hl);
-    color: var(--color-light-a);
-  }
-
-  html.dark .linkButton {
-    background-color: var(--color-night-listing-bg);
-    color: var(--color-night-deemp);
-  }
-
-  html.dark .linkButton:hover {
-    background-color: var(--color-night-listing-hl);
-  }
-</style>
