@@ -19,7 +19,44 @@ const { pageTitle, highlightedTab } = Astro.props;
     <title>{pageTitle} | Matt C</title>
   </head>
   <body>
-    <Header activeLink={highlightedTab} />
-    <slot />
+    <div class="blur-top"></div>
+    <div class="website">
+      <Header activeLink={highlightedTab} />
+      <slot />
+    </div>
+    <div class="blur-bottom"></div>
   </body>
 </html>
+
+<style>
+  .blur-top {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgb(241, 245, 249, 1) 0%, rgba(0,212,255,0) 78%);
+    width: 100%;
+    height: 40px;
+    z-index: 200;
+  }
+  html.dark .blur-top {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,212,255,0) 78%);
+  }
+
+  .blur-bottom {
+    pointer-events: none;
+    position: fixed;
+    bottom: 0;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgb(241, 245, 249, 1) 0%, rgba(0,212,255,0) 78%);
+    width: 100%;
+    height: 40px;
+    z-index: 200;
+  }
+
+  html.dark .blur-bottom {
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,212,255,0) 78%);
+  }
+</style>

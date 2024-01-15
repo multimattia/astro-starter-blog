@@ -45,7 +45,7 @@ html.dark {
   color: var(--color-night-text);
 }
 
-body {
+.website {
   position: relative;
   min-height: calc(100vh - 89px);
   display: flex;
