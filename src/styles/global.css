@@ -46,6 +46,8 @@ html.dark {
 }
 
 body {
+  position: relative;
+  min-height: calc(100vh - 89px);
   display: flex;
   flex-direction: column;
   width: 100%;
