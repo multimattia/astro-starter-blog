@@ -17,11 +17,16 @@ import Social from "@components/Social.astro";
     align-items: center;
     margin: 3rem auto 0 auto;
     max-width: 750px;
-    position: absolute;
-    bottom: 0;
     text-align: center;
     min-width: calc(100% - 40px);
   }
+
+@media screen and (min-width: 687px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
+}
 
   p {
     color: var(--color-light-deemp);
