@@ -1,8 +1,25 @@
 <script>
   import { onMount, onDestroy } from "svelte";
+  export let blogTitle;
   let isDarkMode = false;
+  let count = "loading...";
+  // const endpoint = `http://localhost:8787/blog/${slugify(blogTitle)}`;
+  const endpoint = `https://blog-api.matthewhongkong20.workers.dev/blog/${slugify(
+    blogTitle,
+  )}`;
 
-  onMount(() => {
+  function slugify(str) {
+    return String(str)
+      .normalize("NFKD") // split accented characters into their base characters and diacritical marks
+      .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
+      .trim() // trim leading or trailing whitespace
+      .toLowerCase() // convert to lowercase
+      .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
+      .replace(/\s+/g, "-") // replace spaces with hyphens
+      .replace(/-+/g, "-"); // remove consecutive hyphens
+  }
+
+  onMount(async () => {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === "class") {
@@ -10,18 +27,30 @@
         }
       });
     });
+    console.log(slugify(blogTitle));
 
     observer.observe(document.documentElement, { attributes: true });
+    const response = await fetch(endpoint);
+    if (response.ok) {
+      count = await response.json();
+      count = parseInt(count);
+    } else {
+      console.error(`Error: ${response.status}`);
+    }
 
     return () => {
       observer.disconnect();
     };
   });
-  let count = 0;
 
-  function add() {
-    count += 1;
-    console.log("counting...");
+  async function add() {
+    const res = await fetch(`${endpoint}/1`, {
+      method: "POST",
+    });
+    if (res.ok) {
+      console.log(res);
+      count += 1;
+    }
   }
 </script>
 
@@ -46,7 +75,7 @@
     <span class="likeCounter">
       {count}
     </span>
-    <span class="likeCounter">all client-sided atm... have fun clicking!</span>
+    <span class="likeCounter"></span>
   </div>
 </div>
 
@@ -88,8 +117,6 @@
     border: none;
     border-radius: 50%;
     background-color: var(--color-light-bg);
-    transition: transform 0.1s var(--improved-ease);
-    cursor: pointer;
   }
 
   .dark button {
@@ -106,6 +133,7 @@
   }
 
   button:active {
-    transform: translateY(2px);
+    transform: translateY(3px);
+    transition: transform 0.17s ease-out;
   }
 </style>
