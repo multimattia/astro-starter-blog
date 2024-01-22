@@ -73,7 +73,7 @@ const { activeLink } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 101;
+    z-index: 400;
     opacity: 1;
     transition:
       transform 0.45s var(--improved-ease),
@@ -109,6 +109,7 @@ const { activeLink } = Astro.props;
     nav {
       height: 90px;
       max-width: 750px;
+      z-index: 100;
       justify-content: unset;
       position: sticky;
       background-color: var(--color-light-bg);

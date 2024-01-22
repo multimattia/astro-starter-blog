@@ -7,21 +7,21 @@
   --shadow-night-elevation-medium: 0px 0.2px 0.2px
       hsl(var(--shadow-night-color) / 0.86),
     0.1px 4px 4.3px -2.8px hsl(var(--shadow-night-color) / 0.75);
-  --color-light-bg: #f1f5f9;
-  --color-light-a: #4c1c95;
-  --color-light-a-visited: #6e3db7;
+  --color-light-bg: rgb(241, 245, 249);
+  --color-light-a: rgb(76, 28, 149);
+  --color-light-a-visited: rgb(110, 61, 183);
   --color-light-a-highlight: rgb(187, 252, 200);
   --color-light-listing-bg: rgb(235, 235, 235);
   --color-light-listing-hl: rgb(225, 245, 225);
-  --color-light-deemp: #757474;
-  --color-night-bg: #121046;
+  --color-light-deemp: rgb(117, 116, 116);
+  --color-night-bg: rgb(18, 16, 70);
   --color-night-a: rgb(253, 219, 156);
   --color-night-a-visited: rgb(228, 226, 220);
   --color-night-a-highlight: rgb(148, 23, 146);
-  --color-night-text: #ececec;
-  --color-night-listing-bg: #2d2785;
-  --color-night-listing-hl: #4640a6;
-  --color-night-deemp: #e2e2e2;
+  --color-night-text: rgb(236, 236, 236);
+  --color-night-listing-bg: rgb(45, 39, 133);
+  --color-night-listing-hl: rgb(70, 64, 166);
+  --color-night-deemp: rgb(226, 226, 226);
   --base-margin: 0.5rem;
   --improved-ease: cubic-bezier(0.44, 0.21, 0, 1);
 }
