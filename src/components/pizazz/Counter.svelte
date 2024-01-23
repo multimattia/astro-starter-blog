@@ -78,7 +78,7 @@
             />
           </svg>
         </button>
-        <span class="likeCounter" transition:blur style="position:absolute">
+        <span class="likeCounter" transition:blur>
           {count}
         </span>
         <span class="likeCounter"></span>
