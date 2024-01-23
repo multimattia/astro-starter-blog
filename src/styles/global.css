@@ -33,6 +33,22 @@
   transition: color;
 }
 
+html *::selection {
+  background: var(--color-light-a-highlight);
+}
+
+html.dark *::selection {
+  background: var(--color-night-a-highlight);
+}
+
+html *::-moz-selection {
+  background: var(--color-light-a-highlight);
+}
+
+html.dark *::-moz-selection {
+  background: var(--color-night-a-highlight);
+}
+
 html {
   font-family: "Lexend Variable", Helvetica, sans-serif;
   font-display: optional;
