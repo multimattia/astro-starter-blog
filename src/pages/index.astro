@@ -6,7 +6,7 @@ const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
-  <h1>Welcome!</h1>
+  <h1 class="type">Welcome!</h1>
   <p>
     Hi! I'm <a href="https://www.linkedin.com/in/matthew-chan-skid23/"
       >Matt Chan.</a
@@ -53,3 +53,18 @@ const pageTitle = "Home";
   </p>
   <Footer />
 </BaseLayout>
+
+<style>
+  .type {
+    width: 6.8ch;
+    animation: type var(--title-time) var(--improved-ease);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  @keyframes type {
+    0% {
+      width: 0;
+    }
+  }
+</style>

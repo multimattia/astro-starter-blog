@@ -24,6 +24,7 @@
   --color-night-deemp: rgb(226, 226, 226);
   --base-margin: 0.5rem;
   --improved-ease: cubic-bezier(0.44, 0.21, 0, 1);
+  --title-time: 0.5s;
 }
 
 * {
