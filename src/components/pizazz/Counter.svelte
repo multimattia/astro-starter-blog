@@ -91,7 +91,7 @@
 
 <style>
   .loadingBox {
-    height: 39px;
+    height: 40px;
   }
 
   .counter {
