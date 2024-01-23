@@ -1,33 +1,24 @@
-# Astro Starter Kit: Minimal
+# Matt's website/blog/portfolio
+
+Made with Astro, and currently using Svelte and Giscus for likes/comments.
+Initialize the development environment with:
 
 ```sh
-npm create astro@latest -- --template minimal
+pnpm install
+pnpm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+There are two Astro content collections in this project, located in src/content. Only the posts collection has support
+for likes/comments, but this should not be difficult to implement in the fiction collection if this is desired. The backend
+for likes is hosted on Cloudflare Worker KV. Some details of the implementation can be found in `Counter.svelte`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+To import components, please use import aliases as defined in tsconfig.json.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```js
+import Tooltip from "@components/pizazz/Tooltip.astro";
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+The `pizazz` directory is used for experimental components.
 
 ## 🧞 Commands
 
