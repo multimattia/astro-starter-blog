@@ -34,14 +34,14 @@
 }
 
 html {
-  background-color: var(--color-light-bg);
   font-family: "Lexend Variable", Helvetica, sans-serif;
   font-display: optional;
   font-weight: 350;
+  background-image: url('/noise.svg');
 }
 
 html.dark {
-  background-color: var(--color-night-bg);
+  background-image: url('/dnoise.svg');
   color: var(--color-night-text);
 }
 
