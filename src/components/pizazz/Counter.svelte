@@ -1,6 +1,6 @@
 <script>
   import { onMount, onDestroy } from "svelte";
-  import { fade } from "svelte/transition";
+  import { fade, blur } from "svelte/transition";
   export let blogTitle;
   let isDarkMode = false;
   let count = "loading...";
@@ -78,7 +78,7 @@
             />
           </svg>
         </button>
-        <span class="likeCounter">
+        <span class="likeCounter" transition:blur style="position:absolute">
           {count}
         </span>
         <span class="likeCounter"></span>
