@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import "../styles/global.css";
+import Tooltip from "@components/pizazz/Tooltip.astro";
+
+const pageTitle = "Resume";
+---
+
+<BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
+  <embed src="./MatthewChanResume.pdf" width="900" height="1150"
+  type="application/pdf">
+</BaseLayout>
