@@ -55,12 +55,12 @@ html {
   font-display: optional;
   font-weight: 350;
   background-color: var(--color-light-bg);
-  background-image: url('/noise.svg');
+  /* background-image: url('/noise.svg'); */
 }
 
 html.dark {
   background-color: var(--color-night-bg);
-  background-image: url('/dnoise.svg');
+  /* background-image: url('/dnoise.svg'); */
   color: var(--color-night-text);
 }
 
@@ -106,9 +106,6 @@ ul {
   body {
     font-size: 1.25em;
     overflow-y: scroll;
-    @supports (scrollbar-gutter: stable) {
-      scrollbar-gutter: stable;
-    }
   }
 }
 
