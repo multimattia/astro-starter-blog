@@ -6,6 +6,8 @@ const { activeLink } = Astro.props;
 ---
 
 <nav id="mainNav">
+  <div class="wrapper">
+
   <span class="hamburger">
     <Hamburger />
   </span>
@@ -13,12 +15,13 @@ const { activeLink } = Astro.props;
   <span class="icon-container">
     <ThemeIconAndToggle />
   </span>
+  </div>
 </nav>
 
 <script>
   document.querySelector(".hamburger")?.addEventListener("click", () => {
     document.querySelector(".nav-links")?.classList.toggle("expanded");
-    document.querySelector(".icon-container")?.classList.toggle("expanded");
+    // document.querySelector(".icon-container")?.classList.toggle("expanded");
   });
   let lastScrollTop = 0;
   const navBar = document.getElementById("mainNav");
@@ -68,7 +71,8 @@ const { activeLink } = Astro.props;
     top: 0;
     width: 100%;
     height: 71px;
-    background-color: none;
+    background-color: var(--color-light-bg);
+    box-shadow: var(--shadow-elevation-high);
     position: sticky;
     display: flex;
     justify-content: space-between;
@@ -78,6 +82,19 @@ const { activeLink } = Astro.props;
     transition:
       transform 0.45s var(--improved-ease),
       opacity 0.25s var(--improved-ease);
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  html.dark nav {
+    background-color: var(--color-night-bg);
+    box-shadow: var(--shadow-elevation-high-night);
   }
 
   .hidden {
@@ -106,19 +123,22 @@ const { activeLink } = Astro.props;
   }
 
   @media screen and (min-width: 687px) {
-    nav {
+    .wrapper {
+      width: 90%;
       height: 90px;
-      max-width: 750px;
-      z-index: 100;
-      justify-content: unset;
+      max-width: 770px;
       position: sticky;
-      /* background-image: url('/noise.svg'); */
+      justify-content: unset;
+    }
+    nav {
+      z-index: 100;
       background-color: var(--color-light-bg);
+      box-shadow: none;
     }
 
     html.dark nav {
-      /* background-image: url('/dnoise.svg'); */
       background-color: var(--color-night-bg);
+      box-shadow: none;
     }
   }
 </style>
