@@ -30,7 +30,6 @@
         }
       });
     });
-    console.log(slugify(blogTitle));
 
     observer.observe(document.documentElement, { attributes: true });
     const response = await fetch(endpoint);
@@ -52,7 +51,6 @@
       method: "POST",
     });
     if (res.ok) {
-      console.log(res);
       count += 1;
     }
   }

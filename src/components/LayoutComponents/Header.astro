@@ -19,10 +19,11 @@ const { activeLink } = Astro.props;
 </nav>
 
 <script>
-  document.querySelector(".hamburger")?.addEventListener("click", () => {
-    document.querySelector(".nav-links")?.classList.toggle("expanded");
-    // document.querySelector(".icon-container")?.classList.toggle("expanded");
-  });
+  document.addEventListener('astro:page-load', () => {
+    document.querySelector(".hamburger")?.addEventListener("click", () => {
+      document.querySelector(".nav-links")?.classList.toggle("expanded");
+    });
+  })
   let lastScrollTop = 0;
   const navBar = document.getElementById("mainNav");
 
@@ -59,7 +60,9 @@ const { activeLink } = Astro.props;
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   };
 
-  window.addEventListener("scroll", throttle(handleScroll, 150));
+  document.addEventListener('astro:after-load', () => {
+    window.addEventListener("scroll", throttle(handleScroll, 150));
+  })
 </script>
 
 <style>
