@@ -41,7 +41,9 @@
   }
 </style>
 
-<script is:inline>
+<script>
+  document.addEventListener('astro:page-load', () => {
+
   const theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
@@ -79,4 +81,13 @@
   document
     .getElementById("themeToggle")
     .addEventListener("click", handleToggleClick);
+  })
+</script>
+
+<script>
+  document.addEventListener('astro:afer-swap', () => {
+    localStorage.theme === 'dark'
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.add("dark");
+  })
 </script>

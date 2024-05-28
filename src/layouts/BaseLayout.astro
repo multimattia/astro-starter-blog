@@ -2,7 +2,9 @@
 import Header from "../components/LayoutComponents/Header.astro";
 import "@fontsource-variable/lexend";
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
 const { pageTitle, highlightedTab } = Astro.props;
+import { fade } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -17,6 +19,7 @@ const { pageTitle, highlightedTab } = Astro.props;
       content="Personal website for software developer Matt Chan. Features a blog and some short stories."
     />
     <title>{pageTitle} | Matt C</title>
+    <ViewTransitions transition:animate={fade({duration: '0.2s'})}/>
   </head>
   <body>
     <div class="blur-top"></div>
