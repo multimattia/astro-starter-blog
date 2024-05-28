@@ -20,8 +20,8 @@ const { pageTitle, highlightedTab } = Astro.props;
   </head>
   <body>
     <div class="blur-top"></div>
+    <Header activeLink={highlightedTab} />
     <div class="website">
-      <Header activeLink={highlightedTab} />
       <slot />
     </div>
     <div class="blur-bottom"></div>
@@ -39,6 +39,7 @@ const { pageTitle, highlightedTab } = Astro.props;
     height: 40px;
     z-index: 150;
   }
+
   html.dark .blur-top {
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(18,16,70,1) 0%, rgba(0,212,255,0) 78%);

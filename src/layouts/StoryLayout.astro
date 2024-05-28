@@ -32,35 +32,35 @@ import BaseLayout from "./BaseLayout.astro";
     font-family: Palatino, "Times New Roman", Times, serif;
   }
 
-  p:nth-child(4) {
+  p:nth-child(3) {
     padding-top: 20px;
   }
 
-  p:nth-child(4)::first-letter {
+  p:nth-child(3)::first-letter {
     float: left;
     font-family: Georgia;
-    font-size: 3.6rem;
+    font-size: 3.7rem;
     line-height: 2.9rem;
-    margin-top: 0.2rem;
-    padding-right: 0.35rem;
+    margin-top: 0.35rem;
+    padding-right: 0.55rem;
     padding-left: 0.15rem;
   }
 
   @-moz-document url-prefix() {
-    p:nth-child(4)::first-letter {
+    p:nth-child(3)::first-letter {
       margin-top: 0.55rem;
     }
   }
 
   @media screen and (min-width: 687px) {
-    p:nth-child(4)::first-letter {
+    p:nth-child(3)::first-letter {
       font-size: 4.5rem;
       line-height: 2rem;
       margin-top: 1.1rem;
       padding-right: 0.55rem;
     }
     @-moz-document url-prefix() {
-      p:nth-child(4)::first-letter {
+      p:nth-child(3)::first-letter {
         margin-top: 0.55rem;
       }
     }

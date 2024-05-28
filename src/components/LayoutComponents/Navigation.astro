@@ -50,7 +50,6 @@ const linkList = [
   }
 
   html.dark .nav-links a {
-    /* color: white; */
     color: var(--color-night-a);
   }
 
@@ -63,6 +62,8 @@ const linkList = [
     border-radius: 5px;
     transition: all 0.2s var(--improved-ease);
     box-shadow: var(--shadow-light-elevation-medium);
+    margin-top: 11rem;
+    margin-right: 9rem;
   }
 
   html.dark .expanded {
@@ -76,6 +77,11 @@ const linkList = [
       top: 0px;
       min-width: 81%;
       flex-grow: 1;
+    }
+
+    .expanded {
+      margin-top: 1rem;
+      box-shadow: none;
     }
 
     .nav-links a {
