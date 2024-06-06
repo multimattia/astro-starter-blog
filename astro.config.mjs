@@ -7,9 +7,6 @@ export default defineConfig({
   //   service: passthroughImageService(),
   // },
   vite: {
-    css: {
-      transformer: "lightningcss",
-    },
   },
   prefetch: {
     defaultStrategy: "hover",
