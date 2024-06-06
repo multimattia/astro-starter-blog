@@ -22,7 +22,7 @@ import { join } from "node:path";
     <AstroFont
       config={[
         {
-          name: "Lexend",
+          name: "lexend",
           src: [
             {
               style: "lighter",
@@ -35,13 +35,13 @@ import { join } from "node:path";
               ),
             },
           ],
+          cssVariable: "lexend",
           preload: true,
           display: "swap",
-          selector: "body",
           fallback: "sans-serif",
         },
         {
-          name: "Lexend-Bold",
+          name: "lexend-bold",
           src: [
             {
               style: "bold",
@@ -51,7 +51,7 @@ import { join } from "node:path";
           ],
           preload: true,
           display: "swap",
-          selector: "h1",
+          cssVariable: "lexend-bold",
           fallback: "sans-serif",
         },
       ]}
