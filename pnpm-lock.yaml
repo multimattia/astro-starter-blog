@@ -23,6 +23,9 @@ dependencies:
   astro:
     specifier: ^4.0.6
     version: 4.0.6(lightningcss@1.25.1)(typescript@5.3.3)
+  astro-font:
+    specifier: ^0.0.81
+    version: 0.0.81
   lightningcss:
     specifier: ^1.25.1
     version: 1.25.1
@@ -1634,6 +1637,10 @@ packages:
   /astring@1.8.6:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
+    dev: false
+
+  /astro-font@0.0.81:
+    resolution: {integrity: sha512-VmK4kqzNpOAt2LASVbw2cbbe9sD6K30E7jOjqzHxHieHMTWInkdOljtzHmNGvKr3P0MeF4Wy+Z7j6CdETFecDA==}
     dev: false
 
   /astro@4.0.6(lightningcss@1.25.1)(typescript@5.3.3):

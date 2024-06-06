@@ -87,7 +87,7 @@ html.dark *::-moz-selection {
 }
 
 html {
-  font-family: "Lexend Variable", Helvetica, sans-serif;
+  font-family: var(--lexend-variable), Helvetica, sans-serif;
   font-display: optional;
   font-weight: 350;
   background-color: var(--color-light-bg);
