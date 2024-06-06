@@ -20,28 +20,42 @@ import { join } from "node:path";
     />
     <title>{pageTitle} | Matt C</title>
     <AstroFont
-    config={[
-      {
-        name: "Lexend",
-        src: [
-          {
-            style: 'normal',
-            weight: '300',
-            path: join(process.cwd(), 'public', 'fonts', 'Lexend-Light.woff2')
-          },
-          {
-            style: 'bold',
-            weight: '700',
-            path: join(process.cwd(), 'public', 'fonts', 'Lexend-Bold.woff2')
-          },
-        ],
-        preload: true,
-        display: "swap",
-        selector: "body",
-        fallback: "sans-serif",
-      },
-    ]}
-  />
+      config={[
+        {
+          name: "Lexend",
+          src: [
+            {
+              style: "lighter",
+              weight: "300",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Lexend-Light.woff2"
+              ),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+        {
+          name: "Lexend-Bold",
+          src: [
+            {
+              style: "bold",
+              weight: "700",
+              path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          selector: "h1",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
   </head>
   <body>
     <div class="blur-top"></div>

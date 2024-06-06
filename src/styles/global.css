@@ -84,9 +84,8 @@ html.dark *::-moz-selection {
 }
 
 html {
-  font-family: var(--lexend-variable), "Adjusted Arial Fallback";
+  font-family: var(--lexend), "Adjusted Arial Fallback";
   font-display: optional;
-  font-weight: 350;
   background-color: var(--color-light-bg);
   /* background-image: url('/noise.svg'); */
 }
@@ -129,6 +128,7 @@ html.dark {
 }
 
 h1 {
+  font-family: var(--lexend-bold);
   padding-bottom: 1rem;
   letter-spacing: -1.8px;
   line-height: 1.2;
@@ -170,7 +170,6 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
-  font-weight: 600;
   color: var(--color-light-a);
 }
 
@@ -189,7 +188,7 @@ html.dark a:visited {
 a:hover {
   background-color: var(--color-light-a-highlight);
   text-underline-offset: 3px;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
 }
 
 html.dark a:hover {
