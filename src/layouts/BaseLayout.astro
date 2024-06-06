@@ -1,8 +1,10 @@
 ---
 import Header from "../components/LayoutComponents/Header.astro";
-import "@fontsource-variable/lexend";
+// import "@fontsource-variable/lexend";
+import { AstroFont } from "astro-font";
 import "../styles/global.css";
 const { pageTitle, highlightedTab } = Astro.props;
+import { join } from "node:path";
 ---
 
 <html lang="en">
@@ -17,6 +19,29 @@ const { pageTitle, highlightedTab } = Astro.props;
       content="Personal website for software developer Matt Chan. Features a blog and some short stories."
     />
     <title>{pageTitle} | Matt C</title>
+    <AstroFont
+    config={[
+      {
+        name: "Lexend",
+        src: [
+          {
+            style: 'normal',
+            weight: '300',
+            path: join(process.cwd(), 'public', 'fonts', 'Lexend-Light.woff2')
+          },
+          {
+            style: 'bold',
+            weight: '700',
+            path: join(process.cwd(), 'public', 'fonts', 'Lexend-Bold.woff2')
+          },
+        ],
+        preload: true,
+        display: "swap",
+        selector: "body",
+        fallback: "sans-serif",
+      },
+    ]}
+  />
   </head>
   <body>
     <div class="blur-top"></div>
