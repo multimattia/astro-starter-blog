@@ -84,11 +84,22 @@ html.dark *::-moz-selection {
 }
 
 html {
-  font-family: "Lexend Variable", Helvetica, sans-serif;
+  font-family: var(--lexend-variable), "Adjusted Arial Fallback";
   font-display: optional;
   font-weight: 350;
   background-color: var(--color-light-bg);
   /* background-image: url('/noise.svg'); */
+}
+
+@font-face {
+  font-family: "Adjusted Arial Fallback";
+  src: local(arial);
+  font-size: 20px;
+  line-height: 1.8;
+  color: red;
+  visibility: visible;
+  letter-spacing: 0.45px;
+  word-spacing: 2px;
 }
 
 html.dark {

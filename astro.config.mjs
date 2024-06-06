@@ -4,6 +4,7 @@ import svelte from "@astrojs/svelte";
 
 export default defineConfig({
   vite: {
+<<<<<<< HEAD
     css: {
       transformer: "lightningcss",
     },
@@ -16,6 +17,12 @@ export default defineConfig({
     ssr: {
       external: ["buffer", "path", "fs", "os", "crypto", "async_hooks"].map((i) => `node:${i}`),
     }
+||||||| 96ffc77
+    css: {
+      transformer: "lightningcss",
+    },
+=======
+>>>>>>> 397526c270bedc7c30f314da8ecb4640a4582902
   },
   prefetch: {
     defaultStrategy: "hover",
