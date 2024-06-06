@@ -13,7 +13,7 @@
   --color-light-a-highlight: rgb(187, 252, 200);
   --color-light-listing-bg: rgb(235, 235, 235);
   --color-light-listing-hl: rgb(225, 245, 225);
-  --color-light-deemp: rgb(117, 116, 116);
+  --color-light-deemp: rgb(84, 84, 84);
   --color-night-bg: rgb(18, 16, 70);
   --color-night-a: rgb(253, 219, 156);
   --color-night-a-visited: rgb(228, 226, 220);
@@ -97,6 +97,7 @@ html {
   line-height: 1.8;
   color: red;
   visibility: visible;
+  font-display: "swap";
   letter-spacing: 0.45px;
   word-spacing: 2px;
 }
