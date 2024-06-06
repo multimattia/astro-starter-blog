@@ -22,6 +22,20 @@ import { join } from "node:path";
     <AstroFont
       config={[
         {
+          name: "lexend-bold",
+          src: [
+            {
+              style: "bold",
+              weight: "700",
+              path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          cssVariable: "lexend-bold",
+          fallback: "sans-serif",
+        },
+        {
           name: "lexend",
           src: [
             {
@@ -38,20 +52,6 @@ import { join } from "node:path";
           cssVariable: "lexend",
           preload: true,
           display: "swap",
-          fallback: "sans-serif",
-        },
-        {
-          name: "lexend-bold",
-          src: [
-            {
-              style: "bold",
-              weight: "700",
-              path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
-            },
-          ],
-          preload: true,
-          display: "swap",
-          cssVariable: "lexend-bold",
           fallback: "sans-serif",
         },
       ]}
