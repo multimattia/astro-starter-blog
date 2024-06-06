@@ -26,17 +26,17 @@
   --improved-ease: cubic-bezier(0.44, 0.21, 0, 1);
   --title-time: 0.5s;
   --shadow-color-night: 242deg 90% 8%;
-  --shadow-elevation-low-night:
-    0px 0.3px 0.3px hsl(var(--shadow-color-night) / 0.27),
+  --shadow-elevation-low-night: 0px 0.3px 0.3px
+      hsl(var(--shadow-color-night) / 0.27),
     0px 0.5px 0.6px -1.2px hsl(var(--shadow-color-night) / 0.27),
     0px 1.1px 1.2px -2.5px hsl(var(--shadow-color-night) / 0.27);
-  --shadow-elevation-medium-night:
-    0px 0.3px 0.3px hsl(var(--shadow-color-night) / 0.28),
+  --shadow-elevation-medium-night: 0px 0.3px 0.3px
+      hsl(var(--shadow-color-night) / 0.28),
     0px 0.9px 1px -0.8px hsl(var(--shadow-color-night) / 0.28),
     0px 2.2px 2.5px -1.7px hsl(var(--shadow-color-night) / 0.28),
     0.1px 5.3px 6px -2.5px hsl(var(--shadow-color-night) / 0.28);
-  --shadow-elevation-high-night:
-    0px 0.3px 0.3px hsl(var(--shadow-color-night) / 0.3),
+  --shadow-elevation-high-night: 0px 0.3px 0.3px
+      hsl(var(--shadow-color-night) / 0.3),
     0px 1.6px 1.8px -0.4px hsl(var(--shadow-color-night) / 0.3),
     0.1px 3.1px 3.5px -0.8px hsl(var(--shadow-color-night) / 0.3),
     0.1px 5.3px 6px -1.2px hsl(var(--shadow-color-night) / 0.3),
@@ -44,17 +44,14 @@
     0.3px 14.7px 16.5px -2.1px hsl(var(--shadow-color-night) / 0.3),
     0.5px 23.2px 26.1px -2.5px hsl(var(--shadow-color-night) / 0.3);
   --shadow-color: 210deg 12% 68%;
-  --shadow-elevation-low:
-    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.27),
+  --shadow-elevation-low: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.27),
     0px 0.5px 0.6px -1.2px hsl(var(--shadow-color) / 0.27),
     0px 1.1px 1.2px -2.5px hsl(var(--shadow-color) / 0.27);
-  --shadow-elevation-medium:
-    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.28),
+  --shadow-elevation-medium: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.28),
     0px 0.9px 1px -0.8px hsl(var(--shadow-color) / 0.28),
     0px 2.2px 2.5px -1.7px hsl(var(--shadow-color) / 0.28),
     0.1px 5.3px 6px -2.5px hsl(var(--shadow-color) / 0.28);
-  --shadow-elevation-high:
-    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.3),
+  --shadow-elevation-high: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.3),
     0px 1.6px 1.8px -0.4px hsl(var(--shadow-color) / 0.3),
     0.1px 3.1px 3.5px -0.8px hsl(var(--shadow-color) / 0.3),
     0.1px 5.3px 6px -1.2px hsl(var(--shadow-color) / 0.3),

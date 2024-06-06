@@ -1,15 +1,21 @@
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
 
 export default defineConfig({
-  // image: {
-  //   service: passthroughImageService(),
-  // },
   vite: {
     css: {
       transformer: "lightningcss",
     },
+    build: {
+      assetsInlineLimit: 2048,
+    },
+    optimizeDeps: {
+      noDiscovery: false
+    },
+    ssr: {
+      external: ["buffer", "path", "fs", "os", "crypto", "async_hooks"].map((i) => `node:${i}`),
+    }
   },
   prefetch: {
     defaultStrategy: "hover",
