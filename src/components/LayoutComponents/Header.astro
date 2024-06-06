@@ -61,7 +61,6 @@ const { activeLink } = Astro.props;
 
   window.addEventListener("scroll", throttle(handleScroll, 150));
 </script>
-
 <style>
   .expanded {
     display: none;
@@ -79,9 +78,7 @@ const { activeLink } = Astro.props;
     align-items: center;
     z-index: 400;
     opacity: 1;
-    transition:
-      transform 0.45s var(--improved-ease),
-      opacity 0.25s var(--improved-ease);
+    transition: transform 0.45s var(--improved-ease), opacity 0.25s var(--improved-ease);
   }
 
   .wrapper {
@@ -103,7 +100,7 @@ const { activeLink } = Astro.props;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hidden: {
+    .hidden {
       transform: none;
     }
 
