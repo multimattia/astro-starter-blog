@@ -4,6 +4,7 @@ import Header from "../components/LayoutComponents/Header.astro";
 import { AstroFont } from "astro-font";
 import "../styles/global.css";
 const { pageTitle, highlightedTab } = Astro.props;
+import { join } from "node:path";
 ---
 
 <html lang="en">
@@ -19,19 +20,28 @@ const { pageTitle, highlightedTab } = Astro.props;
     />
     <title>{pageTitle} | Matt C</title>
     <AstroFont
-      config={[
-        {
-          src: [],
-          preload: false,
-          display: "swap",
-          name: "Lexend Variable",
-          fallback: "sans-serif",
-          cssVariable: "lexend-variable",
-          googleFontsURL:
-            "https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap",
-        },
-      ]}
-    />
+    config={[
+      {
+        name: "Lexend",
+        src: [
+          {
+            style: 'normal',
+            weight: '300',
+            path: join(process.cwd(), 'public', 'fonts', 'Lexend-Light.woff2')
+          },
+          {
+            style: 'bold',
+            weight: '700',
+            path: join(process.cwd(), 'public', 'fonts', 'Lexend-Bold.woff2')
+          },
+        ],
+        preload: true,
+        display: "swap",
+        selector: "body",
+        fallback: "sans-serif",
+      },
+    ]}
+  />
   </head>
   <body>
     <div class="blur-top"></div>
