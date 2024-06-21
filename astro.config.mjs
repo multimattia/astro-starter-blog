@@ -7,9 +7,6 @@ export default defineConfig({
     build: {
       assetsInlineLimit: 2048,
     },
-    optimizeDeps: {
-      noDiscovery: false,
-    },
     ssr: {
       external: ["buffer", "path", "fs", "os", "crypto", "async_hooks"].map(
         (i) => `node:${i}`,
