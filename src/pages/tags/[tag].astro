@@ -13,7 +13,7 @@ export async function getStaticPaths(): Promise<any> {
 
   return uniqueTags.map((tag) => {
     const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag),
+      post.data.tags.includes(tag)
     );
     return {
       params: { tag },
@@ -27,10 +27,18 @@ const { posts }: { posts: Post[] } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag} highlightedTab="Tags">
-  <h1>Posts tagged with <code>{tag}</code></h1>
-  <a href="/blog">Back to blog</a>
+  <span>
+    <a href="/blog">{`<`}</a>
+    <h1>
+      <code>{tag}</code>
+    </h1>
+  </span>
   <dl>
-    {posts.map((post: Post) => <BlogListing post={post} url={`/posts/${post.slug}/`}/>)}
+    {
+      posts.map((post: Post) => (
+        <BlogListing post={post} url={`/posts/${post.slug}/`} />
+      ))
+    }
   </dl>
 </BaseLayout>
 
@@ -38,5 +46,19 @@ const { posts }: { posts: Post[] } = Astro.props;
   a {
     align-self: flex-start;
     margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-decoration: none;
+    min-width: 2ch;
+  }
+
+  a:hover {
+    font-family: var(--lexend-bold);
+    background-color: transparent;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 </style>

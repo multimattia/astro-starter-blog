@@ -1,32 +1,96 @@
 ---
-import Social from "@components/Social.astro";
+
 ---
 
 <footer>
-  <Social
-    text="GitHub"
-    link="https://github.com/multimattia/astro-starter-blog"
-  />
-  <p>Freedom for Palestine.</p>
+  <span class="border"></span>
+  <div class="clusters">
+    <div class="left-cluster">
+      <div class="column">
+        <a href="/about">About</a>
+        <a href="https://github.com/multimattia">GitHub</a>
+        <a href="https://www.linkedin.com/in/matthew-chan-skid23/">LinkedIn</a>
+        <a href="/colophon">Colophon</a>
+      </div>
+      <div class="column">
+        <a href="https://open.spotify.com/user/jasamzakon">Spotify</a>
+        <a href="https://letterboxd.com/BoneFillet/">Letterboxd</a>
+        <a href="https://steamcommunity.com/id/Frogscape/">Steam</a>
+        <a href="https://www.goodreads.com/maatwo">Goodreads</a>
+      </div>
+    </div>
+    <div class="right-cluster">
+      <p>Vote, please!</p>
+    </div>
+  </div>
 </footer>
 
 <style>
+  html.dark .border {
+    border-top: 1px solid var(--color-night-listing-bg);
+  }
+
+  a {
+    font-size: 0.8rem;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #bbb;
+    text-align: left;
+  }
+
+  a:hover {
+    text-underline-offset: 2px;
+    text-decoration-color: #000;
+    background-color: unset;
+  }
+
   footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5rem auto 0 auto;
     max-width: 750px;
     text-align: center;
     min-width: calc(100% - 40px);
   }
 
+  .clusters {
+    margin-top: 4rem;
+  }
+
+  .border {
+    margin-top: 2rem;
+    position: absolute;
+    width: 100vw;
+    /* border-top: 1px solid #bbb; */
+    border-top: 1px solid var(--color-light-listing-bg);
+  }
   @media screen and (min-width: 687px) {
-    footer {
-      position: absolute;
-      margin-top: 5rem;
-      padding: 3rem 0;
-      bottom: -150px;
+    .clusters {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      margin-top: 3rem;
+      width: 100%;
+      gap: 3rem;
+    }
+    .left-cluster {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    .right-cluster {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .border {
+      margin: 1rem auto 2rem auto;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-items: start;
     }
   }
 

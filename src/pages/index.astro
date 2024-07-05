@@ -1,27 +1,25 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Footer from "../components/LayoutComponents/Footer.astro";
 import Tooltip from "@components/pizazz/Tooltip.astro";
 const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
-  <h1 class="type">Welcome!</h1>
+  <h2>
+    <strong><a href="/about">Matt Chan</a></strong> is a software developer who
+    enjoys making tools that tries to bring people <span class="closer">
+      closer together</span
+    >. They also like to write. Currently in Brooklyn, his current focus is on
+    full-stack web development and getting to know people both new and familiar.
+  </h2>
   <p>
-    Hi! I'm <a href="https://www.linkedin.com/in/matthew-chan-skid23/"
-      >Matt Chan.</a
+    Matt is currently available for both contract and full-time positions. <a
+      href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
+      >Send him an email.</a
     >
-     I'm a software developer and part-time writer. My current focus is on
-    full-stack web development!
-  </p>
-  <p>
-    Full stack can mean a lot of things to a lot of people. Here's what it means
-    to me: I'm willing to learn from the bottom-up. In the case of the web —
-    where the term "full-stack" is most often used — that means having an
-    understanding of the protocols on which the internet is built on.
   </p>
 
-  <p>
+  <!-- <p>
     We stand on the shoulders of giants. Shortcuts, and especially those that
     somehow reinvent the wheel at the same time, often don't pay off! It took a
     <a href="https://en.wikipedia.org/wiki/Masters_of_Doom">very special book</a
@@ -50,21 +48,17 @@ const pageTitle = "Home";
      to learn. As such, things may not always be working as intended. Take care
     to not trip over something while you're in my small corner of the internet
     :)
-  </p>
-  <Footer />
+  </p> -->
 </BaseLayout>
 
 <style>
-  .type {
-    width: 6.8ch;
-    animation: type var(--title-time) var(--improved-ease);
-    overflow: hidden;
-    white-space: nowrap;
+  h2 {
+    /* text-align: justify; */
   }
 
-  @keyframes type {
-    0% {
-      width: 0;
+  @media screen and (max-width: 687px) {
+    h2 {
+      text-align: left;
     }
   }
 </style>
