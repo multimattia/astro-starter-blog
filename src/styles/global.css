@@ -86,8 +86,14 @@ html.dark *::-moz-selection {
 html {
   font-family: var(--lexend), "Adjusted Arial Fallback";
   font-display: optional;
+  -webkit-font-smoothing: antialiased;
   background-color: var(--color-light-bg);
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
   /* background-image: url('/noise.svg'); */
+}
+strong {
+  font-family: var(--lexend-bold);
 }
 
 @font-face {

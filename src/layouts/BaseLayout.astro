@@ -5,6 +5,7 @@ import { AstroFont } from "astro-font";
 import "../styles/global.css";
 const { pageTitle, highlightedTab } = Astro.props;
 import { join } from "node:path";
+import Footer from "@components/LayoutComponents/Footer.astro";
 ---
 
 <html lang="en">
@@ -60,6 +61,7 @@ import { join } from "node:path";
     <Header activeLink={highlightedTab} />
     <div class="website">
       <slot />
+      <Footer />
     </div>
     <div class="blur-bottom"></div>
     <style>
