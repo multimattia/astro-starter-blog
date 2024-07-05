@@ -7,14 +7,13 @@ const { activeLink } = Astro.props;
 
 <nav id="mainNav">
   <div class="wrapper">
-
-  <span class="hamburger">
-    <Hamburger />
-  </span>
-  <Navigation activeLink={activeLink} />
-  <span class="icon-container">
-    <ThemeIconAndToggle />
-  </span>
+    <span class="hamburger">
+      <Hamburger />
+    </span>
+    <Navigation activeLink={activeLink} />
+    <span class="icon-container">
+      <ThemeIconAndToggle />
+    </span>
   </div>
 </nav>
 
@@ -43,7 +42,7 @@ const { activeLink } = Astro.props;
               lastRan = Date.now();
             }
           },
-          limit - ((Date.now() - lastRan) as number),
+          limit - ((Date.now() - lastRan) as number)
         );
       }
     };
@@ -78,7 +77,9 @@ const { activeLink } = Astro.props;
     align-items: center;
     z-index: 400;
     opacity: 1;
-    transition: transform 0.45s var(--improved-ease), opacity 0.25s var(--improved-ease);
+    transition:
+      transform 0.45s var(--improved-ease),
+      opacity 0.25s var(--improved-ease);
   }
 
   .wrapper {
