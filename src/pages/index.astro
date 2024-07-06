@@ -12,14 +12,16 @@ const pageTitle = "Home";
     >. They also like to write. Currently in Brooklyn, his current focus is on
     full-stack web development and getting to know people both new and familiar.
   </h2>
-  <p>
-    Matt is currently available for both contract and full-time positions. He
-    has professional experience in HTML/CSS/JS, React, Playwright, SQL (SQLite
-    and PostgreSQL), Docker, and Jenkins. <a
-      href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
-      >Send him an email.</a
-    >
-  </p>
+  <span class="postit">
+    <p>
+      Matt is currently available for both contract and full-time positions. He
+      has professional experience in HTML/CSS/JS, React, Playwright, SQL (SQLite
+      and PostgreSQL), Docker, and Jenkins. <a
+        href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
+        >Send him an email.</a
+      >
+    </p>
+  </span>
 
   <!-- <p>
     We stand on the shoulders of giants. Shortcuts, and especially those that
@@ -56,6 +58,48 @@ const pageTitle = "Home";
 <style>
   h2 {
     /* text-align: justify; */
+  }
+
+  html.dark .postit p {
+    color: black;
+  }
+
+  html.dark .postit p::selection {
+    background-color: var(--color-light-a-highlight);
+  }
+
+  html.dark .postit a::selection {
+    background-color: var(--color-light-a-highlight);
+  }
+
+  html.dark .postit a {
+    color: var(--color-light-a);
+  }
+
+  html.dark .postit a:visited {
+    color: var(--color-light-a-visited);
+  }
+
+  html.dark .postit a:hover {
+    background-color: var(--color-light-a-highlight);
+  }
+
+  .postit p {
+    transform: rotate(-0.8deg);
+    margin-top: 1rem;
+    padding: 1.3rem 2rem;
+    background-color: #ffeba1;
+    position: relative;
+    left: 10px;
+    bottom: 10px;
+    -webkit-box-shadow: -11px 12px 9px -2px rgba(0, 0, 0, 0.46);
+    -moz-box-shadow: -11px 12px 9px -2px rgba(0, 0, 0, 0.46);
+    box-shadow: -11px 12px 9px -2px rgba(0, 0, 0, 0.46);
+    transition: transform 0.3s ease;
+  }
+
+  p:hover {
+    transform: rotate(0deg);
   }
 
   @media screen and (max-width: 687px) {
