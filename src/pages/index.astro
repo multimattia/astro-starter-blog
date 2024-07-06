@@ -12,16 +12,29 @@ const pageTitle = "Home";
     >. They also like to write. Currently in Brooklyn, his current focus is on
     full-stack web development and getting to know people both new and familiar.
   </h2>
-  <span class="postit">
+  <div class="postit">
     <p>
       Matt is currently available for both contract and full-time positions. He
-      has professional experience in HTML/CSS/JS, React, Playwright, SQL (SQLite
-      and PostgreSQL), Docker, and Jenkins. <a
-        href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
-        >Send him an email.</a
+      has professional experience in HTML/CSS/JS, React, Webpack, jQuery,
+      Playwright, and SQL (SQLite).
+    </p>
+    <p>
+      Matt has also worked with Astro, Next.js, PostgreSQL, Drizzle, Cloudflare
+      Workers/Pages, Vercel's deployment platform, GitHub Actions, Docker/Docker
+      Compose, AWS EC2, and Google Cloud Run.
+    </p>
+
+    <p>
+      In short, Matt keeps up with the cutting edge of the web development world
+      without neglecting his fundamentals. He's confident he will hit the ground
+      running in most React codebases.
+    </p>
+    <p>
+      <a href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
+        >Send Matt an email.</a
       >
     </p>
-  </span>
+  </div>
 
   <!-- <p>
     We stand on the shoulders of giants. Shortcuts, and especially those that
@@ -60,6 +73,11 @@ const pageTitle = "Home";
     /* text-align: justify; */
   }
 
+  .postit p {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   html.dark .postit p {
     color: black;
   }
@@ -84,7 +102,7 @@ const pageTitle = "Home";
     background-color: var(--color-light-a-highlight);
   }
 
-  .postit p {
+  .postit {
     transform: rotate(-0.8deg);
     margin-top: 1rem;
     padding: 1.3rem 2rem;
