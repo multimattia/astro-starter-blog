@@ -7,7 +7,7 @@ import Counter from "@components/pizazz/Counter.svelte";
 <BaseLayout pageTitle={frontmatter.title} highlightedTab="Blog">
   <h1>{frontmatter.title}</h1>
   <div class="likes-row">
-    <Counter client:idle blogTitle={frontmatter.title}/>
+    <Counter client:load blogTitle={frontmatter.title} />
   </div>
   <div class="tag-and-date-container">
     <div class="tag-row">
@@ -30,22 +30,23 @@ import Counter from "@components/pizazz/Counter.svelte";
   </div>
   <slot />
   <div class="ghclight">
-    <script src="https://giscus.app/client.js"
-          data-repo="multimattia/astro-starter-blog"
-          data-repo-id="R_kgDOK7t-Zg"
-          data-category="Comments"
-          data-category-id="DIC_kwDOK7t-Zs4CcUQN"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="0"
-          loading="lazy"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="light"
-          data-lang="en"
-          crossorigin="anonymous"
-          async>
-    </script>
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="multimattia/astro-starter-blog"
+      data-repo-id="R_kgDOK7t-Zg"
+      data-category="Comments"
+      data-category-id="DIC_kwDOK7t-Zs4CcUQN"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="0"
+      loading="lazy"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="en"
+      crossorigin="anonymous"
+      async
+    ></script>
   </div>
 </BaseLayout>
 

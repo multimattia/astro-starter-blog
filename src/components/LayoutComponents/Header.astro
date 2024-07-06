@@ -18,19 +18,22 @@ const { activeLink } = Astro.props;
 </nav>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener("astro:page-load", () => {
     document.querySelector(".hamburger")?.addEventListener("click", () => {
       document.querySelector(".nav-links")?.classList.toggle("expanded");
     });
-  })
+  });
   let lastScrollTop = 0;
   const navBar = document.getElementById("mainNav");
+</script>
 
-  const throttle = (func: (...args: any[]) => void, limit: number) => {
-    let lastFunc: number | undefined;
-    let lastRan: number | undefined;
-    return function (this: any, ...args: any[]): void {
+<script data-astro-rerun>
+  const throttle = (func, limit) => {
+    let lastFunc;
+    let lastRan;
+    return function () {
       const context = this;
+      const args = arguments;
       if (!lastRan) {
         func.apply(context, args);
         lastRan = Date.now();
@@ -38,31 +41,36 @@ const { activeLink } = Astro.props;
         clearTimeout(lastFunc);
         lastFunc = window.setTimeout(
           () => {
-            if (Date.now() - (lastRan as number) >= limit) {
+            if (Date.now() - lastRan >= limit) {
               func.apply(context, args);
               lastRan = Date.now();
             }
           },
-          limit - ((Date.now() - lastRan) as number)
+          limit - (Date.now() - lastRan)
         );
       }
     };
   };
 
-  const handleScroll = () => {
+  const handleScroll = function () {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;
-    if (currentScroll > lastScrollTop) {
-      navBar?.classList.add("hidden");
+    if (currentScroll > this.lastScrollTop) {
+      this.navBar?.classList.add("hidden");
     } else {
-      navBar?.classList.remove("hidden");
+      this.navBar?.classList.remove("hidden");
     }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   };
 
-  document.addEventListener('astro:after-load', () => {
-    window.addEventListener("scroll", throttle(handleScroll, 150));
-  })
+  document.addEventListener("astro:page-load", () => {
+    const boundHandleScroll = handleScroll.bind({
+      navBar: document.getElementById("mainNav"),
+      lastScrollTop: 0,
+    });
+    window.addEventListener("scroll", throttle(boundHandleScroll, 150));
+  });
 </script>
+
 <style>
   .expanded {
     display: none;
