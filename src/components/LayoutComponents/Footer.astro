@@ -7,34 +7,51 @@
   <div class="clusters">
     <div class="left-cluster">
       <div class="column">
-        <a href="/about">About</a>
-        <a href="/colophon">Colophon</a>
-        <a target="_blank" href="https://github.com/multimattia">GitHub</a>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/matthew-chan-skid23/">LinkedIn</a
-        >
+        <p>
+          <a href="/about">About</a>
+        </p>
+        <p>
+          <a href="/colophon">Colophon</a>
+        </p>
+        <p>
+          <a target="_blank" href="https://github.com/multimattia">GitHub</a>
+        </p>
+        <p>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/matthew-chan-skid23/">LinkedIn</a
+          >
+        </p>
       </div>
       <div class="column">
-        <a target="_blank" href="https://open.spotify.com/user/jasamzakon"
-          >Spotify</a
-        >
-        <a target="_blank" href="https://letterboxd.com/BoneFillet/"
-          >Letterboxd</a
-        >
-        <a target="_blank" href="https://steamcommunity.com/id/Frogscape/"
-          >Steam</a
-        >
-        <a target="_blank" href="https://www.goodreads.com/maatwo">Goodreads</a>
+        <p>
+          <a target="_blank" href="https://open.spotify.com/user/jasamzakon"
+            >Spotify</a
+          >
+        </p>
+        <p>
+          <a target="_blank" href="https://letterboxd.com/BoneFillet/"
+            >Letterboxd</a
+          >
+        </p>
+        <p>
+          <a target="_blank" href="https://steamcommunity.com/id/Frogscape/"
+            >Steam</a
+          >
+        </p>
+        <p>
+          <a target="_blank" href="https://www.goodreads.com/maatwo"
+            >Goodreads</a
+          >
+        </p>
       </div>
     </div>
     <div class="right-cluster">
       <p>
         <a
-          id="vote"
           target="_blank"
           href="https://democracyforward.org/the-peoples-guide-to-project-2025/"
-          >Vote, please!</a
+          ><p id="vote">Vote, please!</p></a
         >
       </p>
     </div>
@@ -42,45 +59,6 @@
 </footer>
 
 <style>
-  html.dark .border {
-    border-top: 1px solid var(--color-night-listing-bg);
-  }
-
-  a:visited {
-    color: var(--color-light-a);
-  }
-
-  #vote {
-    text-decoration: none;
-    color: var(--color-light-text);
-  }
-
-  html.dark #vote {
-    color: var(--color-night-text);
-  }
-
-  #vote:hover {
-    font-family: var(--lexend-bold);
-    background-color: transparent;
-  }
-
-  html.dark a:visited {
-    color: var(--color-night-a);
-  }
-
-  a {
-    font-size: 0.8rem;
-    text-decoration-thickness: 1px;
-    text-decoration-color: #bbb;
-    text-align: left;
-  }
-
-  a:hover {
-    text-underline-offset: 2px;
-    text-decoration-color: #000;
-    background-color: unset;
-  }
-
   footer {
     display: flex;
     flex-direction: column;
@@ -122,16 +100,19 @@
     min-width: 100%;
     border-top: 1px solid var(--color-light-border);
   }
-  @media screen and (min-width: 687px) {
-    a {
-      font-size: 0.9rem;
-    }
-    .clusters {
-      grid-template-columns: 1fr 4fr;
-    }
+
+  html.dark .border {
+    border-top: 1px solid var(--color-night-listing-bg);
   }
 
-  p {
+  .left-cluster p {
+    margin: 0 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: left;
+  }
+
+  .right-cluster p {
     font-family: var(--lexend);
     color: var(--color-light-deemp);
     font-size: 0.75em;
@@ -139,7 +120,56 @@
     text-align: center;
   }
 
-  html.dark p {
-    color: var(--color-night-deemp);
+  a:visited {
+    color: var(--color-light-a);
+  }
+
+  .right-cluster p,
+  .right-cluster a {
+    text-decoration: none;
+    color: var(--color-light-deemp);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  html.dark .right-cluster a {
+    color: var(--color-night-text);
+  }
+
+  #vote:hover {
+    transform: scale(1.1);
+  }
+
+  html.dark #vote:hover {
+  }
+
+  html.dark a:visited {
+    color: var(--color-night-a);
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-decoration-color: #bbb;
+  }
+
+  a:hover {
+    text-underline-offset: 2px;
+    color: black;
+    text-decoration-color: #000;
+    background-color: transparent;
+  }
+
+  html.dark a:hover {
+    color: white;
+    text-decoration-color: #fff;
+    background-color: transparent;
+  }
+
+  @media screen and (min-width: 687px) {
+    a {
+      font-size: 0.9rem;
+    }
+    .clusters {
+      grid-template-columns: 1fr 4fr;
+    }
   }
 </style>
