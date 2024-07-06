@@ -3,7 +3,10 @@ const { frontmatter } = Astro.props;
 import BaseLayout from "./BaseLayout.astro";
 ---
 
-<BaseLayout pageTitle="Fiction" highlightedTab="Fiction">
+<BaseLayout
+  pageTitle={`${frontmatter.title} • Matt C`}
+  highlightedTab="Fiction"
+>
   <h1>{frontmatter.title}</h1>
   <span class="date-container">
     <h5 class="field">

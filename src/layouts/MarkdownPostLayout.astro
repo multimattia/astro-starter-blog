@@ -4,7 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 import Counter from "@components/pizazz/Counter.svelte";
 ---
 
-<BaseLayout pageTitle={frontmatter.title} highlightedTab="Blog">
+<BaseLayout pageTitle={`${frontmatter.title} • Matt C`} highlightedTab="Blog">
   <h1>{frontmatter.title}</h1>
   <div class="likes-row">
     <Counter client:load blogTitle={frontmatter.title} />
