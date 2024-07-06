@@ -5,7 +5,9 @@ const { post, url } = Astro.props;
 <a draggable="false" href={url}>
   <div class="postContainer">
     <span class="titleAndDate">
-      <dt class="postTitle">{post.data.title}</dt>
+      <dt class="postTitle">
+        {post.data.title}
+      </dt>
       <dd class="postTime">
         {
           post.data.pubDate

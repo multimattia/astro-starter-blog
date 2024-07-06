@@ -1,0 +1,50 @@
+---
+import { ViewTransitions } from "astro:transitions";
+const { pageTitle, meta } = Astro.props;
+import { AstroFont } from "astro-font";
+import { join } from "node:path";
+---
+
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#f1f5f9" />
+<meta
+  name="description"
+  content={meta
+    ? meta
+    : "Software Developer Matt Chan's corner of the internet."}
+/>
+<title>{pageTitle} • Matt C</title>
+<ViewTransitions />
+<AstroFont
+  config={[
+    {
+      name: "lexend-2",
+      src: [
+        {
+          style: "normal",
+          path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
+        },
+      ],
+      preload: true,
+      display: "swap",
+      cssVariable: "lexend-bold",
+      fallback: "sans-serif",
+    },
+    {
+      name: "lexend-1",
+      src: [
+        {
+          style: "normal",
+          path: join(process.cwd(), "public", "fonts", "Lexend-Light.woff2"),
+        },
+      ],
+      cssVariable: "lexend",
+      preload: true,
+      display: "swap",
+      fallback: "sans-serif",
+    },
+  ]}
+/>

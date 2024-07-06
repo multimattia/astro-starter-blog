@@ -1,73 +1,95 @@
 ---
-import Header from "../components/LayoutComponents/Header.astro";
-import { AstroFont } from "astro-font";
+const { pageTitle, highlightedTab, meta } = Astro.props;
 import "../styles/global.css";
-import { ViewTransitions, fade } from "astro:transitions";
-const { pageTitle, highlightedTab } = Astro.props;
-import { join } from "node:path";
+import "../styles/animations.css";
 import { slide } from "astro:transitions";
+import type { TransitionAnimationPair } from "astro";
+import CommonHead from "@components/CommonHead.astro";
+import Header from "../components/LayoutComponents/Header.astro";
 import Footer from "@components/LayoutComponents/Footer.astro";
+
+// credit to Eva Decker at eva.town
+const forwards: TransitionAnimationPair = {
+  old: {
+    name: "fadeOutUp",
+    duration: "0.2s",
+    easing: "ease-in",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "fadeInUp",
+    duration: "0.32s",
+    delay: "0.2s",
+    easing: "ease-out",
+    fillMode: "backwards",
+  },
+};
+
+const backwards: TransitionAnimationPair = {
+  old: {
+    name: "fadeOutDown",
+    duration: "0.2s",
+    easing: "ease-in",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "fadeInDown",
+    duration: "0.3s",
+    delay: "0.2s",
+    easing: "ease-out",
+    fillMode: "backwards",
+  },
+};
+
+const rightwards: TransitionAnimationPair = {
+  old: {
+    name: "fadeOutLeft",
+    duration: "0.2s",
+    easing: "ease-in",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "fadeInLeft",
+    duration: "0.32s",
+    delay: "0.2s",
+    easing: "ease-out",
+    fillMode: "backwards",
+  },
+};
+
+const viewTransition = {
+  forwards,
+  backwards,
+};
+
+const heroViewTransition = {
+  forwards: rightwards,
+  backwards: rightwards,
+};
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#f1f5f9" />
-    <meta
-      name="description"
-      content="Personal website for software developer Matt Chan. Features a blog and some short stories."
-    />
-    <title>{pageTitle} • Matt C</title>
-    <ViewTransitions />
-    <AstroFont
-      config={[
-        {
-          name: "lexend-2",
-          src: [
-            {
-              style: "normal",
-              path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
-            },
-          ],
-          preload: true,
-          display: "swap",
-          cssVariable: "lexend-bold",
-          fallback: "sans-serif",
-        },
-        {
-          name: "lexend-1",
-          src: [
-            {
-              style: "normal",
-              path: join(
-                process.cwd(),
-                "public",
-                "fonts",
-                "Lexend-Light.woff2"
-              ),
-            },
-          ],
-          cssVariable: "lexend",
-          preload: true,
-          display: "swap",
-          fallback: "sans-serif",
-        },
-      ]}
-    />
+    <CommonHead pageTitle={pageTitle} meta={meta} />
   </head>
   <body>
-    <div class="blur-top"></div>
+    <div class="blur-top" aria-hidden="true"></div>
     <Header activeLink={highlightedTab} />
-    <div class="website" transition:animate={fade({ duration: "0.3s" })}>
-      <main>
-        <slot />
-      </main>
-      <Footer transition:persist />
+    <div class="website">
+      {
+        pageTitle === "Home" ? (
+          <main transition:animate={heroViewTransition}>
+            <slot />
+          </main>
+        ) : (
+          <main transition:animate={viewTransition}>
+            <slot />
+          </main>
+        )
+      }
+      <Footer />
     </div>
-    <div class="blur-bottom"></div>
+    <div class="blur-bottom" aria-hidden="true"></div>
     <style>
       .blur-top {
         pointer-events: none;
@@ -116,12 +138,11 @@ import Footer from "@components/LayoutComponents/Footer.astro";
           rgba(0, 212, 255, 0) 78%
         );
       }
-    </style>
-    <style>
+
       .website {
         display: flex;
         flex-direction: column;
-        min-height: 85vh;
+        min-height: 88vh;
       }
 
       main {
@@ -130,6 +151,101 @@ import Footer from "@components/LayoutComponents/Footer.astro";
 
       footer {
         flex-shrink: 0;
+      }
+      @keyframes fadeOutUp {
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+
+        65% {
+          opacity: 1;
+          transform: translateY(-2px);
+        }
+
+        80% {
+          transform: translateY(2px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOutDown {
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+      }
+
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-16px);
+        }
+
+        65% {
+          opacity: 1;
+          transform: translateY(2px);
+        }
+
+        80% {
+          transform: translateY(-2px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOutLeft {
+        0% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateX(-550px);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(160px);
+        }
+
+        65% {
+          opacity: 1;
+          transform: translateX(-5px);
+        }
+
+        80% {
+          transform: translateX(5px);
+        }
+
+        100% {
+          transform: translateX(0);
+        }
       }
     </style>
   </body>
