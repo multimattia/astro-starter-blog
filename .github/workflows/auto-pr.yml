@@ -18,5 +18,5 @@ jobs:
           body: "Automatically created PR for branch ${{ github.ref_name }}"
           base: "main"
           branch: ${{ github.ref }}
-          author: "multimattia matthewhongkong20@gmail.com"
-          committer: "multimattia matthewhongkong20@gmail.com"
+          author: "multimattia <matthewhongkong20@gmail.com>"
+          committer: "multimattia <matthewhongkong20@gmail.com>"
