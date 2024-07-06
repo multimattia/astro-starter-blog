@@ -1,0 +1,24 @@
+name: Auto Pull Request
+on:
+  push:
+    branches-ignore:
+      - main
+      - master
+
+jobs:
+  auto-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Auto PR: ${{ github.ref_name }}"
+          body: "Automatically created PR for branch ${{ github.ref_name }}"
+          base: "main"
+          branch: ${{ github.ref }}
+          author: "multimattia <matthewhongkong20@gmail.com>"
+          committer: "multimattia <matthewhongkong20@gmail.com>"
+          reviewers: |
+            multimattia

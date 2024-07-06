@@ -1,17 +1,20 @@
 ---
 import Header from "../components/LayoutComponents/Header.astro";
-import "@fontsource-variable/lexend";
+// import "@fontsource-variable/lexend";
+import { AstroFont } from "astro-font";
 import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 const { pageTitle, highlightedTab } = Astro.props;
 import { fade } from "astro:transitions";
+import { join } from "node:path";
+import Footer from "@components/LayoutComponents/Footer.astro";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#f1f5f9" />
     <meta
@@ -19,48 +22,99 @@ import { fade } from "astro:transitions";
       content="Personal website for software developer Matt Chan. Features a blog and some short stories."
     />
     <title>{pageTitle} | Matt C</title>
-    <ViewTransitions/>
+    <ViewTransitions />
+    <AstroFont
+      config={[
+        {
+          name: "lexend-2",
+          src: [
+            {
+              style: "normal",
+              path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
+            },
+          ],
+          preload: true,
+          display: "swap",
+          cssVariable: "lexend-bold",
+          fallback: "sans-serif",
+        },
+        {
+          name: "lexend-1",
+          src: [
+            {
+              style: "normal",
+              path: join(
+                process.cwd(),
+                "public",
+                "fonts",
+                "Lexend-Light.woff2"
+              ),
+            },
+          ],
+          cssVariable: "lexend",
+          preload: true,
+          display: "swap",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
   </head>
   <body>
     <div class="blur-top"></div>
     <Header activeLink={highlightedTab} />
     <div class="website">
       <slot />
+      <Footer />
     </div>
     <div class="blur-bottom"></div>
+    <style>
+      .blur-top {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          180deg,
+          rgb(241, 245, 249, 1) 0%,
+          rgba(0, 212, 255, 0) 78%
+        );
+        width: 100%;
+        height: 40px;
+        z-index: 150;
+      }
+
+      html.dark .blur-top {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          180deg,
+          rgba(18, 16, 70, 1) 0%,
+          rgba(0, 212, 255, 0) 78%
+        );
+      }
+
+      .blur-bottom {
+        pointer-events: none;
+        position: fixed;
+        bottom: 0;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          0deg,
+          rgb(241, 245, 249, 1) 0%,
+          rgba(0, 212, 255, 0) 78%
+        );
+        width: 100%;
+        height: 40px;
+        z-index: 150;
+      }
+
+      html.dark .blur-bottom {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          0deg,
+          rgba(18, 16, 70, 1) 0%,
+          rgba(0, 212, 255, 0) 78%
+        );
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  .blur-top {
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgb(241, 245, 249, 1) 0%, rgba(0,212,255,0) 78%);
-    width: 100%;
-    height: 40px;
-    z-index: 150;
-  }
-
-  html.dark .blur-top {
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(18,16,70,1) 0%, rgba(0,212,255,0) 78%);
-  }
-
-  .blur-bottom {
-    pointer-events: none;
-    position: fixed;
-    bottom: 0;
-    background: rgb(2,0,36);
-    background: linear-gradient(0deg, rgb(241, 245, 249, 1) 0%, rgba(0,212,255,0) 78%);
-    width: 100%;
-    height: 40px;
-    z-index: 150;
-  }
-
-  html.dark .blur-bottom {
-    background: rgb(2,0,36);
-    background: linear-gradient(0deg, rgba(18,16,70,1) 0%, rgba(0,212,255,0) 78%);
-  }
-</style>

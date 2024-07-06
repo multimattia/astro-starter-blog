@@ -7,14 +7,13 @@ const { activeLink } = Astro.props;
 
 <nav id="mainNav">
   <div class="wrapper">
-
-  <span class="hamburger">
-    <Hamburger />
-  </span>
-  <Navigation activeLink={activeLink} />
-  <span class="icon-container">
-    <ThemeIconAndToggle />
-  </span>
+    <span class="hamburger">
+      <Hamburger />
+    </span>
+    <Navigation activeLink={activeLink} />
+    <span class="icon-container">
+      <ThemeIconAndToggle />
+    </span>
   </div>
 </nav>
 
@@ -44,7 +43,7 @@ const { activeLink } = Astro.props;
               lastRan = Date.now();
             }
           },
-          limit - ((Date.now() - lastRan) as number),
+          limit - ((Date.now() - lastRan) as number)
         );
       }
     };
@@ -64,7 +63,6 @@ const { activeLink } = Astro.props;
     window.addEventListener("scroll", throttle(handleScroll, 150));
   })
 </script>
-
 <style>
   .expanded {
     display: none;
@@ -106,7 +104,7 @@ const { activeLink } = Astro.props;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hidden: {
+    .hidden {
       transform: none;
     }
 

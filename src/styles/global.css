@@ -13,7 +13,7 @@
   --color-light-a-highlight: rgb(187, 252, 200);
   --color-light-listing-bg: rgb(235, 235, 235);
   --color-light-listing-hl: rgb(225, 245, 225);
-  --color-light-deemp: rgb(117, 116, 116);
+  --color-light-deemp: rgb(84, 84, 84);
   --color-night-bg: rgb(18, 16, 70);
   --color-night-a: rgb(253, 219, 156);
   --color-night-a-visited: rgb(228, 226, 220);
@@ -26,17 +26,17 @@
   --improved-ease: cubic-bezier(0.44, 0.21, 0, 1);
   --title-time: 0.5s;
   --shadow-color-night: 242deg 90% 8%;
-  --shadow-elevation-low-night:
-    0px 0.3px 0.3px hsl(var(--shadow-color-night) / 0.27),
+  --shadow-elevation-low-night: 0px 0.3px 0.3px
+      hsl(var(--shadow-color-night) / 0.27),
     0px 0.5px 0.6px -1.2px hsl(var(--shadow-color-night) / 0.27),
     0px 1.1px 1.2px -2.5px hsl(var(--shadow-color-night) / 0.27);
-  --shadow-elevation-medium-night:
-    0px 0.3px 0.3px hsl(var(--shadow-color-night) / 0.28),
+  --shadow-elevation-medium-night: 0px 0.3px 0.3px
+      hsl(var(--shadow-color-night) / 0.28),
     0px 0.9px 1px -0.8px hsl(var(--shadow-color-night) / 0.28),
     0px 2.2px 2.5px -1.7px hsl(var(--shadow-color-night) / 0.28),
     0.1px 5.3px 6px -2.5px hsl(var(--shadow-color-night) / 0.28);
-  --shadow-elevation-high-night:
-    0px 0.3px 0.3px hsl(var(--shadow-color-night) / 0.3),
+  --shadow-elevation-high-night: 0px 0.3px 0.3px
+      hsl(var(--shadow-color-night) / 0.3),
     0px 1.6px 1.8px -0.4px hsl(var(--shadow-color-night) / 0.3),
     0.1px 3.1px 3.5px -0.8px hsl(var(--shadow-color-night) / 0.3),
     0.1px 5.3px 6px -1.2px hsl(var(--shadow-color-night) / 0.3),
@@ -44,17 +44,14 @@
     0.3px 14.7px 16.5px -2.1px hsl(var(--shadow-color-night) / 0.3),
     0.5px 23.2px 26.1px -2.5px hsl(var(--shadow-color-night) / 0.3);
   --shadow-color: 210deg 12% 68%;
-  --shadow-elevation-low:
-    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.27),
+  --shadow-elevation-low: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.27),
     0px 0.5px 0.6px -1.2px hsl(var(--shadow-color) / 0.27),
     0px 1.1px 1.2px -2.5px hsl(var(--shadow-color) / 0.27);
-  --shadow-elevation-medium:
-    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.28),
+  --shadow-elevation-medium: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.28),
     0px 0.9px 1px -0.8px hsl(var(--shadow-color) / 0.28),
     0px 2.2px 2.5px -1.7px hsl(var(--shadow-color) / 0.28),
     0.1px 5.3px 6px -2.5px hsl(var(--shadow-color) / 0.28);
-  --shadow-elevation-high:
-    0px 0.3px 0.3px hsl(var(--shadow-color) / 0.3),
+  --shadow-elevation-high: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.3),
     0px 1.6px 1.8px -0.4px hsl(var(--shadow-color) / 0.3),
     0.1px 3.1px 3.5px -0.8px hsl(var(--shadow-color) / 0.3),
     0.1px 5.3px 6px -1.2px hsl(var(--shadow-color) / 0.3),
@@ -87,11 +84,28 @@ html.dark *::-moz-selection {
 }
 
 html {
-  font-family: "Lexend Variable", Helvetica, sans-serif;
+  font-family: var(--lexend), "Adjusted Arial Fallback";
   font-display: optional;
-  font-weight: 350;
+  -webkit-font-smoothing: antialiased;
   background-color: var(--color-light-bg);
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
   /* background-image: url('/noise.svg'); */
+}
+strong {
+  font-family: var(--lexend-bold);
+}
+
+@font-face {
+  font-family: "Adjusted Arial Fallback";
+  src: local(arial);
+  font-size: 20px;
+  line-height: 1.8;
+  color: red;
+  visibility: visible;
+  font-display: "swap";
+  letter-spacing: 0.45px;
+  word-spacing: 2px;
 }
 
 html.dark {
@@ -121,6 +135,7 @@ html.dark {
 }
 
 h1 {
+  font-family: var(--lexend-bold);
   padding-bottom: 1rem;
   letter-spacing: -1.8px;
   line-height: 1.2;
@@ -162,7 +177,6 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
-  font-weight: 600;
   color: var(--color-light-a);
 }
 
@@ -181,7 +195,7 @@ html.dark a:visited {
 a:hover {
   background-color: var(--color-light-a-highlight);
   text-underline-offset: 3px;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
 }
 
 html.dark a:hover {

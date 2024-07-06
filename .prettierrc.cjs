@@ -5,7 +5,7 @@
 /** @type {import("prettier").Config} */
 
 const config = {
-  plugins: [require.resolve("prettier-plugin-astro"), "prettier-plugin-svelte"],
+  plugins: [require.resolve("prettier-plugin-astro")],
   wordWrap: "always",
   overrides: [
     {

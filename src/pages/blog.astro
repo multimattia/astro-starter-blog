@@ -10,15 +10,14 @@ const pageTitle = "Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle} highlightedTab="Blog">
-  <h1>Blogposts (and their tags, too)</h1>
-  <p>
-    See my blogposts here. Keep in mind that they will likely benefit me more
-    than the reader. Nonetheless, I appreciate you taking the time to read them!
-  </p>
-  <h2>Tags:</h2>
+  <h1>Blog</h1>
+  <p>These posts are more for me than for you.</p>
   <TagCluster tags={tags} />
-  <h2>Posts:</h2>
   <dl>
-    {allPosts.reverse().map((post) => <BlogListing post={post} url={`/posts/${post.slug}/`}/>)}
+    {
+      allPosts
+        .reverse()
+        .map((post) => <BlogListing post={post} url={`/posts/${post.slug}/`} />)
+    }
   </dl>
 </BaseLayout>
