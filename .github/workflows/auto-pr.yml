@@ -20,3 +20,5 @@ jobs:
           branch: ${{ github.ref }}
           author: "multimattia <matthewhongkong20@gmail.com>"
           committer: "multimattia <matthewhongkong20@gmail.com>"
+          reviewers: |
+            multimattia
