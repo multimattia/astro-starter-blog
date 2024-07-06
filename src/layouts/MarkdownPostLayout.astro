@@ -45,8 +45,7 @@ import Counter from "@components/pizazz/Counter.svelte";
       data-theme="light"
       data-lang="en"
       crossorigin="anonymous"
-      async
-    ></script>
+      async></script>
   </div>
 </BaseLayout>
 
@@ -57,6 +56,11 @@ import Counter from "@components/pizazz/Counter.svelte";
     margin-bottom: calc(4 * var(--base-margin));
     border-radius: 7px;
     scrollbar-color: #7d7d7d #282b36;
+  }
+
+  .astro-code span::selection,
+  .astro-code code::selection {
+    background-color: #5d6176;
   }
 
   p {
