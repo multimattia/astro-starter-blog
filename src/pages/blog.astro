@@ -5,8 +5,16 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogListing from "@components/BlogListing.astro";
 import TagCluster from "@components/TagCluster.astro";
 const allPosts = await getCollection("posts");
+console.log(allPosts[0]);
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = "Blog";
+console.log(
+  `${allPosts
+    .filter((post) => !post.data.tags.includes("personal"))
+    .forEach((post) => {
+      console.log(post.data.tags);
+    })}`
+);
 ---
 
 <BaseLayout pageTitle={pageTitle} highlightedTab="Blog">
@@ -16,8 +24,25 @@ const pageTitle = "Blog";
   <dl>
     {
       allPosts
+        .filter((post) => !post.data.tags.includes("personal"))
         .reverse()
         .map((post) => <BlogListing post={post} url={`/posts/${post.slug}/`} />)
     }
   </dl>
+  <div id="personal">
+    <p>
+      <a href="/tags/personal">personal posts</a>
+    </p>
+  </div>
 </BaseLayout>
+
+<style>
+  #personal {
+    display: block;
+    text-align: right;
+  }
+  a {
+    font-size: 0.9rem;
+    text-decoration-thickness: 1px;
+  }
+</style>

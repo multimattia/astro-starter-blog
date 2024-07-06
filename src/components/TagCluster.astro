@@ -4,11 +4,13 @@ const { tags } = Astro.props;
 
 <div class="tags">
   {
-    tags.map((tag: string) => (
-      <a href={`/tags/${tag}`}>
-        <p class="tag">{tag?.toLowerCase()}</p>
-      </a>
-    ))
+    tags
+      .filter((tag) => tag !== "personal")
+      .map((tag: string) => (
+        <a href={`/tags/${tag}`}>
+          <p class="tag">{tag?.toLowerCase()}</p>
+        </a>
+      ))
   }
 </div>
 
@@ -17,16 +19,19 @@ const { tags } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     row-gap: 5px;
-    margin-bottom: var(--base-margin);
+    margin: 1.2rem 0 1rem 0;
   }
 
   .tag {
-    margin: 0 0.25em;
+    margin: 0 0.65em;
     border: none;
     border-radius: 5px;
-    padding: 0.5em 1em;
+    padding: 0.3em 0.8em;
     font-family: monospace;
     background-color: var(--color-light-listing-bg);
+  }
+  .tag:first-of-type {
+    margin-left: 0;
   }
 
   a:hover {
