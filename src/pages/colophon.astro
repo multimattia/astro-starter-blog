@@ -23,17 +23,18 @@ const pageTitle = "Colophon";
   <h2><strong>Framework</strong></h2>
   <p>
     I chose Astro because I knew I needed an extensible platform that sticks to
-    fundamental web technologies (HTML, CSS, JavaScript). Astro also borrows
-    some React ideas, like components, which I'm a big fan of. The client
-    receives plain HTML/CSS by default, and I'm a big fan of that. I'm not so
-    much a fan of sending dozens of kilobytes of JavaScript to the user. It's
-    wasteful on both the user, the network, and the server. Use the browser!
+    fundamental web technologies (HTML, CSS, JavaScript). Astro also borrows the
+    component model from React, which was easy to incorporate into my mental
+    model. With Astro, I'm also able to do a few React-tisms like <code
+      >{`map(item => <h2>item.name</h2>)`}</code
+    >, while the client receives plain HTML/CSS -- big fan of that!
   </p>
   <h2><strong>Deployment</strong></h2>
   <p>
     This website's deployment is handled by Cloudflare Pages. I chose
-    Cloudflare's platform because of their CDN(content delivery network), and
-    generous free tier! And, most critically: their network runs on <a
+    Cloudflare's platform because of their expansive CDN(content delivery
+    network), and generous free tier! And, most critically: their network runs
+    on <a
       href="https://www.cloudflare.com/press-releases/2021/cloudflare-creates-new-blueprint-for-zero-emissions-internet/"
       >100% renewable energy</a
     >. With Astro's small filesizes, each visit to this website generates 0.02g
