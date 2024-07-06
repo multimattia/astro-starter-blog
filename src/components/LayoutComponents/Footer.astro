@@ -29,7 +29,14 @@
       </div>
     </div>
     <div class="right-cluster">
-      <p>Vote, please!</p>
+      <p>
+        <a
+          id="vote"
+          target="_blank"
+          href="https://democracyforward.org/the-peoples-guide-to-project-2025/"
+          >Vote, please!</a
+        >
+      </p>
     </div>
   </div>
 </footer>
@@ -41,6 +48,20 @@
 
   a:visited {
     color: var(--color-light-a);
+  }
+
+  #vote {
+    text-decoration: none;
+    color: var(--color-light-text);
+  }
+
+  html.dark #vote {
+    color: var(--color-night-text);
+  }
+
+  #vote:hover {
+    font-family: var(--lexend-bold);
+    background-color: transparent;
   }
 
   html.dark a:visited {
