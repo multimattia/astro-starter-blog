@@ -38,6 +38,7 @@ const linkList = [
     text-transform: uppercase;
     border-radius: 5px;
     letter-spacing: -1.2px;
+    z-index: 151;
   }
 
   .nav-links a:hover,
@@ -45,6 +46,10 @@ const linkList = [
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
+  }
+
+  .nav-links a:active {
+    transform: scale(0.9);
   }
 
   html.dark .nav-links a {
@@ -76,13 +81,13 @@ const linkList = [
       min-width: 81%;
       flex-grow: 1;
     }
-
     .expanded {
       margin-top: 1rem;
       box-shadow: none;
     }
 
-    .nav-links a {
+    .nav-links a,
+    .width {
       display: inline-block;
       margin: 0 0.2rem;
     }
