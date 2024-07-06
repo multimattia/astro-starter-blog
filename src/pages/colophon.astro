@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import "../styles/global.css";
-import Tooltip from "@components/pizazz/Tooltip.astro";
-import Footer from "@components/LayoutComponents/Footer.astro";
 
 const pageTitle = "Colophon";
 ---
@@ -13,45 +11,58 @@ const pageTitle = "Colophon";
   <p>
     This website was designed and built by yours truly! Its my spot on the
     internet, and where I can show off the things I've done. Most importantly,
-    it's a place for me to learn in public. This version of the website is very
-    loosely based on <a
-      href="https://docs.astro.build/en/tutorial/0-introduction/"
-      >Astro's blog tutorial</a
-    >, but the very first iteration of this website was built using Gatsby.
+    it's a place for me to learn in public. The very first iteration of this
+    website was built using Gatsby.
   </p>
 
-  <h2><strong>Framework</strong></h2>
+  <p>
+    This version was made with an iteration or two of Josh W. Comeau's <a
+      target="_blank"
+      href="https://www.joshwcomeau.com/blog/how-to-learn-stuff-quickly/#mixing-guided-and-unguided-learning-1"
+      >Tutorial Fade</a
+    > technique, using <a
+      target="_blank"
+      href="https://docs.astro.build/en/tutorial/0-introduction/"
+      >Astro's blog tutorial</a
+    >.
+  </p>
+
+  <h3><strong>Framework</strong></h3>
   <p>
     I chose Astro because I knew I needed an extensible platform that sticks to
-    fundamental web technologies (HTML, CSS, JavaScript). Astro also borrows the
-    component model from React, which was easy to incorporate into my mental
-    model. With Astro, I'm also able to do a few React-tisms like <code
-      >{`map(item => <h2>item.name</h2>)`}</code
-    >, while the client receives plain HTML/CSS -- big fan of that!
+    fundamental web technologies and standards (HTML, CSS, JavaScript). Astro
+    also provides a few niceties such as React's component system, which was
+    easy to incorporate into my mental model. With Astro, I'm able to do a few
+    React-tisms like <code>{`map(item => <h2>item.name</h2>)`}</code>, while the
+    client receives plain HTML/CSS -- big fan of that!
   </p>
-  <h2><strong>Deployment</strong></h2>
+  <h3><strong>Deployment</strong></h3>
   <p>
     This website's deployment is handled by Cloudflare Pages. I chose
-    Cloudflare's platform because of their expansive CDN(content delivery
-    network), and generous free tier! And, most critically: their network runs
-    on <a
+    Cloudflare's platform because of their expansive content delivery network
+    and generous free tier. And, most critically, their network runs on <a
+      target="_blank"
       href="https://www.cloudflare.com/press-releases/2021/cloudflare-creates-new-blueprint-for-zero-emissions-internet/"
       >100% renewable energy</a
     >. With Astro's small filesizes, each visit to this website generates 0.02g
     of CO2.
   </p>
 
-  <h2><strong>Find a problem?</strong></h2>
+  <h3><strong>Find a problem?</strong></h3>
   <p>
-    Or a recommendation, typo or some *other* thing, don't be afraid to <a
+    Or recommendation, typo or some *other* thing, don't be afraid to <a
+      target="_blank"
       href="https://github.com/multimattia/astro-starter-blog/issues"
-      >file an issue on GitHub<a></a>!</a
+      >file an issue on GitHub<a></a>.</a
     >
   </p>
 
   <style>
     p {
       letter-spacing: -0.02cap;
+    }
+    h3 {
+      margin: 0.7rem 0;
     }
   </style>
 </BaseLayout>

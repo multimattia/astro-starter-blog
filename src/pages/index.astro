@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Tooltip from "@components/pizazz/Tooltip.astro";
 const pageTitle = "Home";
 ---
 
@@ -29,11 +28,12 @@ const pageTitle = "Home";
       without neglecting his fundamentals. He's confident he will hit the ground
       running in React codebases.
     </p>
-    <p>
+    <div class="bottom">
+      <a href="/resume">Resume</a>
       <a href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
         >Send Matt an email.</a
       >
-    </p>
+    </div>
   </div>
 
   <!-- <p>
@@ -73,9 +73,20 @@ const pageTitle = "Home";
     /* text-align: justify; */
   }
 
-  .postit p {
+  .bottom {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+  }
+  html.dark a:visited {
+    color: var(--color-night-a);
+  }
+
+  html.dark .bottom a:visited {
+    color: var(--color-light-a);
+  }
+
+  a:visited {
+    color: var(--color-light-a);
   }
 
   html.dark .postit p {
