@@ -56,7 +56,7 @@
       return "light";
     })();
 
-    const setThemeColorToDark = (dark) => {
+    const setThemeColorToDark = (dark: boolean) => {
       document
         .querySelector('meta[name="theme-color"]')
         .setAttribute("content", dark ? "#020024" : "#f1f5f9");
