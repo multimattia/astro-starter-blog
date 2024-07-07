@@ -6,10 +6,14 @@ const pageTitle = "Resume";
 ---
 
 <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle}>
-  <embed class="resume" src="/MatthewChanResume.pdf" height=1100 type="application/pdf">
+  <embed
+    class="resume"
+    src="/MatthewChanResume.pdf"
+    height="1100"
+    type="application/pdf"
+  />
   <a href="/MatthewChanResume.pdf">Link to resume</a>
 </BaseLayout>
-
 
 <style>
   a {
@@ -25,9 +29,10 @@ const pageTitle = "Resume";
     .resume {
       display: block;
       max-width: 100%;
+      width: 100%;
     }
     a {
       display: none;
     }
   }
- </style>
+</style>
