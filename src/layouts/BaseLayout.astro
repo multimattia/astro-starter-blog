@@ -1,5 +1,5 @@
 ---
-const { pageTitle, highlightedTab, meta } = Astro.props;
+const { pageTitle, highlightedTab, meta, showFooter = true } = Astro.props;
 import "../styles/global.css";
 import "../styles/animations.css";
 import type { TransitionAnimationPair } from "astro";
@@ -86,7 +86,7 @@ const heroViewTransition = {
           </main>
         )
       }
-      <Footer />
+      {showFooter && <Footer />}
     </div>
     <div class="blur-bottom" aria-hidden="true"></div>
     <style>
