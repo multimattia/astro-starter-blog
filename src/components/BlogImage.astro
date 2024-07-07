@@ -20,20 +20,19 @@ const { src, alt } = Astro.props;
   }
 
   .image {
-    max-width: 97%;
+    max-width: 95%;
     height: auto;
-    border-radius: 0.375rem;
+    border-radius: 7px;
   }
 
   figcaption {
-    font-style: oblique;
-    font-weight: 300;
     font-size: 0.85rem;
   }
 
+  /* replace with your own media query */
   @media screen and (min-width: 687px) {
     .image {
-      max-width: 100%;
+      max-width: 98%;
     }
   }
 </style>
