@@ -1,0 +1,99 @@
+---
+title: "Using Astro's Image component in .mdx"
+author: Matt Chan
+pubDate: 2024-07-07
+description: "Quick and easy!"
+image:
+  url: "https://docs.astro.build/assets/full-logo-light.png"
+  alt: "The full Astro logo."
+tags:
+  - astro
+  - technical
+---
+
+import example from "@images/example.avif";
+import BlogImage from "@components/BlogImage.astro";
+
+Images that you want optimized by Astro should first move their images to any folder within the `src` directory.
+I've set up an [import alias](/posts/post-4), see below:
+
+```js
+import example from "@images/example.jpg";
+import timing_app_upscale from "@images/timing_app_upscale.png";
+import BlogImage from "@components/BlogImage.astro";
+```
+
+You can embed this `BlogImage` component directly into your markdown posts, but for styling purposes I found it easier
+to create a custom component that I can embed into the post. One caveat is that any CSS selectors for this component must
+be declared inline, so please ensure that your CSS selectors have enough specificity to avoid cascading into the rest of
+the post page.
+
+I've created a component, `BlogImage`, that will display a caption underneath the image.
+The `BlogImage` component takes in two props, the directory of the image, and the alt text:
+
+Here's the `BlogImage` component in its entirety:
+
+```astro
+---
+// @components/BlogImage.astro
+import { Image } from "astro:assets";
+const { src, alt } = Astro.props;
+---
+
+<div class="blogimage">
+  <Image class="image" src={src} alt={alt} />
+  <figcaption id="imgcap">{alt}</figcaption>
+</div>
+
+<!-- Style is inline to work inside .mdx posts -->
+<style is:inline>
+  .blogimage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 1rem 0;
+  }
+
+  .blogimage .image {
+    max-width: 97%;
+    height: auto;
+    border-radius: 7px;
+  }
+
+  .blogimage figcaption {
+    font-size: 0.85rem;
+  }
+
+  /* Replace with your own desktop media query */
+  @media screen and (min-width: 687px) {
+    .blogimage .image {
+      max-width: 98%;
+    }
+  }
+</style>
+```
+
+And here's how it's used inside an `.mdx` file:
+
+```astro
+<BlogImage
+  src={example}
+  alt="This is an example! Courtesy to Kaung Myat Min on Unsplash."
+/>
+```
+
+<BlogImage
+  src={example}
+  alt="This is an example! Courtesy to
+Kaung Myat Min on Unsplash."
+/>
+
+If you use `pnpm`,
+the package `sharp` is not installed alongside Astro. You'll need to run
+
+```
+pnpm i sharp
+```
+
+to get Astro's image pre-processor to work.
