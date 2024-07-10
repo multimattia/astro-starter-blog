@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import "../styles/global.css";
+import Footer from "@components/LayoutComponents/Footer.astro";
+
+const pageTitle = "Resume";
+---
+
+<BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle} showFooter={false}>
+  <Footer />
+</BaseLayout>
+
+<style>
+  a {
+    display: block;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .resume {
+    display: none;
+  }
+
+  @media screen and (min-width: 686px) {
+    .resume {
+      display: flex;
+      max-width: 100%;
+      width: 100%;
+    }
+    a {
+      display: none;
+    }
+  }
+</style>
