@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+interface Props {
+  error: unknown;
+}
+
+export const prerender = true;
+const { error } = Astro.props;
+---
+
+<BaseLayout pageTitle="500 error">
+  <div>{error instanceof Error ? error.message : "Unknown error"}</div>
+</BaseLayout>

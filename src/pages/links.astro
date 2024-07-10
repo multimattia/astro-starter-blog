@@ -4,6 +4,7 @@ import "../styles/global.css";
 import Footer from "@components/LayoutComponents/Footer.astro";
 
 const pageTitle = "Links";
+export const prerender = true;
 ---
 
 <BaseLayout pageTitle={pageTitle} highlightedTab={pageTitle} showFooter={false}>
