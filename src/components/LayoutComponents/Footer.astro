@@ -47,11 +47,11 @@
       </div>
     </div>
     <div class="right-cluster">
-      <p>
+      <p id="vote">
         <a
           target="_blank"
           href="https://democracyforward.org/the-peoples-guide-to-project-2025/"
-          ><p id="vote">Vote, please!</p></a
+          >Vote, please!</a
         >
       </p>
     </div>
@@ -112,34 +112,28 @@
     text-align: left;
   }
 
-  .right-cluster p {
-    font-family: var(--lexend);
+  a:visited {
+    color: var(--color-light-a);
+  }
+
+  .right-cluster a {
+    text-decoration: none;
     color: var(--color-light-deemp);
     font-size: 0.75em;
     font-style: italic;
     text-align: center;
   }
 
-  a:visited {
-    color: var(--color-light-a);
-  }
-
-  .right-cluster p,
-  .right-cluster a {
-    text-decoration: none;
-    color: var(--color-light-deemp);
-    transition: transform 0.2s ease-in-out;
-  }
-
   html.dark .right-cluster a {
     color: var(--color-night-text);
   }
 
-  #vote:hover {
-    transform: scale(1.1);
+  .right-cluster #vote {
+    transition: transform 0.2s ease-in-out;
   }
 
-  html.dark #vote:hover {
+  .right-cluster #vote:hover {
+    transform: scale(1.1);
   }
 
   html.dark a:visited {
@@ -151,14 +145,14 @@
     text-decoration-color: #bbb;
   }
 
-  a:hover {
+  .right-cluster a:hover {
     text-underline-offset: 2px;
     color: black;
     text-decoration-color: #000;
     background-color: transparent;
   }
 
-  html.dark a:hover {
+  html.dark .right-cluster a:hover {
     color: white;
     text-decoration-color: #fff;
     background-color: transparent;
