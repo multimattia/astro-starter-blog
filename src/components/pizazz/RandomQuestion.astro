@@ -1,0 +1,15 @@
+---
+const { question } = Astro.props;
+---
+
+<p>{question}</p>
+<button id="reload">new question</button>
+
+<script is:inline data-astro-rerun>
+  function triggerReload() {
+    const button = document.getElementById("reload");
+    button.onclick = () => location.reload();
+  }
+
+  document.addEventListener("astro:page-load", triggerReload);
+</script>

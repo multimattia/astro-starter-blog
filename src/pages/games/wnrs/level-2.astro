@@ -1,0 +1,13 @@
+---
+import RandomQuestion from "@components/pizazz/RandomQuestion.astro";
+import WnrsQuestion from "@components/pizazz/WnrsQuestion.svelte";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout pageTitle="WNRS: Level 2">
+  <h3><a href="../">{`<`}</a></h3>
+  <h1>Level 2</h1>
+  <WnrsQuestion client:load level={2} />
+  <p><a href="../level-1/">level 1</a></p>
+  <p><a href="../level-3/">level 3</a></p>
+</BaseLayout>

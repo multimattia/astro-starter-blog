@@ -16,7 +16,6 @@ export default defineConfig({
     },
   },
   site: "https://www.maatwo.com",
-  trailingSlash: "always",
   image: {
     service: squooshImageService(),
   },
