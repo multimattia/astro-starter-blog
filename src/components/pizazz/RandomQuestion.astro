@@ -1,0 +1,16 @@
+---
+const { questions = [""] } = Astro.props;
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+---
+
+<p>{randomQuestion}</p>
+<button id="reload">new question</button>
+
+<script is:inline data-astro-rerun>
+  function triggerReload() {
+    const button = document.getElementById("reload");
+    button.onclick = () => location.reload();
+  }
+
+  document.addEventListener("astro:page-load", triggerReload);
+</script>
