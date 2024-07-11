@@ -11,7 +11,7 @@ export async function GET({ params, request }) {
     "Do you think I am an extrovert?",
     "Do you think I have a sibling? Older or younger?",
     "Where do you think I grew up?",
-    "Do you think I mostly cooking or get takeout?",
+    "Do you think I mostly cook at home or get takeout?",
     "What do you think I've been watching lately?",
     "Do you think I hate waking up early?",
     "What is the nicest thing you remember doing for a friend?",
