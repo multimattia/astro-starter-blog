@@ -5,8 +5,8 @@
   let isDarkMode = false;
   let question = "loading...";
   let loading = true;
-  // const endpoint = `http://localhost:4321/api/wnrs/rand-${level}/`;
-  const endpoint = `https://www.maatwo.com/api/wnrs/rand-${level}/`;
+  const endpoint = `https://www.maatwo.com/api/wnrs/rand-${level}.json`;
+  // const endpoint = `http://localhost:4321/api/wnrs/rand-${level}.json`;
 
   function slugify(str) {
     return String(str)
