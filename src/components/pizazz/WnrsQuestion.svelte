@@ -5,20 +5,7 @@
   let isDarkMode = false;
   let question = "loading...";
   let loading = true;
-  // const endpoint = `https://were-strangers.astro-starter-blog.pages.dev/api/wnrs/rand-${level}.json/`;
-  const endpoint = `https://maatwo.com/api/wnrs/rand-${level}.json`;
-  // const endpoint = `http://localhost:4321/api/wnrs/rand-${level}.json`;
-
-  function slugify(str) {
-    return String(str)
-      .normalize("NFKD") // split accented characters into their base characters and diacritical marks
-      .replace(/[\u0300-\u036f]/g, "") // remove all the accents, which happen to be all in the \u03xx UNICODE block.
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
-      .replace(/\s+/g, "-") // replace spaces with hyphens
-      .replace(/-+/g, "-"); // remove consecutive hyphens
-  }
+  const endpoint = `${window.location.origin}/api/wnrs/rand-${level}.json`;
 
   onMount(async () => {
     isDarkMode = window.localStorage.getItem("theme") === "dark";
@@ -35,9 +22,7 @@
       const response = await fetch(endpoint);
       if (response.ok) {
         question = await response.json();
-        // count = parseInt(count);
         question = question.question;
-        console.log(question);
         loading = false;
       } else {
         console.error(`Error: ${response.status}`);
