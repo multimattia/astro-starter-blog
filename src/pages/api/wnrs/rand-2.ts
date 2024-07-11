@@ -1,3 +1,4 @@
+export const prerender = false;
 export async function GET({ params, request }) {
   const questions = [
     "How likely do you think I will change my career?",
