@@ -1,6 +1,7 @@
 ---
 import RandomQuestion from "@components/pizazz/RandomQuestion.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+export const prerender = false;
 const questions = [
   "What do you want to change in your personality right now?",
   "Who do you want to say sorry or thank the most?",
@@ -33,12 +34,14 @@ const questions = [
   "What about me that you hardly understand?",
   "How would you describe me to a stranger?",
 ];
+
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 ---
 
 <BaseLayout pageTitle="games">
   <h3><a href="../">{`<`}</a></h3>
   <h1>Level 3</h1>
-  <RandomQuestion questions={questions} />
+  <RandomQuestion question={randomQuestion} questions={questions} />
   <p><a href="../level-1/">level 1</a></p>
   <p><a href="../level-2/">level 2</a></p>
 </BaseLayout>

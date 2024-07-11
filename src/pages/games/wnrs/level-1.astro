@@ -2,6 +2,8 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import RandomQuestion from "@components/pizazz/RandomQuestion.astro";
 
+export const prerender = false;
+
 const questions = [
   "What do you think my major is?",
   "Do you think I've ever been in love?",
@@ -34,12 +36,13 @@ const questions = [
   "Which part of a house do you think is my favorite place?",
   "Do you think I like playing video games?",
 ];
+const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 ---
 
 <BaseLayout pageTitle="games">
   <h3><a href="../">{`<`}</a></h3>
   <h1>Level 1</h1>
-  <RandomQuestion questions={questions} />
+  <RandomQuestion question={randomQuestion} questions={questions} />
   <p><a href="../level-2/">level 2</a></p>
 </BaseLayout>
 
