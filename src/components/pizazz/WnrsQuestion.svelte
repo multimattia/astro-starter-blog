@@ -6,7 +6,7 @@
   let question = "loading...";
   let loading = true;
   // const endpoint = `https://were-strangers.astro-starter-blog.pages.dev/api/wnrs/rand-${level}.json/`;
-  const endpoint = `https://www.maatwo.com/api/wnrs/rand-${level}.json`;
+  const endpoint = `https://maatwo.com/api/wnrs/rand-${level}.json`;
   // const endpoint = `http://localhost:4321/api/wnrs/rand-${level}.json`;
 
   function slugify(str) {
