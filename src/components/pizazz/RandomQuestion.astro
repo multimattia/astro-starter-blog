@@ -1,9 +1,7 @@
 ---
-const { question, questions = [""] } = Astro.props;
-const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+const { question } = Astro.props;
 ---
 
-<p>{randomQuestion}</p>
 <p>{question}</p>
 <button id="reload">new question</button>
 

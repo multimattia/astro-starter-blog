@@ -42,15 +42,6 @@ const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 <BaseLayout pageTitle="games">
   <h3><a href="../">{`<`}</a></h3>
   <h1>Level 1</h1>
-  <RandomQuestion question={randomQuestion} questions={questions} />
+  <RandomQuestion question={randomQuestion} />
   <p><a href="../level-2/">level 2</a></p>
 </BaseLayout>
-
-<script>
-  function triggerReload() {
-    const button = document.getElementById("reload");
-    button.onclick = () => location.reload();
-  }
-
-  document.addEventListener("DOMContentLoaded", triggerReload);
-</script>
