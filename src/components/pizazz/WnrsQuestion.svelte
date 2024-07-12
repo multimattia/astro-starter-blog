@@ -130,16 +130,6 @@
     height: 40px;
   }
 
-  .questionIcon {
-    width: 30px;
-    height: 30px;
-    color: var(--color-light-a);
-  }
-
-  .dark .questionIcon {
-    color: var(--color-night-a);
-  }
-
   .question {
     margin-left: 0.3ch;
     margin-right: 10px;
@@ -165,10 +155,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
-  }
-
-  .likeCounter {
-    color: white;
   }
 
   button {
