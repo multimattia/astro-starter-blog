@@ -15,7 +15,6 @@ export async function GET({ params, request }) {
     "If you were to buy me a present, knowing nothing about me other than what I look like, what would it be?",
     "What about me intrigues you?",
     "What does my Instagram tell you about me?",
-    "What was your first impression of me on Hinge vs IRL?",
     "Do you think plants thrive or die in my care? Explain.",
     "Do I seem like more of a creative or analytical type? Explain.",
     "What do my shoes tell you about me?",
