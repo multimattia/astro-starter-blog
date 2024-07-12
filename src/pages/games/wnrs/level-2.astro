@@ -5,9 +5,27 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout pageTitle="WNRS: Level 2">
-  <h3><a href="../">{`<`}</a></h3>
-  <h1>Level 2</h1>
   <WnrsQuestion client:only level={2} />
-  <p><a href="../level-1/">level 1</a></p>
-  <p><a href="../level-3/">level 3</a></p>
+  <div class="controls">
+    <div class="one">
+      <p><a href="../">{`HOME`}</a></p>
+    </div>
+    <div class="two">
+      <p><a href="../level-3/">REFLECTION</a></p>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .controls {
+    margin-top: 3rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .controls a {
+    text-decoration: none;
+  }
+</style>

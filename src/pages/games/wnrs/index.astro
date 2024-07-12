@@ -1,12 +1,62 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { fade } from "astro:transitions";
 ---
 
-<BaseLayout pageTitle="Games">
-  <h1>WE'RE NOT REALLY STRANGERS</h1>
-  <ul>
-    <li><a href="./level-1/">LEVEL 1</a></li>
-    <li><a href="./level-2/">LEVEL 2</a></li>
-    <li><a href="./level-3/">LEVEL 3</a></li>
-  </ul>
+<BaseLayout pageTitle="Games" highlightedTab="Games">
+  <div class="start" transition:animate={fade({ duration: "0.4s" })}>
+    <div class="title">
+      <h1>WE'RE NOT REALLY STRANGERS</h1>
+    </div>
+    <a href="./level-1/">START</a>
+  </div>
 </BaseLayout>
+
+<style>
+  .start {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .title h1 {
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    background-color: #c10115;
+    padding: 4rem;
+    border-radius: 2rem;
+  }
+
+  a {
+    font-size: 2rem;
+    text-decoration: none;
+    font-family: var(--lexend-bold);
+    color: #c10115;
+    transition: background-color 0.25s var(--improved-ease);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+  }
+
+  a:visited {
+    color: #c10115;
+  }
+
+  a:hover {
+    color: white;
+    background-color: #c10115;
+  }
+
+  html.dark a:hover {
+    color: white;
+    background-color: #c10115;
+  }
+</style>
