@@ -40,7 +40,6 @@ export async function GET({ params, request }) {
     "Do you think I'm usually early on time, or late to events? Explain.",
     "Do I intimidate you? Why or why not?",
     "What does my phone wallpaper tell you about me?",
-    "Do you think I ever checked an Ex phone for evidence?",
     "Do I remind you of anyone you know?",
     "Something that brought a smile to my face this week was ______.",
     "What are your favorite song lyrics that come to your mind from the top of your head?",

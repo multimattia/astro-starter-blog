@@ -5,9 +5,25 @@ import WnrsQuestion from "@components/pizazz/WnrsQuestion.svelte";
 ---
 
 <BaseLayout pageTitle="WNRS: Level 3">
-  <h3><a href="../">{`<`}</a></h3>
-  <h1>Level 3</h1>
   <WnrsQuestion client:only level={3} />
-  <p><a href="../level-1/">level 1</a></p>
-  <p><a href="../level-2/">level 2</a></p>
+  <div class="controls">
+    <div class="one">
+      <p><a href="../">{`HOME`}</a></p>
+    </div>
+    <div class="two"></div>
+  </div>
 </BaseLayout>
+
+<style>
+  .controls {
+    margin-top: 3rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .controls a {
+    text-decoration: none;
+  }
+</style>
