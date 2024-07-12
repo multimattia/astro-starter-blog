@@ -133,7 +133,6 @@
   .question {
     margin-left: 0.3ch;
     margin-right: 10px;
-    /* color: var(--color-light-deemp); */
     color: white;
     flex-grow: 1;
     display: flex;
@@ -169,14 +168,12 @@
   }
 
   button:hover {
-    /* background-color: var(--color-light-a-highlight); */
     background-color: #ffb6bd;
     transition: background-color 0.2s var(--improved-ease);
   }
 
   .dark button:hover {
     background-color: var(--color-night-a-highlight);
-    /* background-color: #c10115; */
   }
 
   button:active {
