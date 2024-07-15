@@ -21,7 +21,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </div>
     <div class="result-buttons">
       <button id="addLog">Save result</button>
-      <button id="clear">Clear results</button>
     </div>
     <div id="result"></div>
     <div id="log"></div>
@@ -29,18 +28,86 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
-  #min,
-  #max {
-    width: 5ch;
-  }
-
   .convert-cluster {
     display: flex;
     justify-content: center;
   }
 
-  .result {
-    background-color: red;
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .input p {
+    margin-top: 0.4rem;
+    line-height: 1;
+  }
+
+  #unitLabel {
+    min-width: 3ch;
+  }
+
+  .cluster {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .tool input {
+    border-radius: 0.2rem;
+    border: 1px solid var(--color-light-border);
+    text-align: center;
+    background-color: var(--color-light-listing-bg);
+    font-size: 1.1rem;
+    width: 5ch;
+  }
+
+  #slider {
+    width: 11ch;
+  }
+
+  html.dark .tool input {
+    background-color: var(--color-night-listing-bg);
+    border: -1px solid var(--color-night-border);
+    color: var(--color-night-text);
+  }
+
+  .tool button {
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.2rem;
+    border: 1px solid var(--color-light-border);
+    background-color: var(--color-light-listing-bg);
+    transition: transform 0.1s var(--improved-ease);
+  }
+
+  .tool button:active {
+    transform: scale(0.95);
+  }
+
+  .tool button:hover {
+    background-color: var(--color-light-listing-hl);
+  }
+
+  html.dark .tool button {
+    background-color: var(--color-night-listing-bg);
+    border: -1px solid var(--color-night-border);
+    color: var(--color-night-text);
+  }
+  html.dark .tool button:hover {
+    background-color: var(--color-night-listing-hl);
+  }
+
+  html.dark .tool input:focus {
+    outline: 1px solid var(--color-light-border);
+  }
+
+  .result-buttons {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
   }
 
   .log {
@@ -58,38 +125,15 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     min-width: 20ch;
   }
 
-  .result-buttons {
-    margin: 1rem auto;
-    display: flex;
-    justify-content: center;
-  }
-
-  #input {
-    width: 7ch;
-    min-width: 7ch;
-  }
-
-  .cluster {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 0.4rem;
-  }
-
-  .input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .input p {
-    margin-top: 0.4rem;
-    line-height: 1;
+  .result-buttons button {
+    margin: 0rem 0.5rem;
   }
 </style>
 
 <script>
   document.addEventListener("astro:page-load", () => {
+    const LOG_LIMIT = 5;
+
     const sliderLimits = {
       frametimeMin: 20,
       frametimeMax: 100,
@@ -106,7 +150,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     const max = document.getElementById("max") as HTMLInputElement;
     const slider = document.getElementById("slider") as HTMLInputElement;
     const saveButton = document.getElementById("addLog") as HTMLInputElement;
-    const clearButton = document.getElementById("clear") as HTMLInputElement;
     const result = document.getElementById("result") as HTMLDivElement;
     const log = document.getElementById("log") as HTMLDivElement;
     let isFrametime = true;
@@ -181,7 +224,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       newChild.textContent = isFrametime
         ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(0)}FPS`
         : `${value.toFixed(0)}FPS = ${convertedValue.toFixed(2)}ms`;
-      log.appendChild(newChild);
+      if (log.children.length >= LOG_LIMIT) {
+        log.lastChild.remove();
+      }
+      log.prepend(newChild);
     }
     saveButton.addEventListener("click", () => {
       addToLog();
@@ -202,12 +248,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     }
     input.addEventListener("input", updateResult);
 
-    clearButton.addEventListener("click", () => {
-      while (log.lastElementChild) {
-        log.removeChild(log.lastElementChild);
-      }
-    });
-
     toggleButton.addEventListener("click", () => {
       isFrametime = !isFrametime;
       updateSliderAttributes();
@@ -216,7 +256,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     });
 
     slider.addEventListener("input", () => {
-      input.value = slider.value;
+      input.value = parseInt(slider.value).toFixed(0).toString();
       updateResult();
     });
 
