@@ -283,11 +283,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         ? sliderLimits.frametimeMax.toString()
         : sliderLimits.fpsMax.toString();
       min.value = isFrametime
-        ? Math.floor(sliderLimits.frametimeMin).toString()
-        : Math.floor(sliderLimits.fpsMin).toString();
+        ? sliderLimits.frametimeMin.toString()
+        : sliderLimits.fpsMin.toString();
       max.value = isFrametime
-        ? Math.ceil(sliderLimits.frametimeMax).toString()
-        : Math.ceil(sliderLimits.fpsMax).toString();
+        ? sliderLimits.frametimeMax.toString()
+        : sliderLimits.fpsMax.toString();
       if (isFrametime) {
         sliderLimits.frametimeMin = Math.min(
           sliderLimits.frametimeMin,
@@ -328,7 +328,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       const newChild = document.createElement("p");
       newChild.style.textAlign = "center";
       newChild.textContent = isFrametime
-        ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(0)}FPS`
+        ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(2)}FPS`
         : `${value.toFixed(0)}FPS = ${convertedValue.toFixed(2)}ms`;
       if (isFrametime) {
         prevValue.frametime = value;
@@ -383,7 +383,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
         fpsPercent.textContent = ` ${fpsSign}${fpsPercentage.toFixed(2)}%`;
         fpsComp.textContent = `${fpsSign}${fpsDifference.toFixed(2)}FPS`;
-        msComp.textContent = `${msSign}${msDifference.toFixed(0)}ms`;
+        msComp.textContent = `${msSign}${msDifference.toFixed(2)}ms`;
         msPercent.textContent = ` ${msSign}${msPercentage.toFixed(2)}%`;
         fpsComp.style.textAlign =
           fpsPercent.style.textAlign =
@@ -393,7 +393,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         fpsComp.style.color = fpsPercent.style.color =
           fpsDifference < 0 ? "red" : "green";
         msComp.style.color = msPercent.style.color =
-          msDifference < 0 ? "red" : "green";
+          msDifference < 0 ? "green" : "red";
+        if (msDifference === 0) {
+          msComp.style.color = msPercent.style.color = "black";
+          fpsComp.style.color = fpsPercent.style.color = "black";
+        }
       }
       equiv.textContent = isFrametime
         ? `ms = ${convertedValue.toFixed(2)} FPS`
