@@ -10,6 +10,19 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         <button id="toggleButton">Change to FPS</button>
       </label>
     </div>
+    <div id="fpsContainer">
+      <button class="fps-button">12</button>
+      <button class="fps-button">24</button>
+      <button class="fps-button">30</button>
+      <button class="fps-button">60</button>
+      <button class="fps-button">120</button>
+      <button class="fps-button">144</button>
+      <button class="fps-button">240</button>
+      <button class="fps-button">480</button>
+    </div>
+    <div class="result-buttons">
+      <button id="addLog">Save current result</button>
+    </div>
     <div class="input">
       <input type="text" id="input" value="50" />
       <p id="unitLabel">ms</p>
@@ -19,8 +32,19 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <input type="range" id="slider" value="50" />
       <input type="text" id="max" value="240" />
     </div>
-    <div class="result-buttons">
-      <button id="addLog">Save result</button>
+    <div class="comparison">
+      <div class="fpsbox">
+        <p id="fpsString">
+          Comparisons will appear here once a result is saved!
+        </p>
+        <p id="fpsPercentage">{}</p>
+      </div>
+      <div class="msbox">
+        <p id="msString">
+          Comparisons will appear here once a result is saved!
+        </p>
+        <p id="msPercentage">{}</p>
+      </div>
     </div>
     <div id="result"></div>
     <div id="log"></div>
@@ -28,6 +52,36 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
+  #fpsContainer {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  .comparison {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    gap: 0.2rem;
+    width: 55%;
+    margin: 0.2rem auto;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    background-color: gray;
+    border-radius: 0.3rem;
+  }
+
+  .fpsbox,
+  .msbox {
+    background-color: white;
+    border-radius: 0.2rem;
+    min-height: 5em;
+  }
+
+  .fpsbox p,
+  .msbox p {
+    text-align: center;
+    color: gray;
+  }
+
   .convert-cluster {
     display: flex;
     justify-content: center;
@@ -57,6 +111,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   }
 
   .tool input {
+    font-family: var(--lexend);
     border-radius: 0.2rem;
     border: 1px solid var(--color-light-border);
     text-align: center;
@@ -66,7 +121,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   }
 
   #slider {
-    width: 11ch;
+    width: 18ch;
   }
 
   html.dark .tool input {
@@ -77,6 +132,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   .tool button {
     padding: 0.4rem 0.9rem;
+    font-family: var(--lexend);
     border-radius: 0.2rem;
     border: 1px solid var(--color-light-border);
     background-color: var(--color-light-listing-bg);
@@ -133,18 +189,29 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 <script>
   document.addEventListener("astro:page-load", () => {
     const LOG_LIMIT = 5;
-
-    const sliderLimits = {
-      frametimeMin: 20,
-      frametimeMax: 100,
-      fpsMin: 1,
-      fpsMax: 240,
+    const prevValue = {
+      frametime: 0,
+      fps: 0,
     };
 
+    const sliderLimits = {
+      frametimeMin: 2,
+      frametimeMax: 100,
+      fpsMin: 12,
+      fpsMax: 480,
+    };
+
+    let prevButton = 0;
+
+    const fpsContainer = document.getElementById("fpsContainer");
     const toggleButton = document.getElementById(
       "toggleButton"
     ) as HTMLButtonElement;
     const input = document.getElementById("input") as HTMLInputElement;
+    const msComp = document.getElementById("msString") as HTMLParagraphElement;
+    const fpsComp = document.getElementById(
+      "fpsString"
+    ) as HTMLParagraphElement;
     const unit = document.getElementById("unitLabel") as HTMLInputElement;
     const min = document.getElementById("min") as HTMLInputElement;
     const max = document.getElementById("max") as HTMLInputElement;
@@ -152,7 +219,40 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     const saveButton = document.getElementById("addLog") as HTMLInputElement;
     const result = document.getElementById("result") as HTMLDivElement;
     const log = document.getElementById("log") as HTMLDivElement;
+    const fpsPercent = document.getElementById(
+      "fpsPercentage"
+    ) as HTMLParagraphElement;
+    const msPercent = document.getElementById(
+      "msPercentage"
+    ) as HTMLParagraphElement;
     let isFrametime = true;
+
+    fpsContainer.addEventListener("click", (event: Event) => {
+      const targetButton = (event.target as Element).closest(
+        ".fps-button"
+      ) as HTMLButtonElement;
+
+      if (targetButton) {
+        const buttonText = targetButton.textContent;
+        let inputValue = parseInt(buttonText);
+        updateInputValue(inputValue);
+      }
+    });
+
+    function updateInputValue(value: number): void {
+      if (isFrametime) {
+        toggleUnits();
+      }
+      input.value = value.toString();
+      slider.value = value.toString();
+      if (prevButton !== value) {
+        updateResult();
+      }
+      if (log.children.length === 0) {
+        addToLog();
+      }
+      prevButton = value;
+    }
 
     min.addEventListener("input", (event) => {
       if (isFrametime) {
@@ -216,6 +316,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       unit.textContent = isFrametime ? "ms" : "FPS";
     }
 
+    function printvalues(): void {
+      console.log(`fps: ${prevValue.fps}`);
+      console.log(`frametime: ${prevValue.frametime}`);
+    }
+
     function addToLog(): void {
       const value = parseFloat(input.value) || parseFloat(slider.value);
       const convertedValue = convert(value);
@@ -224,6 +329,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       newChild.textContent = isFrametime
         ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(0)}FPS`
         : `${value.toFixed(0)}FPS = ${convertedValue.toFixed(2)}ms`;
+      if (isFrametime) {
+        prevValue.frametime = value;
+        prevValue.fps = convertedValue;
+      } else {
+        prevValue.fps = value;
+        prevValue.frametime = convertedValue;
+      }
       if (log.children.length >= LOG_LIMIT) {
         log.lastChild.remove();
       }
@@ -240,8 +352,49 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     function updateResult(): void {
       const value = parseFloat(input.value) || parseFloat(slider.value);
       const convertedValue = convert(value);
+      let fpsPercentage;
+      let msPercentage;
+      let msDifference;
+      let fpsDifference;
+      let fpsSign;
+      let msSign;
+      if (prevValue.fps !== 0) {
+        if (isFrametime) {
+          fpsDifference = convertedValue - prevValue.fps;
+          msDifference = value - prevValue.frametime;
+
+          msPercentage =
+            ((value - prevValue.frametime) / prevValue.frametime) * 100;
+          fpsPercentage =
+            ((convertedValue - prevValue.fps) / prevValue.fps) * 100;
+        } else {
+          fpsDifference = value - prevValue.fps;
+          msDifference = convertedValue - prevValue.frametime;
+
+          fpsPercentage = ((value - prevValue.fps) / prevValue.fps) * 100;
+          msPercentage =
+            ((convertedValue - prevValue.frametime) / prevValue.frametime) *
+            100;
+        }
+        fpsSign = fpsDifference < 0 ? "" : "+";
+        msSign = msDifference < 0 ? "" : "+";
+
+        fpsPercent.textContent = ` ${fpsSign}${fpsPercentage.toFixed(2)}%`;
+        fpsComp.textContent = `${fpsSign}${fpsDifference.toFixed(2)}FPS`;
+        msComp.textContent = `${msSign}${msDifference.toFixed(0)}ms`;
+        msPercent.textContent = ` ${msSign}${msPercentage.toFixed(2)}%`;
+        fpsComp.style.textAlign =
+          fpsPercent.style.textAlign =
+          msComp.style.textAlign =
+          msPercent.style.textAlign =
+            "center";
+        fpsComp.style.color = fpsPercent.style.color =
+          fpsDifference < 0 ? "red" : "green";
+        msComp.style.color = msPercent.style.color =
+          msDifference < 0 ? "red" : "green";
+      }
       result.textContent = isFrametime
-        ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(1)}FPS`
+        ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(2)}FPS`
         : `${value.toFixed(0)}FPS = ${convertedValue.toFixed(2)}ms`;
       result.style.textAlign = "center";
       result.style.setProperty("font-family", "var(--lexend-bold)");
@@ -249,11 +402,15 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     input.addEventListener("input", updateResult);
 
     toggleButton.addEventListener("click", () => {
+      toggleUnits();
+    });
+
+    function toggleUnits() {
       isFrametime = !isFrametime;
       updateSliderAttributes();
       updateResult();
       updateButtonText();
-    });
+    }
 
     slider.addEventListener("input", () => {
       input.value = parseInt(slider.value).toFixed(0).toString();
