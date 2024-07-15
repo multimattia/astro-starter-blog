@@ -95,6 +95,99 @@ const pageTitle = "About";
       href="https://www.linkedin.com/in/matthew-chan-skid23/">LinkedIn</a
     >! I'm always interested in meeting new people.
   </p>
+  <div class="container">
+    <div class="spotlight-area">
+      <!-- Hidden elements go here -->
+      <div class="hidden-element">
+        <p>
+          <a href="https://www.techbropuritytest.com/" target="_blank"
+            >My Tech Bro Purity score is 84.</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
 </BaseLayout>
 
-<style></style>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const container = document.querySelector(".container") as HTMLDivElement;
+    const spotlightArea = document.querySelector(
+      ".spotlight-area"
+    ) as HTMLDivElement;
+    const hiddenElements = document.querySelectorAll(".hidden-element");
+    let darkMode = document.documentElement.classList.contains("dark");
+    let lightColor = darkMode ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.2)";
+
+    container.addEventListener("mouseenter", (e) => {
+      darkMode = document.documentElement.classList.contains("dark");
+      lightColor = darkMode ? "rgba(70,74,166,0.5)" : "rgba(255,255,255,0.9)";
+    });
+
+    container.addEventListener("mousemove", (e) => {
+      const { clientX, clientY } = e;
+      const { left, top, width, height } = container.getBoundingClientRect();
+
+      const x = clientX - left;
+      const y = clientY - top;
+
+      // Create or update spotlight gradient
+      spotlightArea.style.background = `radial-gradient(circle 100px at ${x}px ${y}px, ${lightColor}, transparent)`;
+
+      // Check each hidden element
+      hiddenElements.forEach((element: HTMLDivElement) => {
+        const rect = element.getBoundingClientRect();
+        const elementCenterX = rect.left + rect.width / 2 - left;
+        const elementCenterY = rect.top + rect.height / 2 - top;
+
+        const distance = Math.sqrt(Math.pow(y - elementCenterY, 2));
+
+        if (distance < 100) {
+          element.style.opacity = (1 - distance / 100).toString();
+        } else {
+          element.style.opacity = "0";
+        }
+      });
+    });
+
+    container.addEventListener("mouseleave", () => {
+      spotlightArea.style.background = "none";
+      hiddenElements.forEach((element: HTMLDivElement) => {
+        element.style.opacity = "0";
+      });
+    });
+  });
+</script>
+
+<style>
+  .container {
+    position: relative;
+    width: 100%;
+    height: 10rem;
+    overflow: hidden;
+  }
+
+  .spotlight-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: none;
+    justify-content: center;
+  }
+
+  .hidden-element {
+    color: var(--color-light-deemp);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  html.dark .hidden-element {
+    color: var(--color-night-deemp);
+  }
+
+  .hidden-element p {
+    text-align: center;
+  }
+</style>
