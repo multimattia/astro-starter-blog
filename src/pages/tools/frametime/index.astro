@@ -341,6 +341,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         log.lastChild.remove();
       }
       log.prepend(newChild);
+      updateResult();
     }
     saveButton.addEventListener("click", () => {
       addToLog();
