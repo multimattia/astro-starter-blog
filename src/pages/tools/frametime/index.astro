@@ -25,7 +25,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </div>
     <div class="input">
       <input type="text" id="input" value="50" />
-      <p id="unitLabel">ms</p>
+      <p id="equivalent"></p>
     </div>
     <div class="cluster">
       <input type="text" id="min" value="1" />
@@ -217,8 +217,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     const max = document.getElementById("max") as HTMLInputElement;
     const slider = document.getElementById("slider") as HTMLInputElement;
     const saveButton = document.getElementById("addLog") as HTMLInputElement;
-    const result = document.getElementById("result") as HTMLDivElement;
     const log = document.getElementById("log") as HTMLDivElement;
+    const equiv = document.getElementById("equivalent") as HTMLParagraphElement;
     const fpsPercent = document.getElementById(
       "fpsPercentage"
     ) as HTMLParagraphElement;
@@ -250,6 +250,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       }
       if (log.children.length === 0) {
         addToLog();
+        // updateSliderAttributes();
       }
       prevButton = value;
     }
@@ -393,11 +394,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         msComp.style.color = msPercent.style.color =
           msDifference < 0 ? "red" : "green";
       }
-      result.textContent = isFrametime
-        ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(2)}FPS`
-        : `${value.toFixed(0)}FPS = ${convertedValue.toFixed(2)}ms`;
-      result.style.textAlign = "center";
-      result.style.setProperty("font-family", "var(--lexend-bold)");
+      equiv.textContent = isFrametime
+        ? `ms = ${convertedValue.toFixed(2)} FPS`
+        : `FPS = ${convertedValue.toFixed(2)}ms`;
     }
     input.addEventListener("input", updateResult);
 
