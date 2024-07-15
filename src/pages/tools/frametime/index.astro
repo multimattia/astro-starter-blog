@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout highlightedTab="Tools" pageTitle="Frametime Converter">
+  <h1>Frametime converter</h1>
+  <label for="toggle">
+    <button id="toggleButton">Change to FPS</button>
+  </label>
+  <br />
+  <div id="result"></div>
+  <input type="text" id="input" value="50" />
+  <input type="range" id="slider" value="50" />
+  <button id="addLog">Save result</button>
+  <button id="clear">Clear results</button>
+  <div id="log"></div>
+</BaseLayout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    // Define the slider limits
+    const sliderLimits = {
+      frametimeMin: 1,
+      frametimeMax: 100,
+      fpsMin: 1,
+      fpsMax: 240,
+    };
+
+    // Get DOM elements
+    const toggle = document.getElementById("toggle") as HTMLInputElement;
+    const toggleButton = document.getElementById(
+      "toggleButton"
+    ) as HTMLButtonElement;
+    const input = document.getElementById("input") as HTMLInputElement;
+    const slider = document.getElementById("slider") as HTMLInputElement;
+    const saveButton = document.getElementById("addLog") as HTMLInputElement;
+    const clearButton = document.getElementById("clear") as HTMLInputElement;
+    const result = document.getElementById("result") as HTMLDivElement;
+    const log = document.getElementById("log") as HTMLDivElement;
+
+    // Set initial state
+    let isFrametime = true;
+
+    // Update slider attributes
+    function updateSliderAttributes(): void {
+      if (isFrametime) {
+        slider.min = sliderLimits.frametimeMin.toString();
+        slider.max = sliderLimits.frametimeMax.toString();
+      } else {
+        slider.min = sliderLimits.fpsMin.toString();
+        slider.max = sliderLimits.fpsMax.toString();
+      }
+    }
+
+    function updateButtonText(): void {
+      toggleButton.textContent = isFrametime
+        ? "Switch to FPS"
+        : "Switch to Frametime";
+    }
+
+    function addToLog(): void {
+      const value = parseFloat(input.value) || parseFloat(slider.value);
+      const convertedValue = convert(value);
+      const newChild = document.createElement("p");
+      newChild.textContent = isFrametime
+        ? `${value.toFixed(2)}ms = ${convertedValue.toFixed(2)}FPS`
+        : `${value.toFixed(2)}FPS = ${convertedValue.toFixed(2)}ms`;
+      log.appendChild(newChild);
+    }
+    saveButton.addEventListener("click", () => {
+      addToLog();
+    });
+
+    // Convert frametime to FPS and vice versa
+    function convert(value: number): number {
+      return isFrametime ? 1000 / value : 1000 / value;
+    }
+
+    // Update result
+    function updateResult(): void {
+      const value = parseFloat(input.value) || parseFloat(slider.value);
+      const convertedValue = convert(value);
+      result.textContent = isFrametime
+        ? `${value.toFixed(2)}ms = ${convertedValue.toFixed(2)}FPS`
+        : `${value.toFixed(2)}FPS = ${convertedValue.toFixed(2)}ms`;
+    }
+    input.addEventListener("input", updateResult);
+
+    clearButton.addEventListener("click", () => {
+      while (log.lastElementChild) {
+        log.removeChild(log.lastElementChild);
+      }
+    });
+
+    toggleButton.addEventListener("click", () => {
+      isFrametime = !isFrametime;
+      updateSliderAttributes();
+      updateButtonText();
+      updateResult();
+    });
+
+    slider.addEventListener("input", () => {
+      input.value = slider.value;
+      updateResult();
+    });
+
+    // Initial setup
+    updateSliderAttributes();
+    updateResult();
+  });
+</script>
