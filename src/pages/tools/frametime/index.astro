@@ -8,17 +8,51 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     <button id="toggleButton">Change to FPS</button>
   </label>
   <br />
-  <div id="result"></div>
-  <input type="text" id="input" value="50" />
-  <input type="range" id="slider" value="50" />
+  <div class="input">
+    <input type="text" id="input" value="50" />
+    <p id="unitLabel">ms</p>
+  </div>
+  <div class="cluster">
+    <input type="text" id="min" value="1" />
+    <input type="range" id="slider" value="50" />
+    <input type="text" id="max" value="240" />
+  </div>
   <button id="addLog">Save result</button>
   <button id="clear">Clear results</button>
+  <div id="result"></div>
   <div id="log"></div>
 </BaseLayout>
 
+<style>
+  #min,
+  #max {
+    width: 5ch;
+  }
+
+  .cluster {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .input p {
+    margin-top: 0.4rem;
+    line-height: 1;
+  }
+
+  #input {
+    width: 7ch;
+    min-width: 7ch;
+  }
+</style>
+
 <script>
   document.addEventListener("astro:page-load", () => {
-    // Define the slider limits
     const sliderLimits = {
       frametimeMin: 1,
       frametimeMax: 100,
@@ -26,22 +60,38 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       fpsMax: 240,
     };
 
-    // Get DOM elements
-    const toggle = document.getElementById("toggle") as HTMLInputElement;
     const toggleButton = document.getElementById(
       "toggleButton"
     ) as HTMLButtonElement;
     const input = document.getElementById("input") as HTMLInputElement;
+    const unit = document.getElementById("unitLabel") as HTMLInputElement;
+    const min = document.getElementById("min") as HTMLInputElement;
+    const max = document.getElementById("max") as HTMLInputElement;
     const slider = document.getElementById("slider") as HTMLInputElement;
     const saveButton = document.getElementById("addLog") as HTMLInputElement;
     const clearButton = document.getElementById("clear") as HTMLInputElement;
     const result = document.getElementById("result") as HTMLDivElement;
     const log = document.getElementById("log") as HTMLDivElement;
-
-    // Set initial state
     let isFrametime = true;
 
-    // Update slider attributes
+    min.addEventListener("input", (event) => {
+      if (isFrametime) {
+        sliderLimits.frametimeMin = parseFloat(min.value);
+      } else {
+        sliderLimits.fpsMin = parseFloat(min.value);
+      }
+      updateSliderAttributes();
+    });
+
+    max.addEventListener("input", (event) => {
+      if (isFrametime) {
+        sliderLimits.frametimeMax = parseFloat(max.value);
+      } else {
+        sliderLimits.fpsMax = parseFloat(max.value);
+      }
+      updateSliderAttributes();
+    });
+
     function updateSliderAttributes(): void {
       if (isFrametime) {
         slider.min = sliderLimits.frametimeMin.toString();
@@ -56,6 +106,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       toggleButton.textContent = isFrametime
         ? "Switch to FPS"
         : "Switch to Frametime";
+      unit.textContent = isFrametime ? "ms" : "FPS";
+      min.value = isFrametime
+        ? sliderLimits.frametimeMin.toString()
+        : sliderLimits.fpsMin.toString();
+      max.value = isFrametime
+        ? sliderLimits.frametimeMax.toString()
+        : sliderLimits.fpsMax.toString();
     }
 
     function addToLog(): void {
@@ -63,26 +120,24 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       const convertedValue = convert(value);
       const newChild = document.createElement("p");
       newChild.textContent = isFrametime
-        ? `${value.toFixed(2)}ms = ${convertedValue.toFixed(2)}FPS`
-        : `${value.toFixed(2)}FPS = ${convertedValue.toFixed(2)}ms`;
+        ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(0)}FPS`
+        : `${value.toFixed(0)}FPS = ${convertedValue.toFixed(2)}ms`;
       log.appendChild(newChild);
     }
     saveButton.addEventListener("click", () => {
       addToLog();
     });
 
-    // Convert frametime to FPS and vice versa
     function convert(value: number): number {
       return isFrametime ? 1000 / value : 1000 / value;
     }
 
-    // Update result
     function updateResult(): void {
       const value = parseFloat(input.value) || parseFloat(slider.value);
       const convertedValue = convert(value);
       result.textContent = isFrametime
-        ? `${value.toFixed(2)}ms = ${convertedValue.toFixed(2)}FPS`
-        : `${value.toFixed(2)}FPS = ${convertedValue.toFixed(2)}ms`;
+        ? `${value.toFixed(0)}ms = ${convertedValue.toFixed(1)}FPS`
+        : `${value.toFixed(0)}FPS = ${convertedValue.toFixed(2)}ms`;
     }
     input.addEventListener("input", updateResult);
 
@@ -104,7 +159,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       updateResult();
     });
 
-    // Initial setup
     updateSliderAttributes();
     updateResult();
   });
