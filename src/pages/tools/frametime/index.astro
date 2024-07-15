@@ -29,6 +29,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     width: 5ch;
   }
 
+  #input {
+    width: 7ch;
+    min-width: 7ch;
+  }
+
   .cluster {
     display: flex;
     gap: 0.4rem;
@@ -44,17 +49,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     margin-top: 0.4rem;
     line-height: 1;
   }
-
-  #input {
-    width: 7ch;
-    min-width: 7ch;
-  }
 </style>
 
 <script>
   document.addEventListener("astro:page-load", () => {
     const sliderLimits = {
-      frametimeMin: 1,
+      frametimeMin: 20,
       frametimeMax: 100,
       fpsMin: 1,
       fpsMax: 240,
@@ -93,13 +93,42 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     });
 
     function updateSliderAttributes(): void {
+      const newValue = parseFloat(input.value) || parseFloat(slider.value);
+      const convertedValue = convert(newValue);
+      console.log(newValue);
+      console.log(convertedValue);
+      slider.min = isFrametime
+        ? sliderLimits.frametimeMin.toString()
+        : sliderLimits.fpsMin.toString();
+      slider.max = isFrametime
+        ? sliderLimits.frametimeMax.toString()
+        : sliderLimits.fpsMax.toString();
+      min.value = isFrametime
+        ? Math.floor(sliderLimits.frametimeMin).toString()
+        : Math.floor(sliderLimits.fpsMin).toString();
+      max.value = isFrametime
+        ? Math.ceil(sliderLimits.frametimeMax).toString()
+        : Math.ceil(sliderLimits.fpsMax).toString();
       if (isFrametime) {
-        slider.min = sliderLimits.frametimeMin.toString();
-        slider.max = sliderLimits.frametimeMax.toString();
+        sliderLimits.frametimeMin = Math.min(
+          sliderLimits.frametimeMin,
+          sliderLimits.frametimeMin,
+          convertedValue
+        );
+        sliderLimits.frametimeMax = Math.max(
+          sliderLimits.frametimeMax,
+          convertedValue
+        );
       } else {
-        slider.min = sliderLimits.fpsMin.toString();
-        slider.max = sliderLimits.fpsMax.toString();
+        sliderLimits.fpsMin = Math.floor(
+          Math.min(sliderLimits.fpsMin, convertedValue)
+        );
+        sliderLimits.fpsMax = Math.ceil(
+          Math.max(sliderLimits.fpsMax, convertedValue)
+        );
       }
+      slider.value = convertedValue.toFixed(0).toString();
+      input.value = convertedValue.toFixed(0).toString();
     }
 
     function updateButtonText(): void {
@@ -107,12 +136,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         ? "Switch to FPS"
         : "Switch to Frametime";
       unit.textContent = isFrametime ? "ms" : "FPS";
-      min.value = isFrametime
-        ? sliderLimits.frametimeMin.toString()
-        : sliderLimits.fpsMin.toString();
-      max.value = isFrametime
-        ? sliderLimits.frametimeMax.toString()
-        : sliderLimits.fpsMax.toString();
     }
 
     function addToLog(): void {
@@ -150,8 +173,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     toggleButton.addEventListener("click", () => {
       isFrametime = !isFrametime;
       updateSliderAttributes();
-      updateButtonText();
       updateResult();
+      updateButtonText();
     });
 
     slider.addEventListener("input", () => {
