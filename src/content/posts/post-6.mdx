@@ -14,8 +14,8 @@ tags:
 import example from "@images/example.avif";
 import BlogImage from "@components/BlogImage.astro";
 
-Images that you want optimized by Astro be moved to any folder within the `src` directory.
-As an example, I've set up an [import alias](/posts/post-4), see below:
+Images that you want Astro to pre-process should first be moved to any folder within the `src` directory.
+As an example, I've set up an [import alias](/posts/post-4), where images are in `src/assets/images`, see below:
 
 ```js
 import example from "@images/example.jpg";
@@ -23,13 +23,15 @@ import timing_app_upscale from "@images/timing_app_upscale.png";
 import BlogImage from "@components/BlogImage.astro";
 ```
 
-You can embed this `BlogImage` component directly into your markdown posts, but for styling purposes I found it easier
-to create a custom component that I can embed into the post. One caveat is that any CSS selectors for this component must
-be declared inline, so please ensure that your CSS selectors have enough specificity to avoid cascading into the rest of
-the post page.
+I've created a component, `BlogImage`, that will display a caption underneath the image, which uses Astro's `Image`
+under the hood to minimize [CLS](https://web.dev/articles/cls) and payload size by pre-processing the given image to
+.webp.
 
-I've created a component, `BlogImage`, that will display a caption underneath the image.
-The `BlogImage` component takes in two props, the directory of the image, and the alt text:
+This `BlogImage` component takes in two props, the directory of the image (`src`), and the alt text (`alt`).
+
+You can embed this `BlogImage` component directly into your markdown posts. One caveat is that CSS selectors for
+this component have been declared inline to circumvent .mdx styling limitations, so please ensure that your CSS
+selectors have enough specificity to avoid cascades into the rest of the post page.
 
 Here's the `BlogImage` component in its entirety:
 
