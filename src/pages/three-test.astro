@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import App from "@components/pizazz/three-test";
+---
+
+<BaseLayout pageTitle="three-test">
+  <App client:load />
+  <!-- <App client:only="react" /> -->
+</BaseLayout>
+
+<style is:inline>
+  .canvas {
+    height: 100%;
+    width: 100%;
+  }
+</style>

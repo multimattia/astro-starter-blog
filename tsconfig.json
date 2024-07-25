@@ -2,8 +2,8 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "preserve",
-    "jsxImportSource": "astro/jsx-runtime",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
@@ -29,7 +29,7 @@
       ],
       "@posts/*": [
         "src/content/posts/*"
-      ],
+      ]
     }
-  },
+  }
 }
