@@ -52,20 +52,31 @@ const { activeLink } = Astro.props;
     };
   };
 
-  const handleScroll = function () {
-    let currentScroll = window.scrollY || document.documentElement.scrollTop;
+  const handleScroll = () => {
+    const currentTime = Date.now();
+    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    const scrollDifference = this.lastScrollTop - currentScroll;
+    const timeDifference = currentTime - this.lastScrollTime;
+
+    const scrollSpeed = Math.abs(scrollDifference / timeDifference);
+
+    const scrollSpeedThreshold = 0.4; // pixels per millisecond
+
     if (currentScroll > this.lastScrollTop) {
       this.navBar?.classList.add("hidden");
-    } else {
+    } else if (scrollSpeed > scrollSpeedThreshold) {
       this.navBar?.classList.remove("hidden");
     }
+
     this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    this.lastScrollTime = currentTime;
   };
 
   document.addEventListener("astro:page-load", () => {
     const boundHandleScroll = handleScroll.bind({
       navBar: document.getElementById("mainNav"),
       lastScrollTop: 0,
+      lastScrollTime: Date.now(),
     });
     window.addEventListener("scroll", throttle(boundHandleScroll, 150));
   });
