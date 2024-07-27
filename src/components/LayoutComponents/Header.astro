@@ -52,7 +52,7 @@ const { activeLink } = Astro.props;
     };
   };
 
-  const handleScroll = () => {
+  const handleScroll = function () {
     const currentTime = Date.now();
     const currentScroll = window.scrollY || document.documentElement.scrollTop;
     const scrollDifference = this.lastScrollTop - currentScroll;
