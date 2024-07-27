@@ -27,28 +27,46 @@ import { join } from "node:path";
 <ViewTransitions />
 <AstroFont
   config={[
+    // {
+    //   name: "lexend-2",
+    //   src: [
+    //     {
+    //       style: "normal",
+    //       path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
+    //     },
+    //   ],
+    //   preload: true,
+    //   display: "swap",
+    //   cssVariable: "lexend-bold",
+    //   fallback: "sans-serif",
+    // },
+    // {
+    //   name: "lexend-1",
+    //   src: [
+    //     {
+    //       style: "normal",
+    //       path: join(process.cwd(), "public", "fonts", "Lexend-Light.woff2"),
+    //     },
+    //   ],
+    //   cssVariable: "lexend",
+    //   preload: true,
+    //   display: "swap",
+    //   fallback: "sans-serif",
+    // },
     {
-      name: "lexend-2",
+      name: "gabarito",
       src: [
         {
           style: "normal",
-          path: join(process.cwd(), "public", "fonts", "Lexend-Bold.woff2"),
+          path: join(
+            process.cwd(),
+            "public",
+            "fonts",
+            "Gabarito-Variable.woff2"
+          ),
         },
       ],
-      preload: true,
-      display: "swap",
-      cssVariable: "lexend-bold",
-      fallback: "sans-serif",
-    },
-    {
-      name: "lexend-1",
-      src: [
-        {
-          style: "normal",
-          path: join(process.cwd(), "public", "fonts", "Lexend-Light.woff2"),
-        },
-      ],
-      cssVariable: "lexend",
+      cssVariable: "gabarito",
       preload: true,
       display: "swap",
       fallback: "sans-serif",
