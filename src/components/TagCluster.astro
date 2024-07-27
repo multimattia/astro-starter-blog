@@ -30,8 +30,8 @@ const { tags } = Astro.props;
             delay: 0.9,
             duration: 0.2,
             easing: [0.22, 0.03, 0.26, 1],
+            allowWebkitAcceleration: true,
           },
-          { allowWebkitAcceleration: true },
         ],
         [
           tags,
@@ -40,8 +40,8 @@ const { tags } = Astro.props;
             delay: stagger(0.03),
             duration: 0.2,
             easing: [0.22, 0.03, 0.26, 1],
+            allowWebkitAcceleration: true,
           },
-          { allowWebkitAcceleration: true },
         ],
         [
           tags,
@@ -51,8 +51,8 @@ const { tags } = Astro.props;
             duration: 0.2,
             easing: [0.22, 0.03, 0.26, 1],
             at: "<",
+            allowWebkitAcceleration: true,
           },
-          { allowWebkitAcceleration: true },
         ],
       ];
       timeline(sequence);
