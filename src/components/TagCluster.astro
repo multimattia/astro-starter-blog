@@ -14,52 +14,6 @@ const { tags } = Astro.props;
   }
 </div>
 
-<script>
-  import { stagger, timeline } from "motion";
-  if (window.location.pathname === "/blog/") {
-    document.addEventListener("astro:page-load", () => {
-      const tags = document.querySelectorAll("#single-tag");
-      const personal = document.getElementById("personal");
-      console.log(tags);
-      let sequence;
-      sequence = [
-        [
-          personal,
-          { opacity: [0, 1], transform: ["translateX(30px)", "translateX(0)"] },
-          {
-            delay: 0.9,
-            duration: 0.2,
-            easing: [0.22, 0.03, 0.26, 1],
-            allowWebkitAcceleration: true,
-          },
-        ],
-        [
-          tags,
-          { transform: ["translateY(-30px)", "translateY(0)"] },
-          {
-            delay: stagger(0.03),
-            duration: 0.2,
-            easing: [0.22, 0.03, 0.26, 1],
-            allowWebkitAcceleration: true,
-          },
-        ],
-        [
-          tags,
-          { opacity: [0, 1] },
-          {
-            delay: stagger(0.03),
-            duration: 0.2,
-            easing: [0.22, 0.03, 0.26, 1],
-            at: "<",
-            allowWebkitAcceleration: true,
-          },
-        ],
-      ];
-      timeline(sequence);
-    });
-  }
-</script>
-
 <style>
   .tags {
     display: flex;
