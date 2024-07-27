@@ -49,6 +49,7 @@ const { post, url } = Astro.props;
             duration: 0.2,
             easing: [0.22, 0.03, 0.26, 1],
           },
+          { allowWebkitAcceleration: true },
         ],
         [
           boxes,
@@ -62,6 +63,7 @@ const { post, url } = Astro.props;
             easing: [0.22, 0.03, 0.26, 1],
             at: "<",
           },
+          { allowWebkitAcceleration: true },
         ],
       ];
       timeline(sequence);
