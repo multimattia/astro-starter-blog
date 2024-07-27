@@ -118,7 +118,8 @@
   }
   .desc h3 {
     color: rgba(255, 70, 100, 0.85);
-    font-family: var(--lexend-bold);
+    font-family: var(--gabarito);
+    font-weight: 800;
     font-size: 2rem;
   }
   .controls {
@@ -145,7 +146,8 @@
     margin: auto;
     vertical-align: middle;
     min-height: 10rem;
-    font-family: var(--lexend-bold);
+    font-family: var(--gabarito);
+    font-weight: 800;
     font-size: clamp(1rem, 3vh, 5rem);
     line-height: 1.2;
     max-height: 100%;
@@ -161,7 +163,7 @@
     align-items: center;
     border-radius: 5px;
     border: none;
-    font-family: var(--lexend);
+    font-family: var(--gabarito);
     font-size: 2.2rem;
     color: white;
     background-color: transparent;

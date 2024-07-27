@@ -85,8 +85,9 @@ html.dark *::-moz-selection {
 }
 
 html {
-  font-family: var(--lexend), "Adjusted Arial Fallback";
+  font-family: var(--gabarito), "Adjusted Arial Fallback";
   font-display: optional;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   background-color: var(--color-light-bg);
   text-rendering: optimizeLegibility;
@@ -94,7 +95,8 @@ html {
   /* background-image: url('/noise.svg'); */
 }
 strong {
-  font-family: var(--lexend-bold);
+  font-family: var(--gabarito);
+  font-weight: 800;
 }
 
 @font-face {
@@ -136,7 +138,8 @@ html.dark {
 }
 
 h1 {
-  font-family: var(--lexend-bold);
+  font-family: var(--gabarito);
+  font-weight: 800;
   padding-bottom: 1rem;
   letter-spacing: -1.8px;
   line-height: 1.2;
