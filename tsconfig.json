@@ -24,6 +24,9 @@
       "@layouts/*": [
         "src/layouts/*"
       ],
+      "@animations/*": [
+        "src/animations/*"
+      ],
       "@images/*": [
         "src/assets/images/*"
       ],

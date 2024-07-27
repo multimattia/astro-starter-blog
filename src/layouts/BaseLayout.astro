@@ -6,6 +6,7 @@ import type { TransitionAnimationPair } from "astro";
 import CommonHead from "@components/CommonHead.astro";
 import Header from "../components/LayoutComponents/Header.astro";
 import Footer from "@components/LayoutComponents/Footer.astro";
+import { fade } from "astro:transitions";
 
 // credit to Eva Decker at eva.town
 export const forwards: TransitionAnimationPair = {
@@ -86,7 +87,7 @@ const heroViewTransition = {
             <slot />
           </main>
         ) : (
-          <main transition:animate={viewTransition}>
+          <main transition:animate={fade({ duration: "0.4s" })}>
             <slot />
           </main>
         )

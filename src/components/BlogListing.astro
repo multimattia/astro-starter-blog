@@ -22,6 +22,8 @@ const { post, url } = Astro.props;
   </div>
 </a>
 
+<script src="@animations/blog-fiction-listing.js"></script>
+
 <style>
   a {
     text-decoration: unset;
@@ -34,16 +36,24 @@ const { post, url } = Astro.props;
     padding: 0.5rem 1rem;
     margin: 0 0 1rem 0;
     flex-direction: column;
+    opacity: 1;
     background-color: var(--color-light-listing-bg);
     border-radius: 7px;
     min-height: 10rem;
-    transition: all 0.25s var(--improved-ease);
+    transition:
+      all 0.25s var(--improved-ease),
+      outline 0.1s ease-in;
   }
 
   .postContainer:hover {
     background-color: var(--color-light-listing-hl);
     scale: 102%;
     animation: gentle-rotate 2.45s infinite var(--improved-ease);
+    outline: 3px solid var(--color-light-a);
+  }
+
+  .html.dark .postContainer:hover {
+    outline: 3px solid var(--color-night-a);
   }
 
   .postContainer:active {

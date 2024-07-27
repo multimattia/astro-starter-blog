@@ -7,7 +7,7 @@ const { tags } = Astro.props;
     tags
       .filter((tag) => tag !== "personal")
       .map((tag: string) => (
-        <a href={`/tags/${tag}/`}>
+        <a href={`/tags/${tag}/`} id="single-tag">
           <p class="tag">{tag?.toLowerCase()}</p>
         </a>
       ))
