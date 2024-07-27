@@ -3,6 +3,8 @@ import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
 import cloudflare from "@astrojs/cloudflare";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -23,7 +25,7 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
   output: "hybrid",
-  integrations: [mdx(), svelte()],
+  integrations: [mdx(), svelte(), playformCompress()],
   markdown: {
     shikiConfig: {
       theme: "dracula",
