@@ -25,6 +25,7 @@
   --color-night-deemp: rgb(226, 226, 226);
   --base-margin: 0.5rem;
   --improved-ease: cubic-bezier(0.44, 0.21, 0, 1);
+  --improved-ease-in-out: cubic-bezier(1, 0, 0, 1);
   --title-time: 0.5s;
   --shadow-color-night: 242deg 90% 8%;
   --shadow-elevation-low-night: 0px 0.3px 0.3px
@@ -92,7 +93,6 @@ html {
   background-color: var(--color-light-bg);
   text-rendering: optimizeLegibility;
   font-synthesis: none;
-  /* background-image: url('/noise.svg'); */
 }
 strong {
   font-family: var(--gabarito);

@@ -4,84 +4,42 @@ if (
   window.location.pathname === "/fiction/"
 ) {
   document.addEventListener("astro:page-load", () => {
-    let pathname = window.location.pathname;
-    const boxes = document.querySelectorAll(".postContainer");
-    const tags = document.querySelectorAll("#single-tag");
-    const personal = document.getElementById("personal");
+    const desc = document.querySelectorAll(".postDesc");
+    const postTags = document.querySelectorAll(".tagList");
     let sequence;
     sequence = [
       [
-        boxes,
+        desc,
         {
-          transform:
-            pathname === "/fiction/"
-              ? ["translateY(30px)", "translateY(0)"]
-              : ["translateY(-30px)", "translateY(0)"],
+          opacity: [0, 1],
+          transform: ["translateY(-30px)", "translateX(0)"],
         },
         {
-          delay: stagger(0.06, {
-            start: 0.4,
-            from: pathname === "/fiction/" ? "first" : "last",
+          delay: stagger(0.02, {
+            start: 0.2,
           }),
-          duration: 0.15,
+          duration: 0.2,
           easing: [0.22, 0.03, 0.26, 1],
           allowWebkitAcceleration: true,
         },
       ],
       [
-        boxes,
-        { opacity: [0, 1] },
+        postTags,
         {
-          delay: stagger(0.06, {
-            start: 0.4,
-            from: pathname === "/fiction/" ? "first" : "last",
+          opacity: [0, 1],
+          transform: ["translateY(-30px)", "translateX(0)"],
+        },
+        {
+          delay: stagger(0.02, {
+            start: 0.3,
           }),
-          duration: 0.15,
+          duration: 0.2,
           easing: [0.22, 0.03, 0.26, 1],
           allowWebkitAcceleration: true,
           at: "<",
         },
       ],
     ];
-
-    if (tags.length > 0) {
-      const tagAnimation = [
-        [
-          personal,
-          {
-            opacity: [0, 1],
-            transform: ["translateX(30px)", "translateX(0)"],
-          },
-          {
-            duration: 0.2,
-            easing: [0.22, 0.03, 0.26, 1],
-            allowWebkitAcceleration: true,
-          },
-        ],
-        [
-          tags,
-          { transform: ["translateY(-30px)", "translateY(0)"] },
-          {
-            delay: stagger(0.03),
-            duration: 0.2,
-            easing: [0.22, 0.03, 0.26, 1],
-            allowWebkitAcceleration: true,
-          },
-        ],
-        [
-          tags,
-          { opacity: [0, 1] },
-          {
-            delay: stagger(0.03),
-            duration: 0.2,
-            easing: [0.22, 0.03, 0.26, 1],
-            at: "<",
-            allowWebkitAcceleration: true,
-          },
-        ],
-      ];
-      sequence.push(...tagAnimation);
-    }
     timeline(sequence);
   });
 }
