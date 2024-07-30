@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import BackgroundStack from "@components/BackgroundStack.astro";
 const pageTitle = "Home";
 ---
 
@@ -12,30 +13,74 @@ const pageTitle = "Home";
     full-stack web development and getting to know people better, both new and
     familiar.
   </h2>
+  <svg width="0" height="0">
+    <defs>
+      <clipPath id="wipe-mask">
+        <rect id="mask-rect" x="0" y="0" width="100%" height="0"></rect>
+      </clipPath>
+    </defs>
+  </svg>
   <div class="postit">
-    <p>
-      Matt is currently available for both contract and full-time positions. He
-      has professional experience in HTML/CSS/JS, React, Webpack, jQuery,
-      Playwright, and SQL (SQLite).
-    </p>
-    <p>
-      Matt has also worked with Java, Spring, Astro, Next.js, PostgreSQL,
-      Drizzle, Cloudflare Workers/Pages, Inngest, Vercel's deployment platform,
-      GitHub Actions, Docker/Docker Compose, AWS EC2, and Google Cloud Run.
-    </p>
+    <div class="content" style="clip-path: url(#wipe-mask);">
+      <p>
+        Matt is currently available for both contract and full-time positions.
+        He has professional experience in HTML/CSS/JS, React, Webpack, jQuery,
+        Playwright, and SQL (SQLite).
+      </p>
+      <p>
+        Matt has also worked with Java, Spring, Astro, Next.js, PostgreSQL,
+        Drizzle, Cloudflare Workers/Pages, Inngest, Vercel's deployment
+        platform, GitHub Actions, Docker/Docker Compose, AWS EC2, and Google
+        Cloud Run.
+      </p>
 
-    <p>
-      In short, Matt keeps up with the cutting edge of the web development world
-      without neglecting his fundamentals. He's confident he can hit the ground
-      running in React codebases — he's done it before!
-    </p>
-    <div class="bottom">
-      <a href="/resume/">Resume</a>
-      <a href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
-        >Send Matt an email.</a
-      >
+      <p>
+        In short, Matt keeps up with the cutting edge of the web development
+        world without neglecting his fundamentals. He's confident he can hit the
+        ground running in React codebases — he's done it before!
+      </p>
+      <div class="bottom">
+        <a href="/resume/">Resume</a>
+        <a
+          href="mailto:mattdev23@protonmail.com?subject=Development Work Inquiry"
+          >Send Matt an email.</a
+        >
+      </div>
     </div>
   </div>
+
+  <!-- <BackgroundStack text="test" layers={5} /> -->
+
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <circle id="ring" cx="100" cy="100" r="80" pathLength="1"></circle>
+    <path id="tick" d="M 54 107.5 L 88 138.5 L 144.5 67.5" pathLength="1"
+    ></path>
+  </svg>
+  <svg
+    id="letters"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 300 300"
+  >
+    <path
+      d="M73.020775,83.885458c-.673779-.33689,7.748456,94.665918,7.074677,95.002807q-.673779.336889,36.720943-5.72712"
+      fill="none"
+      pathLength="1"
+      stroke="#3f5787"
+      id="gone"
+      stroke-width="4"
+    >
+    </path>
+    <path
+      d="M150,82.201011l-6.232454,102.077484"
+      fill="none"
+      stroke="#3f5787"
+      id="gtwo"
+      stroke-width="4"
+      pathLength="1"
+    >
+    </path>
+  </svg> -->
 
   <!-- <div
     class="framer-136zwkp"
