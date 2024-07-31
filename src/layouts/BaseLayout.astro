@@ -81,17 +81,9 @@ const heroViewTransition = {
     <div class="blur-top" aria-hidden="true"></div>
     <Header activeLink={highlightedTab} />
     <div class="website">
-      {
-        pageTitle === "Home" ? (
-          <main transition:animate={heroViewTransition}>
-            <slot />
-          </main>
-        ) : (
-          <main transition:animate={fade({ duration: "0.4s" })}>
-            <slot />
-          </main>
-        )
-      }
+      <main transition:animate={fade({ duration: "0.4s" })}>
+        <slot />
+      </main>
       {showFooter && <Footer />}
     </div>
     <div class="blur-bottom" aria-hidden="true"></div>

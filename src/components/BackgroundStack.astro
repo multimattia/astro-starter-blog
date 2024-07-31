@@ -1,0 +1,149 @@
+---
+interface Props {
+  text: string;
+  layers: number;
+}
+const { text, layers } = Astro.props;
+const newArray = Array(layers).fill(text);
+
+const inverseOpacityGivenIndexLayers = (index, layers) => {
+  return Number(Math.abs(index / layers - 1)).toFixed(2);
+};
+const opacityArray = newArray.map((item, i) =>
+  inverseOpacityGivenIndexLayers(i, layers)
+);
+---
+
+<!-- <div class="top" data-layers={layers}>
+  <div class="list">
+    <p>TEXT</p>
+    <p>TEXT</p>
+    <p>TEXT</p>
+    <p>TEXT</p>
+    <p>TEXT</p>
+    <p>TEXT</p>
+  </div>
+  {
+    newArray.map((text, index) => (
+      <div style={`opacity:${opacityArray[index]}`} id={`layer-${index}`}>
+        {index % 2 === 0 ? text : text}
+      </div>
+    ))
+  }
+</div> --><!-- <style lang="scss">
+  @use "sass:math";
+
+  .container {
+    $offset: 7;
+    $left-offset: 29px;
+    $clip-height: 50px;
+    $line-height: $clip-height - 5px;
+
+    @for $i from 1 through 10 {
+      // Use a reasonable maximum
+      &[data-layers="#{$i}"] {
+        @for $j from 1 through $i {
+          .top:nth-child(#{$j}) {
+            margin-left: $j * 10px;
+            opacity: math.div($j, $i);
+          }
+        }
+      }
+    }
+  }
+</style> -->
+<style>
+  .list {
+    position: relative;
+    min-height: 34vh;
+    min-width: 43vw;
+    background-color: var(--color-night-deemp);
+    /* animation: stagger 6s infinite steps(6); */
+    animation: up 4s cubic-bezier(1, 0, 0, 1) infinite alternate;
+  }
+
+  @keyframes up {
+    0% {
+      bottom: 12vh;
+      right: 6vh;
+    }
+
+    100% {
+      bottom: 14vh;
+      right: 7vh;
+    }
+
+    /* 100% {
+      bottom: 12vh;
+      right: 6vh;
+    } */
+  }
+
+  @keyframes stagger {
+    0% {
+      top: 12vh;
+    }
+
+    100% {
+      top: 58vh;
+    }
+  }
+
+  .top {
+    position: absolute;
+    top: 15%;
+    right: -25%;
+    transform: skew(-34deg, 14deg) scaleY(0.66667);
+  }
+
+  #layer-0,
+  #layer-1,
+  #layer-2,
+  #layer-3,
+  #layer-4,
+  #layer-5 {
+    transform: translate3d(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-kerning: normal;
+    -webkit-text-size-adjust: 100%;
+    position: relative;
+    min-width: 40px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: gray;
+  }
+
+  #layer-0 {
+    position: relative;
+    bottom: +1rem;
+    z-index: 5;
+    background-color: greenyellow;
+  }
+  #layer-1 {
+    bottom: +4rem;
+    left: 0.5rem;
+    z-index: 4;
+    background-color: greenyellow;
+  }
+  #layer-2 {
+    bottom: +7rem;
+    left: 1rem;
+    z-index: 3;
+    background-color: greenyellow;
+  }
+  #layer-3 {
+    left: 1.5rem;
+    bottom: +10rem;
+    z-index: 2;
+    background-color: greenyellow;
+  }
+  #layer-4 {
+    bottom: +13rem;
+    left: 2rem;
+    z-index: 1;
+    background-color: greenyellow;
+  }
+</style>
