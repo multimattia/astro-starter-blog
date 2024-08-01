@@ -1,0 +1,133 @@
+---
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+interface Props {
+  headings: Heading[];
+}
+const { headings } = Astro.props;
+---
+
+<nav class="toc">
+  <ul>
+    {
+      headings.map((heading, index) => (
+        <li class={`bullet ${heading.depth == 3 ? "subheading" : "main"}`}>
+          <a id={`item-${index}`} href={`./#${heading.slug}`}>
+            {heading.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script src="@animations/toc-anim.js"></script>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const OFFSET = 70;
+    function loadSmoothScrollHandlers() {
+      document.querySelectorAll('a[href^="./#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          // Remove first 2 characters of href (relative urls).
+          // We're using slugs for ids of each header
+          const targetElement = document.querySelector(
+            this.getAttribute("href").substring(2)
+          );
+          try {
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - OFFSET;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          } catch (e) {
+            console.error(e);
+          }
+        });
+      });
+    }
+    function loadIntersectionObservers() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const headings = entry.target.querySelector("h2, h3, h4, h5");
+            if (!headings) return;
+
+            const headingId = headings.getAttribute("id");
+            // Funky selector to find specific toc bullet matching the header (entry)
+            const navList = document.querySelector(
+              `nav.toc li a[href="./#${headingId}"]`
+            );
+            if (!navList) return;
+
+            const intersecting = entry.isIntersecting ? "add" : "remove";
+            navList.classList[intersecting]("active");
+          });
+        },
+        {
+          threshold: 0.175,
+        }
+      );
+
+      document.querySelectorAll("article section").forEach((section) => {
+        observer.observe(section);
+      });
+    }
+    loadIntersectionObservers();
+    loadSmoothScrollHandlers();
+  });
+</script>
+
+<style>
+  .toc {
+    overflow-y: visible;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 4rem;
+    max-width: 30ch;
+  }
+
+  .subheading {
+    padding-left: 1rem;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    border-left: 1px solid var(--color-light-deemp);
+  }
+  html.dark .subheading {
+    border-left: 1px solid var(--color-light-border);
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    margin-bottom: 2rem;
+    opacity: 0;
+  }
+
+  a {
+    color: var(--color-light-text);
+    text-decoration: none;
+    transition: font-weight 0.2s ease-in;
+  }
+
+  html.dark a {
+    color: var(--color-night-text);
+  }
+
+  a.active {
+    font-weight: 600;
+    color: var(--color-light-a);
+  }
+
+  html.dark a.active {
+    font-weight: 600;
+    color: var(--color-night-a);
+  }
+</style>

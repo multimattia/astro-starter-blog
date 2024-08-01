@@ -167,7 +167,7 @@ ul {
 @media screen and (min-width: 687px) {
   body {
     font-size: 1.25em;
-    overflow-y: scroll;
+    overflow-y: visible;
   }
 }
 

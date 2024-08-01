@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import MarkdownPostLayout from "@layouts/MarkdownPostLayout.astro";
+import TableOfContents from "@components/TableOfContents.astro";
 
 export const prerender = true;
 
@@ -13,9 +14,13 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
+console.log(headings);
 ---
 
 <MarkdownPostLayout frontmatter={entry.data}>
-  <Content />
+  {headings.length > 0 && <TableOfContents slot="right-body" headings={headings} />}
+  <div class="main-content">
+    <Content />
+  </div>
 </MarkdownPostLayout>

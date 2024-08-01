@@ -2,6 +2,8 @@ import { defineConfig, squooshImageService } from "astro/config";
 import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
 import cloudflare from "@astrojs/cloudflare";
+import remarkToc from 'remark-toc';
+import sectionize from 'remark-sectionize'
 
 import playformCompress from "@playform/compress";
 
@@ -30,6 +32,8 @@ export default defineConfig({
     shikiConfig: {
       theme: "dracula",
     },
+    remarkPlugins: [remarkToc, sectionize]
   },
+
   adapter: cloudflare(),
 });
