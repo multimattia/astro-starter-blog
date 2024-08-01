@@ -4,7 +4,6 @@ about: Suggest an idea!
 title: "[FEATURE]"
 labels: enhancement
 assignees: multimattia
-
 ---
 
 **Describe a feature you would like**

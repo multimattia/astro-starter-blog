@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
 const { story } = Astro.props;
 const { Content, headings } = await story.render();
-console.log(headings)
+console.log(headings);
 ---
 
 <StoryLayout frontmatter={story.data}>

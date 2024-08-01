@@ -113,7 +113,7 @@ const pageTitle = "About";
   document.addEventListener("astro:page-load", () => {
     const container = document.querySelector(".container") as HTMLDivElement;
     const spotlightArea = document.querySelector(
-      ".spotlight-area"
+      ".spotlight-area",
     ) as HTMLDivElement;
     const hiddenElements = document.querySelectorAll(".hidden-element");
     let darkMode = document.documentElement.classList.contains("dark");

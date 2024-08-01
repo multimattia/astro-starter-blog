@@ -13,7 +13,7 @@ export async function getStaticPaths(): Promise<any> {
 
   return uniqueTags.map((tag) => {
     const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag)
+      post.data.tags.includes(tag),
     );
     return {
       params: { tag },

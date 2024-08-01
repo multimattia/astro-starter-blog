@@ -205,12 +205,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     const fpsContainer = document.getElementById("fpsContainer");
     const toggleButton = document.getElementById(
-      "toggleButton"
+      "toggleButton",
     ) as HTMLButtonElement;
     const input = document.getElementById("input") as HTMLInputElement;
     const msComp = document.getElementById("msString") as HTMLParagraphElement;
     const fpsComp = document.getElementById(
-      "fpsString"
+      "fpsString",
     ) as HTMLParagraphElement;
     const unit = document.getElementById("unitLabel") as HTMLInputElement;
     const min = document.getElementById("min") as HTMLInputElement;
@@ -220,16 +220,16 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     const log = document.getElementById("log") as HTMLDivElement;
     const equiv = document.getElementById("equivalent") as HTMLParagraphElement;
     const fpsPercent = document.getElementById(
-      "fpsPercentage"
+      "fpsPercentage",
     ) as HTMLParagraphElement;
     const msPercent = document.getElementById(
-      "msPercentage"
+      "msPercentage",
     ) as HTMLParagraphElement;
     let isFrametime = true;
 
     fpsContainer.addEventListener("click", (event: Event) => {
       const targetButton = (event.target as Element).closest(
-        ".fps-button"
+        ".fps-button",
       ) as HTMLButtonElement;
 
       if (targetButton) {
@@ -292,18 +292,18 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         sliderLimits.frametimeMin = Math.min(
           sliderLimits.frametimeMin,
           sliderLimits.frametimeMin,
-          convertedValue
+          convertedValue,
         );
         sliderLimits.frametimeMax = Math.max(
           sliderLimits.frametimeMax,
-          convertedValue
+          convertedValue,
         );
       } else {
         sliderLimits.fpsMin = Math.floor(
-          Math.min(sliderLimits.fpsMin, convertedValue)
+          Math.min(sliderLimits.fpsMin, convertedValue),
         );
         sliderLimits.fpsMax = Math.ceil(
-          Math.max(sliderLimits.fpsMax, convertedValue)
+          Math.max(sliderLimits.fpsMax, convertedValue),
         );
       }
       slider.value = convertedValue.toFixed(0).toString();

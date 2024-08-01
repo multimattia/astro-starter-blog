@@ -10,7 +10,7 @@ const inverseOpacityGivenIndexLayers = (index, layers) => {
   return Number(Math.abs(index / layers - 1)).toFixed(2);
 };
 const opacityArray = newArray.map((item, i) =>
-  inverseOpacityGivenIndexLayers(i, layers)
+  inverseOpacityGivenIndexLayers(i, layers),
 );
 ---
 
