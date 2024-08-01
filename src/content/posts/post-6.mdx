@@ -28,7 +28,6 @@ prior to its loading. Although we could use the HTML `<picture>` element, I deci
 component. By default, when passed an image, Astro's `<Image>` element will optimize the provided image into the .webp
 format and give the browser the correct dimensions of the image, minimizing CLS caused by images.
 
-
 ## Preparing your images
 
 Images that you want Astro to preprocess should first be moved to any folder within the `src` directory.
@@ -49,14 +48,12 @@ pnpm i sharp
 
 to get Astro's image preprocessor to work.
 
-
 I've created a component, `BlogImage`, that will display a caption underneath the image.
 This `BlogImage` component takes in two props, the directory of the image (`src`), and the alt text (`alt`).
 
 You can embed this `BlogImage` component directly into your markdown posts. One caveat is that CSS selectors for
 this component have been declared inline to circumvent .mdx styling limitations, so please ensure that your CSS
 selectors have enough specificity to avoid cascades into the rest of the post page.
-
 
 ### The code
 
