@@ -21,13 +21,8 @@
     "astro-font": "^0.0.81",
     "autoprefixer": "^10.4.19",
     "cssnano": "^7.0.3",
-    "i": "^0.3.7",
     "lightningcss": "^1.25.1",
     "motion": "^10.18.0",
-    "prettier-plugin-svelte": "^3.2.4",
-    "rehype-autolink-headings": "^7.1.0",
-    "rehype-slug": "^6.0.0",
-    "rehype-toc": "^3.0.2",
     "remark-sectionize": "^2.0.0",
     "remark-toc": "^9.0.0",
     "sharp": "^0.33.1",
@@ -38,6 +33,7 @@
     "@types/node": "^20.14.2",
     "prettier": "^3.1.1",
     "prettier-plugin-astro": "^0.12.2",
+    "prettier-plugin-svelte": "^3.2.6",
     "sass": "^1.77.8"
   }
 }
