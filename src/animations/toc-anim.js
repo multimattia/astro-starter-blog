@@ -10,7 +10,6 @@ if (window.location.pathname.includes("posts")) {
         },
         {
           delay: stagger(0.05, {
-            start: 0.3,
           }),
           duration: 0.2,
           easing: [0.22, 0.03, 0.26, 1],
