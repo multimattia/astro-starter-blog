@@ -8,7 +8,6 @@ interface Props {
   headings: Heading[];
 }
 const { headings } = Astro.props;
-console.log(headings)
 ---
 
 <nav class="toc">
@@ -35,10 +34,13 @@ console.log(headings)
           e.preventDefault();
           // Remove first 2 characters of href (relative urls).
           // We're using slugs for ids of each header
-          const targetElement = document.querySelector(this.getAttribute("href").substring(2));
+          const targetElement = document.querySelector(
+            this.getAttribute("href").substring(2)
+          );
           try {
             const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - OFFSET;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - OFFSET;
             window.scrollTo({
               top: offsetPosition,
               behavior: "smooth",
@@ -100,7 +102,6 @@ console.log(headings)
     border-left: 1px solid var(--color-light-border);
   }
 
-
   ul {
     list-style-type: none;
   }
@@ -116,7 +117,7 @@ console.log(headings)
     transition: font-weight 0.2s ease-in;
   }
 
-  html.dark a{
+  html.dark a {
     color: var(--color-night-text);
   }
 

@@ -9,8 +9,7 @@ if (window.location.pathname.includes("posts")) {
           transform: ["translateY(-30px)", "translateX(0)"],
         },
         {
-          delay: stagger(0.05, {
-          }),
+          delay: stagger(0.05, {}),
           duration: 0.2,
           easing: [0.22, 0.03, 0.26, 1],
           allowWebkitAcceleration: true,
