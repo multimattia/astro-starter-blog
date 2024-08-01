@@ -10,7 +10,7 @@ pnpm run dev
 
 There are two Astro content collections in this project, located in src/content. Only the posts collection has support
 for likes/comments, but this should not be difficult to extend to the fiction collection if this is desired. The backend logic
-for post likes is hosted on Cloudflare Workers' KV storage. Details of the implementation can be found in `Counter.svelte`, with 
+for post likes is hosted on Cloudflare Workers' KV storage. Details of the implementation can be found in `Counter.svelte`, with
 the backend code to be open sourced with Wrangler config files at a later date.
 
 To import components, please use import aliases as defined in tsconfig.json.

@@ -35,7 +35,7 @@ const { headings } = Astro.props;
           // Remove first 2 characters of href (relative urls).
           // We're using slugs for ids of each header
           const targetElement = document.querySelector(
-            this.getAttribute("href").substring(2)
+            this.getAttribute("href").substring(2),
           );
           try {
             const elementPosition = targetElement.getBoundingClientRect().top;
@@ -61,7 +61,7 @@ const { headings } = Astro.props;
             const headingId = headings.getAttribute("id");
             // Funky selector to find specific toc bullet matching the header (entry)
             const navList = document.querySelector(
-              `nav.toc li a[href="./#${headingId}"]`
+              `nav.toc li a[href="./#${headingId}"]`,
             );
             if (!navList) return;
 
@@ -71,7 +71,7 @@ const { headings } = Astro.props;
         },
         {
           threshold: 0.175,
-        }
+        },
       );
 
       document.querySelectorAll("article section").forEach((section) => {
