@@ -2,75 +2,10 @@
 const { pageTitle, highlightedTab = "", meta, showFooter = true } = Astro.props;
 import "../styles/global.css";
 import "../styles/animations.css";
-import type { TransitionAnimationPair } from "astro";
 import CommonHead from "@components/CommonHead.astro";
 import Header from "../components/LayoutComponents/Header.astro";
 import Footer from "@components/LayoutComponents/Footer.astro";
 import { fade } from "astro:transitions";
-
-// credit to Eva Decker at eva.town
-export const forwards: TransitionAnimationPair = {
-  old: {
-    name: "fadeOutUp",
-    duration: "0.2s",
-    easing: "ease-in",
-    fillMode: "forwards",
-  },
-  new: {
-    name: "fadeInUp",
-    duration: "0.32s",
-    delay: "0.2s",
-    easing: "ease-out",
-    fillMode: "backwards",
-  },
-};
-
-export const backwards: TransitionAnimationPair = {
-  old: {
-    name: "fadeOutDown",
-    duration: "0.2s",
-    easing: "ease-in",
-    fillMode: "forwards",
-  },
-  new: {
-    name: "fadeInDown",
-    duration: "0.3s",
-    delay: "0.2s",
-    easing: "ease-out",
-    fillMode: "backwards",
-  },
-};
-
-const rightwards: TransitionAnimationPair = {
-  old: {
-    name: "fadeOutLeft",
-    duration: "0.2s",
-    easing: "ease-in",
-    fillMode: "forwards",
-  },
-  new: {
-    name: "fadeInLeft",
-    duration: "0.32s",
-    delay: "0.2s",
-    easing: "ease-out",
-    fillMode: "backwards",
-  },
-};
-
-const viewTransition = {
-  forwards,
-  backwards,
-};
-
-export const reversedViewTransition = {
-  forwards: backwards,
-  backwards: forwards,
-};
-
-const heroViewTransition = {
-  forwards: rightwards,
-  backwards: rightwards,
-};
 ---
 
 <html lang="en">
@@ -79,12 +14,22 @@ const heroViewTransition = {
   </head>
   <body>
     <div class="blur-top" aria-hidden="true"></div>
-    <Header activeLink={highlightedTab} />
-    <div class="website">
-      <main transition:animate={fade({ duration: "0.4s" })}>
-        <slot />
-      </main>
-      {showFooter && <Footer />}
+    <div class="three-cols">
+      <div class="left-col">
+        <div class="sticky">
+          <slot name="left-body" />
+        </div>
+      </div>
+      <div class="website">
+        <Header activeLink={highlightedTab} />
+        <main transition:animate={fade({ duration: "0.4s" })}>
+          <slot />
+        </main>
+        {showFooter && <Footer />}
+      </div>
+      <div class="right-col">
+        <slot name="right-body" />
+      </div>
     </div>
     <div class="blur-bottom" aria-hidden="true"></div>
     <style>
@@ -140,6 +85,36 @@ const heroViewTransition = {
         display: flex;
         flex-direction: column;
         min-height: 88vh;
+        justify-content: space-evenly;
+      }
+
+      .three-cols {
+        display: flex;
+        top: 0;
+        width: 100%;
+      }
+
+      .left-col,
+      .right-col {
+        display: none;
+      }
+
+      @media screen and (min-width: 687px) {
+        .three-cols {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          top: 0;
+        }
+        .left-col,
+        .right-col {
+          display: block;
+          top: 0rem;
+          position: sticky;
+          position: -webkit-sticky;
+          margin-top: 19rem;
+          min-width: 0;
+          overflow: visible;
+        }
       }
 
       main {
@@ -227,5 +202,6 @@ const heroViewTransition = {
         }
       }
     </style>
+    <slot name="after-footer" />
   </body>
 </html>

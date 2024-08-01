@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import StoryLayout from "@layouts/StoryLayout.astro";
+import TableOfContents from "@components/TableOfContents.astro";
 
 export const prerender = true;
 
@@ -13,7 +14,8 @@ export async function getStaticPaths() {
 }
 
 const { story } = Astro.props;
-const { Content } = await story.render();
+const { Content, headings } = await story.render();
+console.log(headings)
 ---
 
 <StoryLayout frontmatter={story.data}>

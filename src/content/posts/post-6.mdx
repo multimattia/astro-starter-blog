@@ -14,7 +14,24 @@ tags:
 import example from "@images/example.avif";
 import BlogImage from "@components/BlogImage.astro";
 
-Images that you want Astro to pre-process should first be moved to any folder within the `src` directory.
+## Why do this?
+
+Using the plain `<img>` tag gets the job done, right? Given a URL to an image, the `<img>` element shows the image --
+what more do you need?
+
+Turns out, quite a lot. First, for SEO: Google's Core Web Vitals mandate that **Cumulative Layout Shift** be minimized
+when a webpage loads. Cumulative Layout Shift, or CLS, is a measurement of how much a webpage's content shifts
+as the webpage loads on the client. Common causes of CLS include FOUT (Flashes Of Unstyled Text), for which the most
+common cases are that when a website uses custom fonts that load in after the webpage's fallback font has already rendered.
+Another cause, and that's what we're going to fix here, is layout shifts caused by an image loading in without a fallback
+prior to its loading. Although we could use the HTML `<picture>` element, I decided to create a wrapper to Astro's `<Image>`
+component. By default, when passed an image, Astro's `<Image>` element will optimize the provided image into the .webp
+format and give the browser the correct dimensions of the image, minimizing CLS caused by images.
+
+
+## Preparing your images
+
+Images that you want Astro to preprocess should first be moved to any folder within the `src` directory.
 As an example, I've set up an [import alias](/posts/post-4), where images are in `src/assets/images`, see below:
 
 ```js
@@ -23,15 +40,25 @@ import timing_app_upscale from "@images/timing_app_upscale.png";
 import BlogImage from "@components/BlogImage.astro";
 ```
 
-I've created a component, `BlogImage`, that will display a caption underneath the image, which uses Astro's `Image`
-under the hood to minimize [CLS](https://web.dev/articles/cls) and payload size by pre-processing the given image to
-.webp.
+If you use `pnpm`,
+the package `sharp` is not installed alongside Astro. You'll need to run
 
+```
+pnpm i sharp
+```
+
+to get Astro's image preprocessor to work.
+
+
+I've created a component, `BlogImage`, that will display a caption underneath the image.
 This `BlogImage` component takes in two props, the directory of the image (`src`), and the alt text (`alt`).
 
 You can embed this `BlogImage` component directly into your markdown posts. One caveat is that CSS selectors for
 this component have been declared inline to circumvent .mdx styling limitations, so please ensure that your CSS
 selectors have enough specificity to avoid cascades into the rest of the post page.
+
+
+### The code
 
 Here's the `BlogImage` component in its entirety:
 
@@ -90,12 +117,3 @@ And here's how it's used inside an `.mdx` file:
   alt="This is an example! Courtesy to
 Kaung Myat Min on Unsplash."
 />
-
-If you use `pnpm`,
-the package `sharp` is not installed alongside Astro. You'll need to run
-
-```
-pnpm i sharp
-```
-
-to get Astro's image pre-processor to work.

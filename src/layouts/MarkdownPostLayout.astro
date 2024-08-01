@@ -10,6 +10,7 @@ import Counter from "@components/pizazz/Counter.svelte";
   showFooter={false}
 >
   <h1>{frontmatter.title}</h1>
+  <slot name="right-body" slot="right-body" />
   <div class="likes-row">
     <Counter client:load blogTitle={frontmatter.title} />
   </div>
@@ -32,7 +33,9 @@ import Counter from "@components/pizazz/Counter.svelte";
       </p>
     </span>
   </div>
-  <slot />
+  <article>
+    <slot />
+  </article>
   <div class="ghclight">
     <script
       src="https://giscus.app/client.js"
