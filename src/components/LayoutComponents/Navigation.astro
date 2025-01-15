@@ -1,5 +1,6 @@
 ---
 const { activeLink } = Astro.props;
+console.log(activeLink);
 const linkList = [
   ["Home", "/"],
   ["Blog", "/blog/"],
@@ -11,16 +12,18 @@ const linkList = [
 <div class="nav-links">
   {
     linkList.map((link) => (
-      <a
-        href={link[1]}
-        style={
-          activeLink.toLowerCase() === link[0].toLowerCase()
-            ? "text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;"
-            : ""
-        }
-      >
-        {link[0]}
-      </a>
+      <>
+        <a
+          href={link[1]}
+          style={
+            activeLink.toLowerCase() === link[0].toLowerCase()
+              ? "text-decoration:underline !important;text-decoration-thickness:2px !important;text-underline-offset:5px !important;"
+              : ""
+          }
+        >
+          {link[0]}
+        </a>
+      </>
     ))
   }
 </div>

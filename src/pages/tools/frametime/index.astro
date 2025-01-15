@@ -255,7 +255,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       prevButton = value;
     }
 
-    min.addEventListener("input", (event) => {
+    min.addEventListener("input", () => {
       if (isFrametime) {
         sliderLimits.frametimeMin = parseFloat(min.value);
       } else {
@@ -264,7 +264,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       updateSliderAttributes();
     });
 
-    max.addEventListener("input", (event) => {
+    max.addEventListener("input", () => {
       if (isFrametime) {
         sliderLimits.frametimeMax = parseFloat(max.value);
       } else {
@@ -317,10 +317,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       unit.textContent = isFrametime ? "ms" : "FPS";
     }
 
-    function printvalues(): void {
-      console.log(`fps: ${prevValue.fps}`);
-      console.log(`frametime: ${prevValue.frametime}`);
-    }
+    // function printvalues(): void {
+    //   console.log(`fps: ${prevValue.fps}`);
+    //   console.log(`frametime: ${prevValue.frametime}`);
+    // }
 
     function addToLog(): void {
       const value = parseFloat(input.value) || parseFloat(slider.value);
@@ -354,12 +354,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     function updateResult(): void {
       const value = parseFloat(input.value) || parseFloat(slider.value);
       const convertedValue = convert(value);
-      let fpsPercentage;
-      let msPercentage;
-      let msDifference;
-      let fpsDifference;
-      let fpsSign;
-      let msSign;
+      let fpsPercentage: number;
+      let msPercentage: number;
+      let msDifference: number;
+      let fpsDifference: number;
+      let fpsSign: string;
+      let msSign: string;
       if (prevValue.fps !== 0) {
         if (isFrametime) {
           fpsDifference = convertedValue - prevValue.fps;

@@ -74,6 +74,7 @@
 
     const handleToggleClick = (e) => {
       console.log(e.target);
+      console.log("changing toggle");
       const element = document.documentElement;
       const isDark = element.classList.contains("dark");
       const [t, m] = isDark ? [-180, 0] : [0, 180];
@@ -89,7 +90,7 @@
         duration: 500,
         easing: "ease-in-out",
       });
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      localStorage.setItem("theme", isDark ? "light" : "dark");
       element.classList.toggle("dark");
       setThemeColorToDark(isDark);
     };
@@ -102,9 +103,14 @@
 
 <script is:inline>
   function applyTheme() {
+    console.log("inline script running...");
     localStorage.theme === "dark"
       ? document.documentElement.classList.add("dark")
       : document.documentElement.classList.remove("dark");
+    localStorage.theme === "light"
+      ? document.documentElement.classList.remove("dark")
+      : document.documentElement.classList.add("dark");
+    console.log(`${localStorage.theme} localstorage theme`);
   }
   document.addEventListener("astro:after-swap", applyTheme);
   applyTheme();
