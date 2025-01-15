@@ -59,7 +59,7 @@
     const setThemeColorToDark = (dark: boolean) => {
       document
         .querySelector('meta[name="theme-color"]')
-        .setAttribute("content", dark ? "#121046" : "#f1f5f9");
+        .setAttribute("content", light ? "#121046" : "#f1f5f9");
     };
 
     if (theme === "light") {
@@ -90,7 +90,7 @@
         duration: 500,
         easing: "ease-in-out",
       });
-      localStorage.setItem("theme", isDark ? "light" : "dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
       element.classList.toggle("dark");
       setThemeColorToDark(isDark);
     };
@@ -112,6 +112,7 @@
       : document.documentElement.classList.add("dark");
     console.log(`${localStorage.theme} localstorage theme`);
   }
+  document.addEventListener("astro:after-swap", applyTheme);
   document.addEventListener("astro:after-swap", applyTheme);
   applyTheme();
 </script>
