@@ -59,7 +59,7 @@
     const setThemeColorToDark = (dark: boolean) => {
       document
         .querySelector('meta[name="theme-color"]')
-        .setAttribute("content", light ? "#121046" : "#f1f5f9");
+        .setAttribute("content", dark ? "#f1f5f9" : "#121046");
     };
 
     if (theme === "light") {
