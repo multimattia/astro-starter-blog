@@ -62,12 +62,12 @@
         .setAttribute("content", dark ? "#f1f5f9" : "#121046");
     };
 
-    if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-      setThemeColorToDark(false);
-    } else {
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
       setThemeColorToDark(true);
+    } else {
+      document.documentElement.classList.remove("dark");
+      setThemeColorToDark(false);
     }
 
     window.localStorage.setItem("theme", theme);
@@ -90,9 +90,10 @@
         duration: 500,
         easing: "ease-in-out",
       });
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      localStorage.setItem("theme", isDark ? "light" : "dark");
       element.classList.toggle("dark");
       setThemeColorToDark(isDark);
+      console.log(localStorage.theme);
     };
 
     document
@@ -113,6 +114,5 @@
     console.log(`${localStorage.theme} localstorage theme`);
   }
   document.addEventListener("astro:after-swap", applyTheme);
-  document.addEventListener("astro:after-swap", applyTheme);
-  applyTheme();
+  // applyTheme();
 </script>
