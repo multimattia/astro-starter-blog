@@ -58,7 +58,7 @@ const { activeLink } = Astro.props;
 
     const scrollSpeed = Math.abs(scrollDifference / timeDifference);
 
-    const scrollSpeedThreshold = 0.4; // pixels per millisecond
+    const scrollSpeedThreshold = 0.05; // pixels per millisecond
 
     if (currentScroll > this.lastScrollTop) {
       this.navBar?.classList.add("hidden");
